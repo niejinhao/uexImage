@@ -1,0 +1,19 @@
+//
+//  PrefixHeader.pch
+//  EUExImage
+//
+//  Created by CeriNo on 15/9/28.
+//  Copyright © 2015年 AppCan. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import <UIKit/UIKit.h>
+#import "EXTScope.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#define UEXIMAGE_ASYNC_DO_IN_GLOBAL_QUEUE(x) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), x)
+#define UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(x) dispatch_async(dispatch_get_main_queue(), x)
+#endif /* PrefixHeader_pch */
