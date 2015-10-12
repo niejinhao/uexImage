@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
-    <plugin name="uexChatKeyboard">
-        <method name="open"></method>
-        <method name="close"></method>
-        <method name="getInputBarHeight"></method>
-        <method name="hideKeyboard"></method>
-        <method name="changeWebViewFrame"></method>
+    <plugin name="uexImage">
+        <method name="openBrowser"></method>
+        <method name="openPicker"></method>
+        <method name="openCropper"></method>
+        <method name="openBrowser"></method>
+        <method name="saveToPhotoAlbum"></method>
+        <method name="clearOutputImages"></method>
     </plugin>
 </uexplugins>
