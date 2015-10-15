@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42137ED21BCFB0C50038C0EF /* uexImageAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42137ED11BCFB0C50038C0EF /* uexImageAlbumPickerController.m */; settings = {ASSET_TAGS = (); }; };
+		42137ED51BCFB0FA0038C0EF /* uexIAPC_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42137ED41BCFB0FA0038C0EF /* uexIAPC_TableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		42137ED81BCFB11B0038C0EF /* uexIAPC_PhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 42137ED71BCFB11B0038C0EF /* uexIAPC_PhotoItem.m */; settings = {ASSET_TAGS = (); }; };
+		42137EDB1BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 42137EDA1BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.m */; settings = {ASSET_TAGS = (); }; };
 		4220FE721BC60D8B0026460B /* MWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE5E1BC60D8B0026460B /* MWCaptionView.m */; settings = {ASSET_TAGS = (); }; };
 		4220FE731BC60D8B0026460B /* MWGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE611BC60D8B0026460B /* MWGridCell.m */; settings = {ASSET_TAGS = (); }; };
 		4220FE741BC60D8B0026460B /* MWGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE631BC60D8B0026460B /* MWGridViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -27,7 +31,6 @@
 		42EE35B01BBA1A0200EA11AF /* uexImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35AF1BBA1A0200EA11AF /* uexImagePicker.m */; settings = {ASSET_TAGS = (); }; };
 		42EE35BF1BBA3BCA00EA11AF /* DACircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EE35B21BBA3BCA00EA11AF /* DACircularProgress.framework */; settings = {ASSET_TAGS = (); }; };
 		42EE35C11BBA3BCA00EA11AF /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EE35B41BBA3BCA00EA11AF /* RSKImageCropper.framework */; settings = {ASSET_TAGS = (); }; };
-		42EE35C71BBA5AD100EA11AF /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35C61BBA5AD100EA11AF /* EXTScope.m */; settings = {ASSET_TAGS = (); }; };
 		42EE35CC1BBA657400EA11AF /* uexImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35CB1BBA657400EA11AF /* uexImageCropper.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		42137ED01BCFB0C50038C0EF /* uexImageAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageAlbumPickerController.h; sourceTree = "<group>"; };
+		42137ED11BCFB0C50038C0EF /* uexImageAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageAlbumPickerController.m; sourceTree = "<group>"; };
+		42137ED31BCFB0FA0038C0EF /* uexIAPC_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexIAPC_TableViewCell.h; sourceTree = "<group>"; };
+		42137ED41BCFB0FA0038C0EF /* uexIAPC_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexIAPC_TableViewCell.m; sourceTree = "<group>"; };
+		42137ED61BCFB11B0038C0EF /* uexIAPC_PhotoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexIAPC_PhotoItem.h; sourceTree = "<group>"; };
+		42137ED71BCFB11B0038C0EF /* uexIAPC_PhotoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexIAPC_PhotoItem.m; sourceTree = "<group>"; };
+		42137ED91BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAsset+uexIAPC_Origin_Image.h"; sourceTree = "<group>"; };
+		42137EDA1BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAsset+uexIAPC_Origin_Image.m"; sourceTree = "<group>"; };
 		4220FE491BC60D4D0026460B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4220FE4B1BC60D540026460B /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		4220FE4C1BC60D540026460B /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -115,9 +126,6 @@
 		42EE35BC1BBA3BCA00EA11AF /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
 		42EE35BD1BBA3BCA00EA11AF /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
 		42EE35BE1BBA3BCA00EA11AF /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		42EE35C51BBA5AD100EA11AF /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
-		42EE35C61BBA5AD100EA11AF /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScope.m; sourceTree = "<group>"; };
-		42EE35C81BBA5B0000EA11AF /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
 		42EE35CA1BBA657400EA11AF /* uexImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageCropper.h; sourceTree = "<group>"; };
 		42EE35CB1BBA657400EA11AF /* uexImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageCropper.m; sourceTree = "<group>"; };
 		42EE35CD1BBA6C9400EA11AF /* uexImageWidgets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageWidgets.h; sourceTree = "<group>"; };
@@ -137,6 +145,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42137ECF1BCFACC30038C0EF /* AlbumPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				42137ED01BCFB0C50038C0EF /* uexImageAlbumPickerController.h */,
+				42137ED11BCFB0C50038C0EF /* uexImageAlbumPickerController.m */,
+				42137ED31BCFB0FA0038C0EF /* uexIAPC_TableViewCell.h */,
+				42137ED41BCFB0FA0038C0EF /* uexIAPC_TableViewCell.m */,
+				42137ED61BCFB11B0038C0EF /* uexIAPC_PhotoItem.h */,
+				42137ED71BCFB11B0038C0EF /* uexIAPC_PhotoItem.m */,
+				42137ED91BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.h */,
+				42137EDA1BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.m */,
+			);
+			path = AlbumPickerController;
+			sourceTree = "<group>";
+		};
 		4220FE4A1BC60D540026460B /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,9 +255,7 @@
 		42B1DAF31BB29FAC00549D56 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
-				42EE35C81BBA5B0000EA11AF /* metamacros.h */,
-				42EE35C51BBA5AD100EA11AF /* EXTScope.h */,
-				42EE35C61BBA5AD100EA11AF /* EXTScope.m */,
+				42137ECF1BCFACC30038C0EF /* AlbumPickerController */,
 				42EE35B11BBA3BCA00EA11AF /* dependence */,
 				42EE35B51BBA3BCA00EA11AF /* JSON */,
 				42EE35AE1BBA1A0200EA11AF /* uexImagePicker.h */,
@@ -338,16 +359,19 @@
 				4220FE761BC60D8B0026460B /* MWPhotoBrowser.m in Sources */,
 				42EE35CC1BBA657400EA11AF /* uexImageCropper.m in Sources */,
 				4220FE741BC60D8B0026460B /* MWGridViewController.m in Sources */,
+				42137EDB1BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.m in Sources */,
 				4220FE751BC60D8B0026460B /* MWPhoto.m in Sources */,
 				4220FE851BC60E160026460B /* uexImageBrowser.m in Sources */,
-				42EE35C71BBA5AD100EA11AF /* EXTScope.m in Sources */,
+				42137ED81BCFB11B0038C0EF /* uexIAPC_PhotoItem.m in Sources */,
 				42EE35B01BBA1A0200EA11AF /* uexImagePicker.m in Sources */,
+				42137ED21BCFB0C50038C0EF /* uexImageAlbumPickerController.m in Sources */,
 				4220FE731BC60D8B0026460B /* MWGridCell.m in Sources */,
 				4220FE7A1BC60D8B0026460B /* UIImage+MWPhotoBrowser.m in Sources */,
 				4220FE781BC60D8B0026460B /* MWTapDetectingView.m in Sources */,
 				42B1DAE71BB29EC900549D56 /* EUExImage.m in Sources */,
 				4220FE791BC60D8B0026460B /* MWZoomingScrollView.m in Sources */,
 				4220FE771BC60D8B0026460B /* MWTapDetectingImageView.m in Sources */,
+				42137ED51BCFB0FA0038C0EF /* uexIAPC_TableViewCell.m in Sources */,
 				4220FE721BC60D8B0026460B /* MWCaptionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
