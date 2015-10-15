@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42137ED21BCFB0C50038C0EF /* uexImageAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42137ED11BCFB0C50038C0EF /* uexImageAlbumPickerController.m */; settings = {ASSET_TAGS = (); }; };
-		42137ED51BCFB0FA0038C0EF /* uexIAPC_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42137ED41BCFB0FA0038C0EF /* uexIAPC_TableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		42137ED81BCFB11B0038C0EF /* uexIAPC_PhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 42137ED71BCFB11B0038C0EF /* uexIAPC_PhotoItem.m */; settings = {ASSET_TAGS = (); }; };
-		42137EDB1BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 42137EDA1BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.m */; settings = {ASSET_TAGS = (); }; };
+		0EC5C0561BCFF59F00E34E80 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC5C0581BCFF59F00E34E80 /* Localizable.strings */; };
+		0EC5C05D1BCFF9D400E34E80 /* uexImageAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C05C1BCFF9D400E34E80 /* uexImageAlbumPickerController.m */; settings = {ASSET_TAGS = (); }; };
+		0EC5C0601BCFFA0E00E34E80 /* uexImagePhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C05F1BCFFA0E00E34E80 /* uexImagePhotoPicker.m */; settings = {ASSET_TAGS = (); }; };
+		0EC5C0631BCFFA2A00E34E80 /* ALAsset+OriginImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C0621BCFFA2A00E34E80 /* ALAsset+OriginImage.m */; settings = {ASSET_TAGS = (); }; };
+		0EC5C0661BCFFAB000E34E80 /* uexImageAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C0651BCFFAB000E34E80 /* uexImageAlbumCell.m */; settings = {ASSET_TAGS = (); }; };
+		0EC5C0691BD002D000E34E80 /* uexImageAlbumPickerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C0681BD002D000E34E80 /* uexImageAlbumPickerModel.m */; settings = {ASSET_TAGS = (); }; };
+		0EC5C06C1BD0035600E34E80 /* uexImagePhotoAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C06B1BD0035600E34E80 /* uexImagePhotoAsset.m */; settings = {ASSET_TAGS = (); }; };
+		0EC5C0701BD0041F00E34E80 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */; settings = {ASSET_TAGS = (); }; };
 		4220FE721BC60D8B0026460B /* MWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE5E1BC60D8B0026460B /* MWCaptionView.m */; settings = {ASSET_TAGS = (); }; };
 		4220FE731BC60D8B0026460B /* MWGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE611BC60D8B0026460B /* MWGridCell.m */; settings = {ASSET_TAGS = (); }; };
 		4220FE741BC60D8B0026460B /* MWGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE631BC60D8B0026460B /* MWGridViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -52,14 +56,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		42137ED01BCFB0C50038C0EF /* uexImageAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageAlbumPickerController.h; sourceTree = "<group>"; };
-		42137ED11BCFB0C50038C0EF /* uexImageAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageAlbumPickerController.m; sourceTree = "<group>"; };
-		42137ED31BCFB0FA0038C0EF /* uexIAPC_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexIAPC_TableViewCell.h; sourceTree = "<group>"; };
-		42137ED41BCFB0FA0038C0EF /* uexIAPC_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexIAPC_TableViewCell.m; sourceTree = "<group>"; };
-		42137ED61BCFB11B0038C0EF /* uexIAPC_PhotoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexIAPC_PhotoItem.h; sourceTree = "<group>"; };
-		42137ED71BCFB11B0038C0EF /* uexIAPC_PhotoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexIAPC_PhotoItem.m; sourceTree = "<group>"; };
-		42137ED91BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAsset+uexIAPC_Origin_Image.h"; sourceTree = "<group>"; };
-		42137EDA1BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAsset+uexIAPC_Origin_Image.m"; sourceTree = "<group>"; };
+		0EC5C04E1BCFF1D100E34E80 /* uexImageBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexImageBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EC5C0501BCFF1D100E34E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EC5C0571BCFF59F00E34E80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0EC5C0591BCFF5BB00E34E80 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0EC5C05B1BCFF9D400E34E80 /* uexImageAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageAlbumPickerController.h; sourceTree = "<group>"; };
+		0EC5C05C1BCFF9D400E34E80 /* uexImageAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageAlbumPickerController.m; sourceTree = "<group>"; };
+		0EC5C05E1BCFFA0E00E34E80 /* uexImagePhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImagePhotoPicker.h; sourceTree = "<group>"; };
+		0EC5C05F1BCFFA0E00E34E80 /* uexImagePhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImagePhotoPicker.m; sourceTree = "<group>"; };
+		0EC5C0611BCFFA2A00E34E80 /* ALAsset+OriginImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAsset+OriginImage.h"; sourceTree = "<group>"; };
+		0EC5C0621BCFFA2A00E34E80 /* ALAsset+OriginImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAsset+OriginImage.m"; sourceTree = "<group>"; };
+		0EC5C0641BCFFAB000E34E80 /* uexImageAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageAlbumCell.h; sourceTree = "<group>"; };
+		0EC5C0651BCFFAB000E34E80 /* uexImageAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageAlbumCell.m; sourceTree = "<group>"; };
+		0EC5C0671BD002D000E34E80 /* uexImageAlbumPickerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageAlbumPickerModel.h; sourceTree = "<group>"; };
+		0EC5C0681BD002D000E34E80 /* uexImageAlbumPickerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageAlbumPickerModel.m; sourceTree = "<group>"; };
+		0EC5C06A1BD0035600E34E80 /* uexImagePhotoAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImagePhotoAsset.h; sourceTree = "<group>"; };
+		0EC5C06B1BD0035600E34E80 /* uexImagePhotoAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImagePhotoAsset.m; sourceTree = "<group>"; };
+		0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
 		4220FE491BC60D4D0026460B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4220FE4B1BC60D540026460B /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		4220FE4C1BC60D540026460B /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -132,6 +145,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0EC5C04B1BCFF1D100E34E80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		42B1DADE1BB29EC900549D56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,25 +159,39 @@
 				42EE35BF1BBA3BCA00EA11AF /* DACircularProgress.framework in Frameworks */,
 				42EE35C11BBA3BCA00EA11AF /* RSKImageCropper.framework in Frameworks */,
 				42A5E3A31BC760E800E6E385 /* QBImagePicker.framework in Frameworks */,
+				0EC5C0701BD0041F00E34E80 /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		42137ECF1BCFACC30038C0EF /* AlbumPickerController */ = {
+		0EC5C04F1BCFF1D100E34E80 /* uexImageBundle */ = {
 			isa = PBXGroup;
 			children = (
-				42137ED01BCFB0C50038C0EF /* uexImageAlbumPickerController.h */,
-				42137ED11BCFB0C50038C0EF /* uexImageAlbumPickerController.m */,
-				42137ED31BCFB0FA0038C0EF /* uexIAPC_TableViewCell.h */,
-				42137ED41BCFB0FA0038C0EF /* uexIAPC_TableViewCell.m */,
-				42137ED61BCFB11B0038C0EF /* uexIAPC_PhotoItem.h */,
-				42137ED71BCFB11B0038C0EF /* uexIAPC_PhotoItem.m */,
-				42137ED91BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.h */,
-				42137EDA1BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.m */,
+				0EC5C0501BCFF1D100E34E80 /* Info.plist */,
+				0EC5C0581BCFF59F00E34E80 /* Localizable.strings */,
 			);
-			path = AlbumPickerController;
+			path = uexImageBundle;
+			sourceTree = "<group>";
+		};
+		0EC5C05A1BCFF9A300E34E80 /* PhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				0EC5C05B1BCFF9D400E34E80 /* uexImageAlbumPickerController.h */,
+				0EC5C05C1BCFF9D400E34E80 /* uexImageAlbumPickerController.m */,
+				0EC5C0671BD002D000E34E80 /* uexImageAlbumPickerModel.h */,
+				0EC5C0681BD002D000E34E80 /* uexImageAlbumPickerModel.m */,
+				0EC5C05E1BCFFA0E00E34E80 /* uexImagePhotoPicker.h */,
+				0EC5C05F1BCFFA0E00E34E80 /* uexImagePhotoPicker.m */,
+				0EC5C0611BCFFA2A00E34E80 /* ALAsset+OriginImage.h */,
+				0EC5C0621BCFFA2A00E34E80 /* ALAsset+OriginImage.m */,
+				0EC5C0641BCFFAB000E34E80 /* uexImageAlbumCell.h */,
+				0EC5C0651BCFFAB000E34E80 /* uexImageAlbumCell.m */,
+				0EC5C06A1BD0035600E34E80 /* uexImagePhotoAsset.h */,
+				0EC5C06B1BD0035600E34E80 /* uexImagePhotoAsset.m */,
+			);
+			path = PhotoPicker;
 			sourceTree = "<group>";
 		};
 		4220FE4A1BC60D540026460B /* SDWebImage */ = {
@@ -216,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				42B1DAE31BB29EC900549D56 /* EUExImage */,
+				0EC5C04F1BCFF1D100E34E80 /* uexImageBundle */,
 				42B1DAE21BB29EC900549D56 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -224,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				42B1DAE11BB29EC900549D56 /* libuexImage.a */,
+				0EC5C04E1BCFF1D100E34E80 /* uexImageBundle.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,7 +291,7 @@
 		42B1DAF31BB29FAC00549D56 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
-				42137ECF1BCFACC30038C0EF /* AlbumPickerController */,
+				0EC5C05A1BCFF9A300E34E80 /* PhotoPicker */,
 				42EE35B11BBA3BCA00EA11AF /* dependence */,
 				42EE35B51BBA3BCA00EA11AF /* JSON */,
 				42EE35AE1BBA1A0200EA11AF /* uexImagePicker.h */,
@@ -272,6 +308,7 @@
 		42EE35B11BBA3BCA00EA11AF /* dependence */ = {
 			isa = PBXGroup;
 			children = (
+				0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */,
 				42A5E3A11BC760E800E6E385 /* QBImagePicker.framework */,
 				42A5E3A21BC760E800E6E385 /* QBImagePicker.bundle */,
 				4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */,
@@ -303,6 +340,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0EC5C04D1BCFF1D100E34E80 /* uexImageBundle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EC5C0511BCFF1D100E34E80 /* Build configuration list for PBXNativeTarget "uexImageBundle" */;
+			buildPhases = (
+				0EC5C04A1BCFF1D100E34E80 /* Sources */,
+				0EC5C04B1BCFF1D100E34E80 /* Frameworks */,
+				0EC5C04C1BCFF1D100E34E80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = uexImageBundle;
+			productName = uexImageBundle;
+			productReference = 0EC5C04E1BCFF1D100E34E80 /* uexImageBundle.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		42B1DAE01BB29EC900549D56 /* EUExImage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42B1DAEA1BB29EC900549D56 /* Build configuration list for PBXNativeTarget "EUExImage" */;
@@ -329,6 +383,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = AppCan;
 				TargetAttributes = {
+					0EC5C04D1BCFF1D100E34E80 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
 					42B1DAE01BB29EC900549D56 = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -340,6 +397,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 42B1DAD81BB29EC900549D56;
 			productRefGroup = 42B1DAE21BB29EC900549D56 /* Products */;
@@ -347,38 +405,101 @@
 			projectRoot = "";
 			targets = (
 				42B1DAE01BB29EC900549D56 /* EUExImage */,
+				0EC5C04D1BCFF1D100E34E80 /* uexImageBundle */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		0EC5C04C1BCFF1D100E34E80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EC5C0561BCFF59F00E34E80 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		0EC5C04A1BCFF1D100E34E80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		42B1DADD1BB29EC900549D56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4220FE761BC60D8B0026460B /* MWPhotoBrowser.m in Sources */,
 				42EE35CC1BBA657400EA11AF /* uexImageCropper.m in Sources */,
+				0EC5C0691BD002D000E34E80 /* uexImageAlbumPickerModel.m in Sources */,
 				4220FE741BC60D8B0026460B /* MWGridViewController.m in Sources */,
-				42137EDB1BCFB45D0038C0EF /* ALAsset+uexIAPC_Origin_Image.m in Sources */,
+				0EC5C0631BCFFA2A00E34E80 /* ALAsset+OriginImage.m in Sources */,
+				0EC5C06C1BD0035600E34E80 /* uexImagePhotoAsset.m in Sources */,
 				4220FE751BC60D8B0026460B /* MWPhoto.m in Sources */,
 				4220FE851BC60E160026460B /* uexImageBrowser.m in Sources */,
-				42137ED81BCFB11B0038C0EF /* uexIAPC_PhotoItem.m in Sources */,
 				42EE35B01BBA1A0200EA11AF /* uexImagePicker.m in Sources */,
-				42137ED21BCFB0C50038C0EF /* uexImageAlbumPickerController.m in Sources */,
+				0EC5C05D1BCFF9D400E34E80 /* uexImageAlbumPickerController.m in Sources */,
 				4220FE731BC60D8B0026460B /* MWGridCell.m in Sources */,
 				4220FE7A1BC60D8B0026460B /* UIImage+MWPhotoBrowser.m in Sources */,
 				4220FE781BC60D8B0026460B /* MWTapDetectingView.m in Sources */,
 				42B1DAE71BB29EC900549D56 /* EUExImage.m in Sources */,
+				0EC5C0661BCFFAB000E34E80 /* uexImageAlbumCell.m in Sources */,
 				4220FE791BC60D8B0026460B /* MWZoomingScrollView.m in Sources */,
 				4220FE771BC60D8B0026460B /* MWTapDetectingImageView.m in Sources */,
-				42137ED51BCFB0FA0038C0EF /* uexIAPC_TableViewCell.m in Sources */,
 				4220FE721BC60D8B0026460B /* MWCaptionView.m in Sources */,
+				0EC5C0601BCFFA0E00E34E80 /* uexImagePhotoPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		0EC5C0581BCFF59F00E34E80 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EC5C0571BCFF59F00E34E80 /* en */,
+				0EC5C0591BCFF5BB00E34E80 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		0EC5C0521BCFF1D100E34E80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = uexImageBundle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zywx.uexImageBundle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		0EC5C0531BCFF1D100E34E80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = uexImageBundle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zywx.uexImageBundle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		42B1DAE81BB29EC900549D56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -498,6 +619,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0EC5C0511BCFF1D100E34E80 /* Build configuration list for PBXNativeTarget "uexImageBundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC5C0521BCFF1D100E34E80 /* Debug */,
+				0EC5C0531BCFF1D100E34E80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		42B1DADC1BB29EC900549D56 /* Build configuration list for PBXProject "EUExImage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
