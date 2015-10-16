@@ -36,6 +36,8 @@
 		42EE35BF1BBA3BCA00EA11AF /* DACircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EE35B21BBA3BCA00EA11AF /* DACircularProgress.framework */; settings = {ASSET_TAGS = (); }; };
 		42EE35C11BBA3BCA00EA11AF /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EE35B41BBA3BCA00EA11AF /* RSKImageCropper.framework */; settings = {ASSET_TAGS = (); }; };
 		42EE35CC1BBA657400EA11AF /* uexImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35CB1BBA657400EA11AF /* uexImageCropper.m */; settings = {ASSET_TAGS = (); }; };
+		42F670971BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F670961BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m */; settings = {ASSET_TAGS = (); }; };
+		42F670A91BD0D35700AAA3AC /* uexImagePhotoPickerCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F670A81BD0D35700AAA3AC /* uexImagePhotoPickerCaptionView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,7 +63,7 @@
 		0EC5C0571BCFF59F00E34E80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0EC5C0591BCFF5BB00E34E80 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0EC5C05B1BCFF9D400E34E80 /* uexImageAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageAlbumPickerController.h; sourceTree = "<group>"; };
-		0EC5C05C1BCFF9D400E34E80 /* uexImageAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageAlbumPickerController.m; sourceTree = "<group>"; };
+		0EC5C05C1BCFF9D400E34E80 /* uexImageAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageAlbumPickerController.m; sourceTree = "<group>"; wrapsLines = 1; };
 		0EC5C05E1BCFFA0E00E34E80 /* uexImagePhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImagePhotoPicker.h; sourceTree = "<group>"; };
 		0EC5C05F1BCFFA0E00E34E80 /* uexImagePhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImagePhotoPicker.m; sourceTree = "<group>"; };
 		0EC5C0611BCFFA2A00E34E80 /* ALAsset+OriginImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAsset+OriginImage.h"; sourceTree = "<group>"; };
@@ -142,6 +144,10 @@
 		42EE35CA1BBA657400EA11AF /* uexImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageCropper.h; sourceTree = "<group>"; };
 		42EE35CB1BBA657400EA11AF /* uexImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageCropper.m; sourceTree = "<group>"; };
 		42EE35CD1BBA6C9400EA11AF /* uexImageWidgets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageWidgets.h; sourceTree = "<group>"; };
+		42F670951BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImagePhotoAssetGroup.h; sourceTree = "<group>"; };
+		42F670961BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImagePhotoAssetGroup.m; sourceTree = "<group>"; };
+		42F670A71BD0D35700AAA3AC /* uexImagePhotoPickerCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImagePhotoPickerCaptionView.h; sourceTree = "<group>"; };
+		42F670A81BD0D35700AAA3AC /* uexImagePhotoPickerCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImagePhotoPickerCaptionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +196,10 @@
 				0EC5C0651BCFFAB000E34E80 /* uexImageAlbumCell.m */,
 				0EC5C06A1BD0035600E34E80 /* uexImagePhotoAsset.h */,
 				0EC5C06B1BD0035600E34E80 /* uexImagePhotoAsset.m */,
+				42F670951BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.h */,
+				42F670961BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m */,
+				42F670A71BD0D35700AAA3AC /* uexImagePhotoPickerCaptionView.h */,
+				42F670A81BD0D35700AAA3AC /* uexImagePhotoPickerCaptionView.m */,
 			);
 			path = PhotoPicker;
 			sourceTree = "<group>";
@@ -433,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F670971BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m in Sources */,
 				4220FE761BC60D8B0026460B /* MWPhotoBrowser.m in Sources */,
 				42EE35CC1BBA657400EA11AF /* uexImageCropper.m in Sources */,
 				0EC5C0691BD002D000E34E80 /* uexImageAlbumPickerModel.m in Sources */,
@@ -447,6 +458,7 @@
 				4220FE7A1BC60D8B0026460B /* UIImage+MWPhotoBrowser.m in Sources */,
 				4220FE781BC60D8B0026460B /* MWTapDetectingView.m in Sources */,
 				42B1DAE71BB29EC900549D56 /* EUExImage.m in Sources */,
+				42F670A91BD0D35700AAA3AC /* uexImagePhotoPickerCaptionView.m in Sources */,
 				0EC5C0661BCFFAB000E34E80 /* uexImageAlbumCell.m in Sources */,
 				4220FE791BC60D8B0026460B /* MWZoomingScrollView.m in Sources */,
 				4220FE771BC60D8B0026460B /* MWTapDetectingImageView.m in Sources */,

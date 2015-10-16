@@ -29,7 +29,7 @@ static const CGFloat labelPadding = 10;
         self.barStyle = UIBarStyleBlackTranslucent;
         self.tintColor = nil;
         self.barTintColor = nil;
-        self.barStyle = UIBarStyleDefault;
+        self.barStyle = UIBarStyleBlackTranslucent;
         [self setBackgroundImage:nil forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
         [self setupCaption];

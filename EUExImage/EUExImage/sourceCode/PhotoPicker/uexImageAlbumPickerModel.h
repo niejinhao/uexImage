@@ -8,15 +8,45 @@
 
 #import <Foundation/Foundation.h>
 #import "uexImagePhotoAsset.h"
-@interface uexImageAlbumPickerModel : NSObject
+
+@protocol uexImagePhotoPickerDelegate;
+
+
+@interface uexImageAlbumPickerModel : NSObject<uexImagePhotoAssetObserver>
+
+
+@property (nonatomic,weak)id<uexImagePhotoPickerDelegate> delegate;
 
 @property (nonatomic,strong)RACCommand * cancelCommand;
-@property (nonatomic,strong)RACCommand * comfirmCommand;
+@property (nonatomic,strong)RACCommand * confirmCommand;
 
 @property (nonatomic,assign)NSInteger minimumSelectedNumber;
 @property (nonatomic,assign)NSInteger maximumSelectedNumber;
+
+@property (nonatomic,copy)NSString *selectInfoString;
+
+
+
+@property (nonatomic,assign)BOOL needReloadData;
+
+@property (nonatomic,strong)ALAssetsLibrary *assetsLibrary;
+@property (nonatomic,strong)NSMutableArray *assetsGroups;
+
+
+@property (nonatomic,strong)NSMutableOrderedSet *selectedURLs;
 @property (nonatomic,assign)NSInteger currentSelectedNumber;
 
 
-@property (nonatomic,strong)ALAssetsLibrary *assetsLibrary;
+
+-(BOOL)checkIfSelectedNumbersValid:(NSInteger)selectedNumbers;
+-(void)finishPick;
+-(RACSignal *)comfirmValidSignal;
+@end
+
+
+@protocol uexImagePhotoPickerDelegate<NSObject>
+@optional
+-(void)uexImageAlbumPickerModelDidCancelPickingAction:(uexImageAlbumPickerModel*)model;
+
+-(void)uexImageAlbumPickerModel:(uexImageAlbumPickerModel *)model didFinishPickingAction:(NSArray *)assets;//assets 是ALAssets构成的数组
 @end

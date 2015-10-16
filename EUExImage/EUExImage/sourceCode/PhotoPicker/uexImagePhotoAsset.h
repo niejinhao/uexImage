@@ -8,15 +8,39 @@
 
 #import <Foundation/Foundation.h>
 #import "ALAsset+OriginImage.h"
+
+@protocol uexImagePhotoAssetObserver;
+
+
+
+
+
+
 @interface uexImagePhotoAsset : NSObject
 
-typedef void (^uexImagePhotoAssetFetchImageBlock)(UIImage *);
+typedef void (^uexImagePhotoAssetFetchImageBlock)(UIImage * image);
 
 
 @property (nonatomic,strong)NSURL *assetURL;
 @property (nonatomic,strong)UIImage *thumbImage;
+@property (nonatomic,weak)id<uexImagePhotoAssetObserver> observer;
+@property (nonatomic,assign)BOOL selected;
 
 
--(instancetype)initWithAsset:(ALAsset *)photoAsset;
--(void)fetchOriginImageWithBlock:(uexImagePhotoAssetFetchImageBlock)completion;
+-(instancetype)initWithAsset:(ALAsset *)photoAsset
+                    observer:(id<uexImagePhotoAssetObserver>)observer;
+-(UIImage *)fetchOriginImage;
+
+-(void)doSelect;
+-(void)doUnselect;
+-(void)refreshSelectStatus;
+
+@end
+
+
+
+@protocol uexImagePhotoAssetObserver<NSObject>
+@property (nonatomic,strong)NSMutableOrderedSet *selectedURLs;
+@property (nonatomic,assign)NSInteger currentSelectedNumber;
+@property (nonatomic,strong)ALAssetsLibrary *assetsLibrary;
 @end

@@ -38,6 +38,7 @@
 
 @end
 
+@class uexImagePhotoPicker;
 @interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, weak) IBOutlet id<MWPhotoBrowserDelegate> delegate;
@@ -72,4 +73,8 @@
 - (void)showNextPhotoAnimated:(BOOL)animated;
 - (void)showPreviousPhotoAnimated:(BOOL)animated;
 
+@property (nonatomic,assign)BOOL useInPhotoPicker;
+@property (nonatomic,weak)uexImagePhotoPicker *photoPicker;
+@property (nonatomic,strong)UIBarButtonItem *photoPickerBackButton;
+-(void)combineWithPhotoPicker:(uexImagePhotoPicker *)photoPicker;
 @end

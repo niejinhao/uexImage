@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "uexImagePhotoAssetGroup.h"
+#import "uexImageAlbumPickerModel.h"
+@class uexImagePhotoPicker;
 
-@interface uexImageAlbumPickerController : UITableViewController
+
+@interface uexImageAlbumPickerController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic,strong)uexImageAlbumPickerModel *model;
+@property (nonatomic,strong)uexImagePhotoPicker *photoPicker;
+
+-(instancetype)initWithModel:(uexImageAlbumPickerModel *)model;
+
 
 @end

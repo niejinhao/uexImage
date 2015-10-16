@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class uexImageAlbumPickerController;
 @interface uexImagePhotoPicker : NSObject
+@property (nonatomic,weak)uexImageAlbumPickerController *controller;
+@property (nonatomic,strong)RACCommand *pickFinishCommand;
+-(instancetype)initWithController:(uexImageAlbumPickerController *)controller;
+-(void)openWithIndex:(NSInteger)index;
+
 
 @end

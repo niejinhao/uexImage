@@ -14,4 +14,6 @@
 @property (nonatomic,strong)UIImageView * thumbImage3;
 @property (nonatomic,strong)UILabel * nameLabel;
 @property (nonatomic,strong)UILabel * countLabel;
+
+-(void)setupFrame;
 @end

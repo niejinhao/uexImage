@@ -28,7 +28,6 @@
 - (void)clean;
 - (void)stopNetService;
 - (NSString*)absPath:(NSString*)inPath;
-
 @end
 
 
