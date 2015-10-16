@@ -124,12 +124,12 @@
 }
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
     UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{
-        [MBProgressHUD showHUDAddedTo:self.photoPicker.view animated:YES];
+        //[MBProgressHUD showHUDAddedTo:self.photoPicker.view animated:YES];
     });
     uexImagePhotoAsset *asset=self.dataSource.assets[index];
     UIImage * image=[asset fetchOriginImage];
     UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{
-        [MBProgressHUD hideHUDForView:self.photoPicker.view animated:YES];
+        //[MBProgressHUD hideHUDForView:self.photoPicker.view animated:YES];
         
     });
     MWPhoto *photo=[MWPhoto photoWithImage:image];
@@ -143,6 +143,7 @@
     return _thumbs[index];
 }
 - (MWCaptionView *)photoBrowser:(MWPhotoBrowser *)photoBrowser captionViewForPhotoAtIndex:(NSUInteger)index{
+    [self updateCaptionInfo];
     return self.captionView;
 }
 - (NSString *)photoBrowser:(MWPhotoBrowser *)photoBrowser titleForPhotoAtIndex:(NSUInteger)index{
