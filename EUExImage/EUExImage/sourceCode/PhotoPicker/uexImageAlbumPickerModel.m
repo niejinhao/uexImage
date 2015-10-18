@@ -38,24 +38,45 @@
     self.assetsLibrary=[ALAssetsLibrary new];
     self.selectedURLs=[NSMutableOrderedSet orderedSet];
     self.needReloadData=NO;
-    
+    @weakify(self);
+    RAC(self,limitStatus)=[RACSignal combineLatest:@[RACObserve(self, minimumSelectedNumber),RACObserve(self, maximumSelectedNumber)] reduce:^id(NSNumber *min,NSNumber *max){
+        NSInteger minNum=[min integerValue];
+        NSInteger maxNum=[max integerValue];
+        if(minNum > 1 && maxNum>=1){
+            return @(uexImagePickWithBothMaxAndMinLimit);
+        }else if(minNum <= 1 && maxNum>=1){
+            return @(uexImagePickWithMaximumLimit);
+        }else if(minNum > 1 && maxNum<1){
+            return @(uexImagePickWithMinimumLimit);
+        }else{
+            return @(uexImagePickWithNoLimit);
+        }
+    }];
     [self setupCommands];
     [self updateAssetsGroupsWithCompletion:^{
         self.needReloadData=YES;
     }];
-    //@weakify(self);
+
     RAC(self,selectInfoString)=[RACSignal combineLatest:@[RACObserve(self, minimumSelectedNumber),RACObserve(self,maximumSelectedNumber)] reduce:^id(NSNumber *min,NSNumber *max){
-        //@strongify(self);
-        NSInteger minNum=[min integerValue];
-        NSInteger maxNum=[max integerValue];
-        if(minNum > 1 && maxNum>1){
-            return [NSString stringWithFormat:@"应至少选择%@张照片，至多选择%@张照片",min,max];
-        }else if(minNum <= 1 && maxNum>1){
-            return [NSString stringWithFormat:@"至多应选择%@张照片",max];
-        }else if(minNum > 1 && maxNum<=1){
-            return [NSString stringWithFormat:@"至少应选择%@张照片",min];
-        }else{
-            return @"";
+        @strongify(self);
+
+        switch (self.limitStatus) {
+            case uexImagePickWithNoLimit: {
+                return UEXIMAGE_LOCALIZEDSTRING(@"noLimitInfo");
+                break;
+            }
+            case uexImagePickWithMaximumLimit: {
+                return [NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"max"),max];
+                break;
+            }
+            case uexImagePickWithMinimumLimit: {
+                return [NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"minAndMaxLimitInfo"),min,max];
+                break;
+            }
+            case uexImagePickWithBothMaxAndMinLimit: {
+                return [NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"minLimitInfo"),min];
+                break;
+            }
         }
     }];
 }

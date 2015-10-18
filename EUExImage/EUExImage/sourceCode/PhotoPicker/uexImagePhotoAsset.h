@@ -12,13 +12,16 @@
 @protocol uexImagePhotoAssetObserver;
 
 
-
+typedef NS_ENUM(NSInteger,uexImagePhotoAssetFetchImageType) {
+    uexImagePhotoAssetFetchOriginalImage,
+    uexImagePhotoAssetFetchFullScreenImage,
+};
 
 
 
 @interface uexImagePhotoAsset : NSObject
 
-typedef void (^uexImagePhotoAssetFetchImageBlock)(UIImage * image);
+
 
 
 @property (nonatomic,strong)NSURL *assetURL;
@@ -29,7 +32,12 @@ typedef void (^uexImagePhotoAssetFetchImageBlock)(UIImage * image);
 
 -(instancetype)initWithAsset:(ALAsset *)photoAsset
                     observer:(id<uexImagePhotoAssetObserver>)observer;
--(UIImage *)fetchOriginImage;
+
+
+
+
+
+-(UIImage *)syncFetchImage:(uexImagePhotoAssetFetchImageType)type;
 
 -(void)doSelect;
 -(void)doUnselect;

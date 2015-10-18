@@ -79,7 +79,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     }
     
     [self.picker open];
-
+    
 }
 
 

@@ -5,3 +5,8 @@
   Created by CeriNo on 15/10/15.
   Copyright © 2015年 AppCan. All rights reserved.
 */
+
+"noLimitInfo"="";
+"minLimitInfo"="至少应该选择%ld张照片";
+"maxLimitInfo"="至多只能选择%ld张照片";
+"minAndMaxLimitInfo"="至少应该选择%ld张照片 至多只能选择%ld张照片";

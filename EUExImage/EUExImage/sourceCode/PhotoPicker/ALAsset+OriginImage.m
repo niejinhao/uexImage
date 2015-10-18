@@ -17,7 +17,11 @@
     return originImage;
 }
 
-
+-(UIImage *)uexImage_FullScreenImage{
+    ALAssetRepresentation *representation = [self defaultRepresentation];
+    UIImage * fullScreenImage =[UIImage imageWithCGImage:[representation fullScreenImage] scale:representation.scale orientation:(UIImageOrientation)representation.orientation];
+    return fullScreenImage;
+}
 
 
 @end

@@ -11,6 +11,12 @@
 
 @protocol uexImagePhotoPickerDelegate;
 
+typedef NS_ENUM(NSInteger,uexImagePickLimitStatus){
+    uexImagePickWithNoLimit,
+    uexImagePickWithMaximumLimit,
+    uexImagePickWithMinimumLimit,
+    uexImagePickWithBothMaxAndMinLimit
+};
 
 @interface uexImageAlbumPickerModel : NSObject<uexImagePhotoAssetObserver>
 
@@ -20,8 +26,10 @@
 @property (nonatomic,strong)RACCommand * cancelCommand;
 @property (nonatomic,strong)RACCommand * confirmCommand;
 
+
 @property (nonatomic,assign)NSInteger minimumSelectedNumber;
 @property (nonatomic,assign)NSInteger maximumSelectedNumber;
+@property (nonatomic,assign)uexImagePickLimitStatus limitStatus;
 
 @property (nonatomic,copy)NSString *selectInfoString;
 

@@ -32,10 +32,6 @@
 		<data>
 		wb5bT9v+7O/Nsvpwrq1crIeT9dg=
 		</data>
-		<key>Headers/NSInvocation+RACTypeParsing.h</key>
-		<data>
-		mwQohTA6bxLw57ulX414dXZfxCE=
-		</data>
 		<key>Headers/NSNotificationCenter+RACSupport.h</key>
 		<data>
 		4QtYc+nDGvHn310k/SAqq4XW0xI=
@@ -43,14 +39,6 @@
 		<key>Headers/NSObject+RACDeallocating.h</key>
 		<data>
 		8538jYBm32sivVevP2MrigHex/M=
-		</data>
-		<key>Headers/NSObject+RACDescription.h</key>
-		<data>
-		mgdjSO1Tt0Nc4VKEJmmtkPvli0g=
-		</data>
-		<key>Headers/NSObject+RACKVOWrapper.h</key>
-		<data>
-		2bHtPAn8ETx4YfpgpoDtKxk64M0=
 		</data>
 		<key>Headers/NSObject+RACLifting.h</key>
 		<data>
@@ -72,10 +60,6 @@
 		<data>
 		3cCPJQg1DjvGUVqIYh1nqOHigMA=
 		</data>
-		<key>Headers/NSString+RACKeyPathUtilities.h</key>
-		<data>
-		xrLkhehe7IqGQOdlQWsIBgbTnCw=
-		</data>
 		<key>Headers/NSString+RACSequenceAdditions.h</key>
 		<data>
 		FKnMXMtl3rXxspkZaLdtAgimLHc=
@@ -92,17 +76,9 @@
 		<data>
 		4u0N/q66xs4STGVlwfehb14oT3k=
 		</data>
-		<key>Headers/RACArraySequence.h</key>
-		<data>
-		+Lv1mEyBCwRRQcYkdqT4dUFB28s=
-		</data>
 		<key>Headers/RACBehaviorSubject.h</key>
 		<data>
 		cMZmaRRePuPwZWqKf0urpWnIojc=
-		</data>
-		<key>Headers/RACBlockTrampoline.h</key>
-		<data>
-		HrCjh/RY0dZ3fqnTtTJ5znQ/JZE=
 		</data>
 		<key>Headers/RACChannel.h</key>
 		<data>
@@ -116,49 +92,17 @@
 		<data>
 		zsc42rvNw5xSjzEqcqJm/gP4UWA=
 		</data>
-		<key>Headers/RACDelegateProxy.h</key>
-		<data>
-		Uhzzh+etEGMlg8wIg/luWsl7XG8=
-		</data>
 		<key>Headers/RACDisposable.h</key>
 		<data>
 		BFIjAAr/YckNiOUCVgISY/0B50U=
-		</data>
-		<key>Headers/RACDynamicSequence.h</key>
-		<data>
-		YRr9xJUQ0gBswAVDIZKLqznmQfk=
-		</data>
-		<key>Headers/RACDynamicSignal.h</key>
-		<data>
-		YtmNo6DBqHhu1cWrhcfrHsD2lik=
 		</data>
 		<key>Headers/RACEXTKeyPathCoding.h</key>
 		<data>
 		CqjNAo/oAS0vikFWSG+oOBkirG0=
 		</data>
-		<key>Headers/RACEXTRuntimeExtensions.h</key>
-		<data>
-		1kt4MHYR7yHe/2WHNxWuaHSdb2c=
-		</data>
 		<key>Headers/RACEXTScope.h</key>
 		<data>
 		kNug75YQv7skyWN+ilPbvWm0lKs=
-		</data>
-		<key>Headers/RACEagerSequence.h</key>
-		<data>
-		3NoK8nzRHzlSxovWoujmBA/2WRU=
-		</data>
-		<key>Headers/RACEmptySequence.h</key>
-		<data>
-		Idvy8fviROlOcjT2Q5eUQDfJgK4=
-		</data>
-		<key>Headers/RACEmptySignal.h</key>
-		<data>
-		vehJQfiqo3twkdjo1ZDN7UFb/HA=
-		</data>
-		<key>Headers/RACErrorSignal.h</key>
-		<data>
-		U4VrO6V7CzfJjuX0Hzv0xFSerds=
 		</data>
 		<key>Headers/RACEvent.h</key>
 		<data>
@@ -168,41 +112,13 @@
 		<data>
 		c9F8ywFON+4RrYXAJ9mMTaXMAnc=
 		</data>
-		<key>Headers/RACImmediateScheduler.h</key>
-		<data>
-		dcknVlTKIm+9JCsOO9V9qp2VUfI=
-		</data>
-		<key>Headers/RACIndexSetSequence.h</key>
-		<data>
-		NFMSvr6+6bc8AQ2pl+3PrSZjyPI=
-		</data>
 		<key>Headers/RACKVOChannel.h</key>
 		<data>
 		dSGCRs0OJqJOdx389JIIYfcp/cI=
 		</data>
-		<key>Headers/RACKVOProxy.h</key>
-		<data>
-		zB8d43FAqBchuIVz7yR2LtfrFd4=
-		</data>
-		<key>Headers/RACKVOTrampoline.h</key>
-		<data>
-		FgBIgT9L303aiU8c37IEjBi0KgQ=
-		</data>
-		<key>Headers/RACMulticastConnection+Private.h</key>
-		<data>
-		a71Cty2s1XBwP9F0DKELFnliMMA=
-		</data>
 		<key>Headers/RACMulticastConnection.h</key>
 		<data>
 		h3EezQb/q6CbwJ1I0/184SPHGUU=
-		</data>
-		<key>Headers/RACObjCRuntime.h</key>
-		<data>
-		vkHx6vsbIOHXY9na8bTkA0+pGVg=
-		</data>
-		<key>Headers/RACPassthroughSubscriber.h</key>
-		<data>
-		XEGbkghrfqVfa85en2LdmUtPdgM=
 		</data>
 		<key>Headers/RACQueueScheduler+Subclass.h</key>
 		<data>
@@ -215,14 +131,6 @@
 		<key>Headers/RACReplaySubject.h</key>
 		<data>
 		u0/XHWlr//FxG9HEW3sRDLuysT4=
-		</data>
-		<key>Headers/RACReturnSignal.h</key>
-		<data>
-		lhC1U7OTEoTSdl1I9TPvo8G9p8w=
-		</data>
-		<key>Headers/RACScheduler+Private.h</key>
-		<data>
-		GoXxeQjA1HWSsW7R/gtnmjJRmx4=
 		</data>
 		<key>Headers/RACScheduler+Subclass.h</key>
 		<data>
@@ -252,29 +160,13 @@
 		<data>
 		iiLnOpURKQ/1gUVOIAv/tp2EX64=
 		</data>
-		<key>Headers/RACSignalSequence.h</key>
-		<data>
-		m3PspIITBki2NvzvSs20WrZPBsg=
-		</data>
-		<key>Headers/RACStream+Private.h</key>
-		<data>
-		fLXlGEfjTeDIP5Xw4qU1HOs8aoE=
-		</data>
 		<key>Headers/RACStream.h</key>
 		<data>
 		oLx7S9p5tdwYEgSL3YI1b6NNvyM=
 		</data>
-		<key>Headers/RACStringSequence.h</key>
-		<data>
-		gh1dlg+1GZND1DMiPsqvqz04QSY=
-		</data>
 		<key>Headers/RACSubject.h</key>
 		<data>
 		Q2Q6h9ZfNybFdHJRxu5CnDL0Aqc=
-		</data>
-		<key>Headers/RACSubscriber+Private.h</key>
-		<data>
-		tSXxQ0c89Ahg3SZAATz4P7Ao8Y8=
 		</data>
 		<key>Headers/RACSubscriber.h</key>
 		<data>
@@ -283,10 +175,6 @@
 		<key>Headers/RACSubscriptingAssignmentTrampoline.h</key>
 		<data>
 		Hv1/CD1Y7IVTuDqnVMIC5VzBPpw=
-		</data>
-		<key>Headers/RACSubscriptionScheduler.h</key>
-		<data>
-		p/+lVd2t9t2usYA8+P4427FB1f4=
 		</data>
 		<key>Headers/RACTargetQueueScheduler.h</key>
 		<data>
@@ -300,21 +188,9 @@
 		<data>
 		/2pILA7EMwSc1XHOjvAT/TIsTwY=
 		</data>
-		<key>Headers/RACTupleSequence.h</key>
-		<data>
-		avUbBDFNq6TXCH4f3W1Cc05dkQU=
-		</data>
-		<key>Headers/RACUnarySequence.h</key>
-		<data>
-		Sqx1OHryy0bBxlTooZ+GIq+Wj2U=
-		</data>
 		<key>Headers/RACUnit.h</key>
 		<data>
 		ie7XEfVnGWDlB0e9xmzDhVDxFYU=
-		</data>
-		<key>Headers/RACValueTransformer.h</key>
-		<data>
-		lYsu0G2H5A3IWu52W3MmDwLCJ/w=
 		</data>
 		<key>Headers/RACmetamacros.h</key>
 		<data>
@@ -347,10 +223,6 @@
 		<key>Headers/UIControl+RACSignalSupport.h</key>
 		<data>
 		CjWpHF0+t1BDcnf6NxouJxHuon4=
-		</data>
-		<key>Headers/UIControl+RACSignalSupportPrivate.h</key>
-		<data>
-		8GVapuuvQX6OUjEjfMhPmi/7Klo=
 		</data>
 		<key>Headers/UIDatePicker+RACSignalSupport.h</key>
 		<data>
@@ -402,11 +274,139 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Ob5BQb4/1dhyPJsoXZzXdwPvEfQ=
+		mt5Q/ekuQcRHLQIxxSBaxDcnvto=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		RSxJPB/eFckwxKJulVvwIWSiCYE=
+		</data>
+		<key>PrivateHeaders/NSInvocation+RACTypeParsing.h</key>
+		<data>
+		mwQohTA6bxLw57ulX414dXZfxCE=
+		</data>
+		<key>PrivateHeaders/NSObject+RACDescription.h</key>
+		<data>
+		mgdjSO1Tt0Nc4VKEJmmtkPvli0g=
+		</data>
+		<key>PrivateHeaders/NSObject+RACKVOWrapper.h</key>
+		<data>
+		2bHtPAn8ETx4YfpgpoDtKxk64M0=
+		</data>
+		<key>PrivateHeaders/NSString+RACKeyPathUtilities.h</key>
+		<data>
+		xrLkhehe7IqGQOdlQWsIBgbTnCw=
+		</data>
+		<key>PrivateHeaders/RACArraySequence.h</key>
+		<data>
+		+Lv1mEyBCwRRQcYkdqT4dUFB28s=
+		</data>
+		<key>PrivateHeaders/RACBlockTrampoline.h</key>
+		<data>
+		HrCjh/RY0dZ3fqnTtTJ5znQ/JZE=
+		</data>
+		<key>PrivateHeaders/RACDelegateProxy.h</key>
+		<data>
+		Uhzzh+etEGMlg8wIg/luWsl7XG8=
+		</data>
+		<key>PrivateHeaders/RACDynamicSequence.h</key>
+		<data>
+		YRr9xJUQ0gBswAVDIZKLqznmQfk=
+		</data>
+		<key>PrivateHeaders/RACDynamicSignal.h</key>
+		<data>
+		YtmNo6DBqHhu1cWrhcfrHsD2lik=
+		</data>
+		<key>PrivateHeaders/RACEXTRuntimeExtensions.h</key>
+		<data>
+		1kt4MHYR7yHe/2WHNxWuaHSdb2c=
+		</data>
+		<key>PrivateHeaders/RACEagerSequence.h</key>
+		<data>
+		3NoK8nzRHzlSxovWoujmBA/2WRU=
+		</data>
+		<key>PrivateHeaders/RACEmptySequence.h</key>
+		<data>
+		Idvy8fviROlOcjT2Q5eUQDfJgK4=
+		</data>
+		<key>PrivateHeaders/RACEmptySignal.h</key>
+		<data>
+		vehJQfiqo3twkdjo1ZDN7UFb/HA=
+		</data>
+		<key>PrivateHeaders/RACErrorSignal.h</key>
+		<data>
+		U4VrO6V7CzfJjuX0Hzv0xFSerds=
+		</data>
+		<key>PrivateHeaders/RACImmediateScheduler.h</key>
+		<data>
+		dcknVlTKIm+9JCsOO9V9qp2VUfI=
+		</data>
+		<key>PrivateHeaders/RACIndexSetSequence.h</key>
+		<data>
+		NFMSvr6+6bc8AQ2pl+3PrSZjyPI=
+		</data>
+		<key>PrivateHeaders/RACKVOProxy.h</key>
+		<data>
+		zB8d43FAqBchuIVz7yR2LtfrFd4=
+		</data>
+		<key>PrivateHeaders/RACKVOTrampoline.h</key>
+		<data>
+		FgBIgT9L303aiU8c37IEjBi0KgQ=
+		</data>
+		<key>PrivateHeaders/RACMulticastConnection+Private.h</key>
+		<data>
+		a71Cty2s1XBwP9F0DKELFnliMMA=
+		</data>
+		<key>PrivateHeaders/RACObjCRuntime.h</key>
+		<data>
+		vkHx6vsbIOHXY9na8bTkA0+pGVg=
+		</data>
+		<key>PrivateHeaders/RACPassthroughSubscriber.h</key>
+		<data>
+		XEGbkghrfqVfa85en2LdmUtPdgM=
+		</data>
+		<key>PrivateHeaders/RACReturnSignal.h</key>
+		<data>
+		lhC1U7OTEoTSdl1I9TPvo8G9p8w=
+		</data>
+		<key>PrivateHeaders/RACScheduler+Private.h</key>
+		<data>
+		GoXxeQjA1HWSsW7R/gtnmjJRmx4=
+		</data>
+		<key>PrivateHeaders/RACSignalSequence.h</key>
+		<data>
+		m3PspIITBki2NvzvSs20WrZPBsg=
+		</data>
+		<key>PrivateHeaders/RACStream+Private.h</key>
+		<data>
+		fLXlGEfjTeDIP5Xw4qU1HOs8aoE=
+		</data>
+		<key>PrivateHeaders/RACStringSequence.h</key>
+		<data>
+		gh1dlg+1GZND1DMiPsqvqz04QSY=
+		</data>
+		<key>PrivateHeaders/RACSubscriber+Private.h</key>
+		<data>
+		tSXxQ0c89Ahg3SZAATz4P7Ao8Y8=
+		</data>
+		<key>PrivateHeaders/RACSubscriptionScheduler.h</key>
+		<data>
+		p/+lVd2t9t2usYA8+P4427FB1f4=
+		</data>
+		<key>PrivateHeaders/RACTupleSequence.h</key>
+		<data>
+		avUbBDFNq6TXCH4f3W1Cc05dkQU=
+		</data>
+		<key>PrivateHeaders/RACUnarySequence.h</key>
+		<data>
+		Sqx1OHryy0bBxlTooZ+GIq+Wj2U=
+		</data>
+		<key>PrivateHeaders/RACValueTransformer.h</key>
+		<data>
+		lYsu0G2H5A3IWu52W3MmDwLCJ/w=
+		</data>
+		<key>PrivateHeaders/UIControl+RACSignalSupportPrivate.h</key>
+		<data>
+		8GVapuuvQX6OUjEjfMhPmi/7Klo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -439,10 +439,6 @@
 		<data>
 		wb5bT9v+7O/Nsvpwrq1crIeT9dg=
 		</data>
-		<key>Headers/NSInvocation+RACTypeParsing.h</key>
-		<data>
-		mwQohTA6bxLw57ulX414dXZfxCE=
-		</data>
 		<key>Headers/NSNotificationCenter+RACSupport.h</key>
 		<data>
 		4QtYc+nDGvHn310k/SAqq4XW0xI=
@@ -450,14 +446,6 @@
 		<key>Headers/NSObject+RACDeallocating.h</key>
 		<data>
 		8538jYBm32sivVevP2MrigHex/M=
-		</data>
-		<key>Headers/NSObject+RACDescription.h</key>
-		<data>
-		mgdjSO1Tt0Nc4VKEJmmtkPvli0g=
-		</data>
-		<key>Headers/NSObject+RACKVOWrapper.h</key>
-		<data>
-		2bHtPAn8ETx4YfpgpoDtKxk64M0=
 		</data>
 		<key>Headers/NSObject+RACLifting.h</key>
 		<data>
@@ -479,10 +467,6 @@
 		<data>
 		3cCPJQg1DjvGUVqIYh1nqOHigMA=
 		</data>
-		<key>Headers/NSString+RACKeyPathUtilities.h</key>
-		<data>
-		xrLkhehe7IqGQOdlQWsIBgbTnCw=
-		</data>
 		<key>Headers/NSString+RACSequenceAdditions.h</key>
 		<data>
 		FKnMXMtl3rXxspkZaLdtAgimLHc=
@@ -499,17 +483,9 @@
 		<data>
 		4u0N/q66xs4STGVlwfehb14oT3k=
 		</data>
-		<key>Headers/RACArraySequence.h</key>
-		<data>
-		+Lv1mEyBCwRRQcYkdqT4dUFB28s=
-		</data>
 		<key>Headers/RACBehaviorSubject.h</key>
 		<data>
 		cMZmaRRePuPwZWqKf0urpWnIojc=
-		</data>
-		<key>Headers/RACBlockTrampoline.h</key>
-		<data>
-		HrCjh/RY0dZ3fqnTtTJ5znQ/JZE=
 		</data>
 		<key>Headers/RACChannel.h</key>
 		<data>
@@ -523,49 +499,17 @@
 		<data>
 		zsc42rvNw5xSjzEqcqJm/gP4UWA=
 		</data>
-		<key>Headers/RACDelegateProxy.h</key>
-		<data>
-		Uhzzh+etEGMlg8wIg/luWsl7XG8=
-		</data>
 		<key>Headers/RACDisposable.h</key>
 		<data>
 		BFIjAAr/YckNiOUCVgISY/0B50U=
-		</data>
-		<key>Headers/RACDynamicSequence.h</key>
-		<data>
-		YRr9xJUQ0gBswAVDIZKLqznmQfk=
-		</data>
-		<key>Headers/RACDynamicSignal.h</key>
-		<data>
-		YtmNo6DBqHhu1cWrhcfrHsD2lik=
 		</data>
 		<key>Headers/RACEXTKeyPathCoding.h</key>
 		<data>
 		CqjNAo/oAS0vikFWSG+oOBkirG0=
 		</data>
-		<key>Headers/RACEXTRuntimeExtensions.h</key>
-		<data>
-		1kt4MHYR7yHe/2WHNxWuaHSdb2c=
-		</data>
 		<key>Headers/RACEXTScope.h</key>
 		<data>
 		kNug75YQv7skyWN+ilPbvWm0lKs=
-		</data>
-		<key>Headers/RACEagerSequence.h</key>
-		<data>
-		3NoK8nzRHzlSxovWoujmBA/2WRU=
-		</data>
-		<key>Headers/RACEmptySequence.h</key>
-		<data>
-		Idvy8fviROlOcjT2Q5eUQDfJgK4=
-		</data>
-		<key>Headers/RACEmptySignal.h</key>
-		<data>
-		vehJQfiqo3twkdjo1ZDN7UFb/HA=
-		</data>
-		<key>Headers/RACErrorSignal.h</key>
-		<data>
-		U4VrO6V7CzfJjuX0Hzv0xFSerds=
 		</data>
 		<key>Headers/RACEvent.h</key>
 		<data>
@@ -575,41 +519,13 @@
 		<data>
 		c9F8ywFON+4RrYXAJ9mMTaXMAnc=
 		</data>
-		<key>Headers/RACImmediateScheduler.h</key>
-		<data>
-		dcknVlTKIm+9JCsOO9V9qp2VUfI=
-		</data>
-		<key>Headers/RACIndexSetSequence.h</key>
-		<data>
-		NFMSvr6+6bc8AQ2pl+3PrSZjyPI=
-		</data>
 		<key>Headers/RACKVOChannel.h</key>
 		<data>
 		dSGCRs0OJqJOdx389JIIYfcp/cI=
 		</data>
-		<key>Headers/RACKVOProxy.h</key>
-		<data>
-		zB8d43FAqBchuIVz7yR2LtfrFd4=
-		</data>
-		<key>Headers/RACKVOTrampoline.h</key>
-		<data>
-		FgBIgT9L303aiU8c37IEjBi0KgQ=
-		</data>
-		<key>Headers/RACMulticastConnection+Private.h</key>
-		<data>
-		a71Cty2s1XBwP9F0DKELFnliMMA=
-		</data>
 		<key>Headers/RACMulticastConnection.h</key>
 		<data>
 		h3EezQb/q6CbwJ1I0/184SPHGUU=
-		</data>
-		<key>Headers/RACObjCRuntime.h</key>
-		<data>
-		vkHx6vsbIOHXY9na8bTkA0+pGVg=
-		</data>
-		<key>Headers/RACPassthroughSubscriber.h</key>
-		<data>
-		XEGbkghrfqVfa85en2LdmUtPdgM=
 		</data>
 		<key>Headers/RACQueueScheduler+Subclass.h</key>
 		<data>
@@ -622,14 +538,6 @@
 		<key>Headers/RACReplaySubject.h</key>
 		<data>
 		u0/XHWlr//FxG9HEW3sRDLuysT4=
-		</data>
-		<key>Headers/RACReturnSignal.h</key>
-		<data>
-		lhC1U7OTEoTSdl1I9TPvo8G9p8w=
-		</data>
-		<key>Headers/RACScheduler+Private.h</key>
-		<data>
-		GoXxeQjA1HWSsW7R/gtnmjJRmx4=
 		</data>
 		<key>Headers/RACScheduler+Subclass.h</key>
 		<data>
@@ -659,29 +567,13 @@
 		<data>
 		iiLnOpURKQ/1gUVOIAv/tp2EX64=
 		</data>
-		<key>Headers/RACSignalSequence.h</key>
-		<data>
-		m3PspIITBki2NvzvSs20WrZPBsg=
-		</data>
-		<key>Headers/RACStream+Private.h</key>
-		<data>
-		fLXlGEfjTeDIP5Xw4qU1HOs8aoE=
-		</data>
 		<key>Headers/RACStream.h</key>
 		<data>
 		oLx7S9p5tdwYEgSL3YI1b6NNvyM=
 		</data>
-		<key>Headers/RACStringSequence.h</key>
-		<data>
-		gh1dlg+1GZND1DMiPsqvqz04QSY=
-		</data>
 		<key>Headers/RACSubject.h</key>
 		<data>
 		Q2Q6h9ZfNybFdHJRxu5CnDL0Aqc=
-		</data>
-		<key>Headers/RACSubscriber+Private.h</key>
-		<data>
-		tSXxQ0c89Ahg3SZAATz4P7Ao8Y8=
 		</data>
 		<key>Headers/RACSubscriber.h</key>
 		<data>
@@ -690,10 +582,6 @@
 		<key>Headers/RACSubscriptingAssignmentTrampoline.h</key>
 		<data>
 		Hv1/CD1Y7IVTuDqnVMIC5VzBPpw=
-		</data>
-		<key>Headers/RACSubscriptionScheduler.h</key>
-		<data>
-		p/+lVd2t9t2usYA8+P4427FB1f4=
 		</data>
 		<key>Headers/RACTargetQueueScheduler.h</key>
 		<data>
@@ -707,21 +595,9 @@
 		<data>
 		/2pILA7EMwSc1XHOjvAT/TIsTwY=
 		</data>
-		<key>Headers/RACTupleSequence.h</key>
-		<data>
-		avUbBDFNq6TXCH4f3W1Cc05dkQU=
-		</data>
-		<key>Headers/RACUnarySequence.h</key>
-		<data>
-		Sqx1OHryy0bBxlTooZ+GIq+Wj2U=
-		</data>
 		<key>Headers/RACUnit.h</key>
 		<data>
 		ie7XEfVnGWDlB0e9xmzDhVDxFYU=
-		</data>
-		<key>Headers/RACValueTransformer.h</key>
-		<data>
-		lYsu0G2H5A3IWu52W3MmDwLCJ/w=
 		</data>
 		<key>Headers/RACmetamacros.h</key>
 		<data>
@@ -754,10 +630,6 @@
 		<key>Headers/UIControl+RACSignalSupport.h</key>
 		<data>
 		CjWpHF0+t1BDcnf6NxouJxHuon4=
-		</data>
-		<key>Headers/UIControl+RACSignalSupportPrivate.h</key>
-		<data>
-		8GVapuuvQX6OUjEjfMhPmi/7Klo=
 		</data>
 		<key>Headers/UIDatePicker+RACSignalSupport.h</key>
 		<data>
@@ -810,6 +682,134 @@
 		<key>Modules/module.modulemap</key>
 		<data>
 		RSxJPB/eFckwxKJulVvwIWSiCYE=
+		</data>
+		<key>PrivateHeaders/NSInvocation+RACTypeParsing.h</key>
+		<data>
+		mwQohTA6bxLw57ulX414dXZfxCE=
+		</data>
+		<key>PrivateHeaders/NSObject+RACDescription.h</key>
+		<data>
+		mgdjSO1Tt0Nc4VKEJmmtkPvli0g=
+		</data>
+		<key>PrivateHeaders/NSObject+RACKVOWrapper.h</key>
+		<data>
+		2bHtPAn8ETx4YfpgpoDtKxk64M0=
+		</data>
+		<key>PrivateHeaders/NSString+RACKeyPathUtilities.h</key>
+		<data>
+		xrLkhehe7IqGQOdlQWsIBgbTnCw=
+		</data>
+		<key>PrivateHeaders/RACArraySequence.h</key>
+		<data>
+		+Lv1mEyBCwRRQcYkdqT4dUFB28s=
+		</data>
+		<key>PrivateHeaders/RACBlockTrampoline.h</key>
+		<data>
+		HrCjh/RY0dZ3fqnTtTJ5znQ/JZE=
+		</data>
+		<key>PrivateHeaders/RACDelegateProxy.h</key>
+		<data>
+		Uhzzh+etEGMlg8wIg/luWsl7XG8=
+		</data>
+		<key>PrivateHeaders/RACDynamicSequence.h</key>
+		<data>
+		YRr9xJUQ0gBswAVDIZKLqznmQfk=
+		</data>
+		<key>PrivateHeaders/RACDynamicSignal.h</key>
+		<data>
+		YtmNo6DBqHhu1cWrhcfrHsD2lik=
+		</data>
+		<key>PrivateHeaders/RACEXTRuntimeExtensions.h</key>
+		<data>
+		1kt4MHYR7yHe/2WHNxWuaHSdb2c=
+		</data>
+		<key>PrivateHeaders/RACEagerSequence.h</key>
+		<data>
+		3NoK8nzRHzlSxovWoujmBA/2WRU=
+		</data>
+		<key>PrivateHeaders/RACEmptySequence.h</key>
+		<data>
+		Idvy8fviROlOcjT2Q5eUQDfJgK4=
+		</data>
+		<key>PrivateHeaders/RACEmptySignal.h</key>
+		<data>
+		vehJQfiqo3twkdjo1ZDN7UFb/HA=
+		</data>
+		<key>PrivateHeaders/RACErrorSignal.h</key>
+		<data>
+		U4VrO6V7CzfJjuX0Hzv0xFSerds=
+		</data>
+		<key>PrivateHeaders/RACImmediateScheduler.h</key>
+		<data>
+		dcknVlTKIm+9JCsOO9V9qp2VUfI=
+		</data>
+		<key>PrivateHeaders/RACIndexSetSequence.h</key>
+		<data>
+		NFMSvr6+6bc8AQ2pl+3PrSZjyPI=
+		</data>
+		<key>PrivateHeaders/RACKVOProxy.h</key>
+		<data>
+		zB8d43FAqBchuIVz7yR2LtfrFd4=
+		</data>
+		<key>PrivateHeaders/RACKVOTrampoline.h</key>
+		<data>
+		FgBIgT9L303aiU8c37IEjBi0KgQ=
+		</data>
+		<key>PrivateHeaders/RACMulticastConnection+Private.h</key>
+		<data>
+		a71Cty2s1XBwP9F0DKELFnliMMA=
+		</data>
+		<key>PrivateHeaders/RACObjCRuntime.h</key>
+		<data>
+		vkHx6vsbIOHXY9na8bTkA0+pGVg=
+		</data>
+		<key>PrivateHeaders/RACPassthroughSubscriber.h</key>
+		<data>
+		XEGbkghrfqVfa85en2LdmUtPdgM=
+		</data>
+		<key>PrivateHeaders/RACReturnSignal.h</key>
+		<data>
+		lhC1U7OTEoTSdl1I9TPvo8G9p8w=
+		</data>
+		<key>PrivateHeaders/RACScheduler+Private.h</key>
+		<data>
+		GoXxeQjA1HWSsW7R/gtnmjJRmx4=
+		</data>
+		<key>PrivateHeaders/RACSignalSequence.h</key>
+		<data>
+		m3PspIITBki2NvzvSs20WrZPBsg=
+		</data>
+		<key>PrivateHeaders/RACStream+Private.h</key>
+		<data>
+		fLXlGEfjTeDIP5Xw4qU1HOs8aoE=
+		</data>
+		<key>PrivateHeaders/RACStringSequence.h</key>
+		<data>
+		gh1dlg+1GZND1DMiPsqvqz04QSY=
+		</data>
+		<key>PrivateHeaders/RACSubscriber+Private.h</key>
+		<data>
+		tSXxQ0c89Ahg3SZAATz4P7Ao8Y8=
+		</data>
+		<key>PrivateHeaders/RACSubscriptionScheduler.h</key>
+		<data>
+		p/+lVd2t9t2usYA8+P4427FB1f4=
+		</data>
+		<key>PrivateHeaders/RACTupleSequence.h</key>
+		<data>
+		avUbBDFNq6TXCH4f3W1Cc05dkQU=
+		</data>
+		<key>PrivateHeaders/RACUnarySequence.h</key>
+		<data>
+		Sqx1OHryy0bBxlTooZ+GIq+Wj2U=
+		</data>
+		<key>PrivateHeaders/RACValueTransformer.h</key>
+		<data>
+		lYsu0G2H5A3IWu52W3MmDwLCJ/w=
+		</data>
+		<key>PrivateHeaders/UIControl+RACSignalSupportPrivate.h</key>
+		<data>
+		8GVapuuvQX6OUjEjfMhPmi/7Klo=
 		</data>
 	</dict>
 	<key>rules</key>

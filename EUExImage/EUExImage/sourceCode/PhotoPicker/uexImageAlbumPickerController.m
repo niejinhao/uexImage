@@ -58,7 +58,7 @@
     
 
     CGRect navFrame=navBar.frame;
-    CGFloat startHeight=navFrame.origin.y+navFrame.size.height;
+    //CGFloat startHeight=navFrame.origin.y+navFrame.size.height;
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, navFrame.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
 
     self.tableView.delegate=self;
@@ -267,6 +267,13 @@
     
     return image;
 }
+
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

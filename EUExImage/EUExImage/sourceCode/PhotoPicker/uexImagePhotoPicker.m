@@ -127,7 +127,7 @@
         //[MBProgressHUD showHUDAddedTo:self.photoPicker.view animated:YES];
     });
     uexImagePhotoAsset *asset=self.dataSource.assets[index];
-    UIImage * image=[asset fetchOriginImage];
+    UIImage * image=[asset syncFetchImage:uexImagePhotoAssetFetchFullScreenImage];
     UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{
         //[MBProgressHUD hideHUDForView:self.photoPicker.view animated:YES];
         

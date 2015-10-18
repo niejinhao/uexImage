@@ -10,4 +10,5 @@
 
 @interface ALAsset (OriginImage)
 -(UIImage *)uexImage_OriginImage;
+-(UIImage *)uexImage_FullScreenImage;
 @end
