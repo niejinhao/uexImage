@@ -77,7 +77,18 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    @weakify(self);
+    [[RACObserve(self.model, needToShowCannotFinishToast) filter:^BOOL(id value) {
+        return ([value boolValue]);
+    }] subscribeNext:^(id x) {
 
+        @strongify(self);
+        [self.view makeToast:self.model.selectInfoString duration:0.5 position:CSToastPositionCenter];
+        [self.model setNeedToShowCannotFinishToast:NO];
+    }];
+}
 
 #pragma mark - NavigationBar
 
@@ -86,7 +97,7 @@
     
     
     UIBarButtonItem *cancelItem =[[UIBarButtonItem alloc]init];
-    [cancelItem setTitle:@"取消"];
+    [cancelItem setTitle:UEXIMAGE_LOCALIZEDSTRING(@"cancel")];
     [cancelItem setTintColor:[UIColor blueColor]];
     
     cancelItem.rac_command=self.model.cancelCommand;
@@ -94,18 +105,22 @@
     
     
     UIBarButtonItem *confirmItem =[[UIBarButtonItem alloc]init];
-    [confirmItem setTitle:@"确定"];
+    [confirmItem setTitle:UEXIMAGE_LOCALIZEDSTRING(@"finish")];
     // Set appearance
     [confirmItem setTintColor:[UIColor blueColor]];
     confirmItem.rac_command=self.model.confirmCommand;
+    @weakify(self);
+    RAC(confirmItem,tintColor)=[RACObserve(self.model, currentSelectedNumber) map:^id(id value) {
+        @strongify(self);
+        if([self.model checkIfSelectedNumbersValid:[value integerValue]]){
+            return [UIColor blueColor];
+        }else{
+            return [UIColor grayColor];
+        }
+    }];
     self.navigationItem.rightBarButtonItem=confirmItem;
 
-    RAC(self.navigationItem,title)=[RACObserve(self.model, currentSelectedNumber) map:^id(id value) {
-        if([value integerValue]==0){
-            return @"";
-        }
-        return [NSString stringWithFormat:@"已选择%@张照片",value];
-    }];
+
 }
 
 #pragma mark - Toolbar
@@ -128,12 +143,12 @@
     RAC(infoButtonItem,title)=[RACObserve(self.model, currentSelectedNumber) map:^(NSNumber *value) {
        @strongify(self);
         NSInteger number=[value integerValue];
-        if([self.model checkIfSelectedNumbersValid:number]){
+        if(number == 0){
             [self.navigationController setToolbarHidden:YES];
             return @"";
         }else{
             [self.navigationController setToolbarHidden:NO];
-            return [NSString stringWithFormat:@"%@",self.model.selectInfoString];
+            return [NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"selectedNumbers"),(long)self.model.currentSelectedNumber];
         }
         
     }];
@@ -209,14 +224,18 @@
     cell.nameLabel.text = [assetsGroup name];
     
     // Number of photos
-    cell.countLabel.text = [NSString stringWithFormat:@"%lu", (long)assetsGroup.assets.count];
+    cell.countLabel.text = [NSString stringWithFormat:@"%ld", (long)assetsGroup.assets.count];
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSLog(@"%ld",(long)indexPath.row);
-    [self.photoPicker openWithIndex:indexPath.row];
+    if(![self.photoPicker openWithIndex:indexPath.row]){
+        [self.view makeToast:UEXIMAGE_LOCALIZEDSTRING(@"noValidPhotosInAlbumToast") duration:0.5 position:CSToastPositionCenter];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

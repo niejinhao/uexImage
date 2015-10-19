@@ -20,8 +20,9 @@
 @property (nonatomic,assign)NSInteger alreadySelectedCount;
 @property (nonatomic,assign)NSInteger numberOfSelectedAssetsInOtherGroup;
 
-@property (nonatomic,strong)uexImagePhotoPickerCaptionView *captionView;
-@property (nonatomic,assign)BOOL limitMaxSelections;
+@property (nonatomic,strong)uexImagePhotoPickerCaptionView *captionViewEven;
+@property (nonatomic,strong)uexImagePhotoPickerCaptionView *captionViewOdd;
+@property (nonatomic,strong)RACCommand *pickFinishCommand;
 @end
 
 
@@ -31,36 +32,50 @@
     if(self){
         self.controller=controller;
         self.thumbs=[NSMutableArray array];
-        @weakify(self);
-        self.pickFinishCommand=[[RACCommand alloc]initWithEnabled:[self.controller.model comfirmValidSignal] signalBlock:^RACSignal *(id input) {
-            @strongify(self);
-            NSLog(@"finish pick");
-            _controller.view.hidden=NO;
-            _controller.navigationController.navigationBar.hidden=NO;
-            [self.nav dismissViewControllerAnimated:YES completion:^{
-                
-                _photoPicker=nil;
-                [self doClearThings];
-                [self.controller.model finishPick];
-                
-            }];
-            
-            return [RACSignal empty];
-        }];
+        self.needToShowCannotFinishToast=NO;
+
     }
     return self;
 }
 
--(void)openWithIndex:(NSInteger)index{
-    if(_controller.model.maximumSelectedNumber >0){
-        self.limitMaxSelections=YES;
-    }else{
-        self.limitMaxSelections=NO;
+
+-(RACCommand *)pickFinishCommand{
+    if(!_pickFinishCommand){
+        _pickFinishCommand=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+            return [self.controller.model materializedCheckIfSelectedAssetsValidSignal];
+        }];
+        [[_pickFinishCommand executionSignals] subscribeNext:^(RACSignal *execution){
+            [[execution dematerialize] subscribeError:^(NSError *error) {
+                self.needToShowCannotFinishToast=YES;
+            } completed:^{
+
+                _controller.view.hidden=NO;
+                _controller.navigationController.navigationBar.hidden=NO;
+                [self.nav dismissViewControllerAnimated:YES completion:^{
+                    
+                    _photoPicker=nil;
+                    [self doClearThings];
+                    [self.controller.model finishPick];
+                    
+                }];
+
+            }];
+
+        }];
     }
+    return _pickFinishCommand;
+}
+
+-(BOOL)openWithIndex:(NSInteger)index{
+
 
 
     _dataSource=_controller.model.assetsGroups[index];
-    _captionView=[[uexImagePhotoPickerCaptionView alloc]init];
+    if([_dataSource.assets count]==0){
+        return NO;
+    }
+    _captionViewEven=[[uexImagePhotoPickerCaptionView alloc]init];
+    _captionViewOdd=[[uexImagePhotoPickerCaptionView alloc]init];
     for(uexImagePhotoAsset *asset in _dataSource.assets){
         [asset refreshSelectStatus];
         if(asset.selected){
@@ -79,6 +94,7 @@
     _photoPicker.zoomPhotosToFill=YES;
     _photoPicker.displayActionButton=NO;
     _photoPicker.alwaysShowControls=YES;
+    
     [_photoPicker combineWithPhotoPicker:self];
     self.nav=[[UINavigationController alloc]initWithRootViewController:_photoPicker];
 
@@ -87,7 +103,7 @@
             _controller.navigationController.navigationBar.hidden=YES;
             [self updateCaptionInfo];
         }];
-
+    return YES;
     //[_controller.navigationController pushViewController:_photoPicker animated:YES];
     
 
@@ -101,40 +117,31 @@
     self.dataSource=nil;
     self.photoPicker=nil;
     self.numberOfSelectedAssetsInOtherGroup=0;
-    self.captionView=nil;
+    self.captionViewEven=nil;
+    self.captionViewOdd=nil;
+    self.nav=nil;
 
 }
 
 -(void)updateCaptionInfo{
-    NSString *text =[NSString stringWithFormat:@"当前相册已选择%ld张照片,总共选择%ld张照片",(long)self.alreadySelectedCount,self.controller.model.currentSelectedNumber];
-    if([self.controller.model.selectInfoString length]>0){
-        text=[NSString stringWithFormat:@"%@\n%@",text,self.controller.model.selectInfoString];
-    }
-    [self.captionView.textLabel setText:text];
-    if([self.controller.model checkIfSelectedNumbersValid:self.controller.model.currentSelectedNumber]){
-        [self.captionView.textLabel setTextColor:[UIColor blackColor]];
-    }else{
-        [self.captionView.textLabel setTextColor:[UIColor redColor]];
-    }
-    
+    NSString *text =[NSString stringWithFormat:@"当前相册已选择%ld张照片,总共选择%ld张照片",(long)self.alreadySelectedCount,(long)self.controller.model.currentSelectedNumber];
+    [self.captionViewEven.textLabel setText:text];
+    [self.captionViewOdd.textLabel setText:text];
 }
 
 - (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
     return [_dataSource.assets count];
 }
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
-    UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{
-        //[MBProgressHUD showHUDAddedTo:self.photoPicker.view animated:YES];
-    });
+    
     uexImagePhotoAsset *asset=self.dataSource.assets[index];
     UIImage * image=[asset syncFetchImage:uexImagePhotoAssetFetchFullScreenImage];
-    UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{
-        //[MBProgressHUD hideHUDForView:self.photoPicker.view animated:YES];
-        
-    });
+
     MWPhoto *photo=[MWPhoto photoWithImage:image];
     
     return photo;
+     
+
 }
 
 
@@ -144,7 +151,12 @@
 }
 - (MWCaptionView *)photoBrowser:(MWPhotoBrowser *)photoBrowser captionViewForPhotoAtIndex:(NSUInteger)index{
     [self updateCaptionInfo];
-    return self.captionView;
+    if(index & 1){
+        return self.captionViewOdd;
+    }else{
+        return self.captionViewEven;
+    }
+
 }
 - (NSString *)photoBrowser:(MWPhotoBrowser *)photoBrowser titleForPhotoAtIndex:(NSUInteger)index{
     return _dataSource.name;

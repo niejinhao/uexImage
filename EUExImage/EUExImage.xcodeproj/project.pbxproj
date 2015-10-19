@@ -30,12 +30,12 @@
 		4220FE8B1BC676970026460B /* MWPhotoBrowser.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */; };
 		4220FE8C1BC676A20026460B /* DACircularProgress.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42EE35B21BBA3BCA00EA11AF /* DACircularProgress.framework */; };
 		4220FE8E1BC676AA0026460B /* RSKImageCropper.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42EE35B41BBA3BCA00EA11AF /* RSKImageCropper.framework */; };
-		4279BC181BC7C86500E6BD21 /* QBImagePicker.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42A5E3A21BC760E800E6E385 /* QBImagePicker.bundle */; };
 		42B1DAE71BB29EC900549D56 /* EUExImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1DAE61BB29EC900549D56 /* EUExImage.m */; };
 		42EE35B01BBA1A0200EA11AF /* uexImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35AF1BBA1A0200EA11AF /* uexImagePicker.m */; settings = {ASSET_TAGS = (); }; };
 		42EE35BF1BBA3BCA00EA11AF /* DACircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EE35B21BBA3BCA00EA11AF /* DACircularProgress.framework */; settings = {ASSET_TAGS = (); }; };
 		42EE35C11BBA3BCA00EA11AF /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EE35B41BBA3BCA00EA11AF /* RSKImageCropper.framework */; settings = {ASSET_TAGS = (); }; };
 		42EE35CC1BBA657400EA11AF /* uexImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35CB1BBA657400EA11AF /* uexImageCropper.m */; settings = {ASSET_TAGS = (); }; };
+		42F539AA1BD4DCC3000FF1C3 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */; };
 		42F670971BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F670961BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				4279BC181BC7C86500E6BD21 /* QBImagePicker.bundle in CopyFiles */,
+				42F539AA1BD4DCC3000FF1C3 /* ReactiveCocoa.framework in CopyFiles */,
 				4220FE8E1BC676AA0026460B /* RSKImageCropper.framework in CopyFiles */,
 				4220FE8C1BC676A20026460B /* DACircularProgress.framework in CopyFiles */,
 				4220FE8B1BC676970026460B /* MWPhotoBrowser.bundle in CopyFiles */,
@@ -60,7 +60,7 @@
 		0EC11D731BD3E45A008868F4 /* uexImagePhotoPickerCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImagePhotoPickerCaptionView.m; sourceTree = "<group>"; };
 		0EC11D841BD3ED65008868F4 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		0EC11D851BD3ED65008868F4 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
-		0EC5C04E1BCFF1D100E34E80 /* uexImageBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexImageBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EC5C04E1BCFF1D100E34E80 /* uexImage.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexImage.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EC5C0501BCFF1D100E34E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EC5C0591BCFF5BB00E34E80 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0EC5C05B1BCFF9D400E34E80 /* uexImageAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageAlbumPickerController.h; sourceTree = "<group>"; };
@@ -119,7 +119,6 @@
 		4220FE831BC60E160026460B /* uexImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageBrowser.h; sourceTree = "<group>"; };
 		4220FE841BC60E160026460B /* uexImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageBrowser.m; sourceTree = "<group>"; };
 		4290C3FB1BB90E73009D5095 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		42A5E3A21BC760E800E6E385 /* QBImagePicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QBImagePicker.bundle; sourceTree = "<group>"; };
 		42B1DAE11BB29EC900549D56 /* libuexImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B1DAE41BB29EC900549D56 /* EUExImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EUExImage.h; sourceTree = "<group>"; };
 		42B1DAE61BB29EC900549D56 /* EUExImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EUExImage.m; sourceTree = "<group>"; };
@@ -275,7 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				42B1DAE11BB29EC900549D56 /* libuexImage.a */,
-				0EC5C04E1BCFF1D100E34E80 /* uexImageBundle.bundle */,
+				0EC5C04E1BCFF1D100E34E80 /* uexImage.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,7 +325,6 @@
 			isa = PBXGroup;
 			children = (
 				0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */,
-				42A5E3A21BC760E800E6E385 /* QBImagePicker.bundle */,
 				4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */,
 				4220FE5C1BC60D8B0026460B /* MWPhotoBrowser */,
 				4220FE4A1BC60D540026460B /* SDWebImage */,
@@ -370,7 +368,7 @@
 			);
 			name = uexImageBundle;
 			productName = uexImageBundle;
-			productReference = 0EC5C04E1BCFF1D100E34E80 /* uexImageBundle.bundle */;
+			productReference = 0EC5C04E1BCFF1D100E34E80 /* uexImage.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		42B1DAE01BB29EC900549D56 /* EUExImage */ = {
@@ -491,11 +489,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = $SRCROOT/uexImage;
 				INFOPLIST_FILE = uexImageBundle/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zywx.uexImageBundle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = uexImage;
+				PRODUCT_NAME = uexImage;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -506,11 +506,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = $SRCROOT/uexImage;
 				INFOPLIST_FILE = uexImageBundle/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zywx.uexImageBundle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = uexImage;
+				PRODUCT_NAME = uexImage;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;

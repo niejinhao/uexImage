@@ -23,8 +23,7 @@ typedef NS_ENUM(NSInteger,uexImagePickLimitStatus){
 
 @property (nonatomic,weak)id<uexImagePhotoPickerDelegate> delegate;
 
-@property (nonatomic,strong)RACCommand * cancelCommand;
-@property (nonatomic,strong)RACCommand * confirmCommand;
+
 
 
 @property (nonatomic,assign)NSInteger minimumSelectedNumber;
@@ -44,11 +43,17 @@ typedef NS_ENUM(NSInteger,uexImagePickLimitStatus){
 @property (nonatomic,strong)NSMutableOrderedSet *selectedURLs;
 @property (nonatomic,assign)NSInteger currentSelectedNumber;
 
-
+@property (nonatomic,assign)BOOL needToShowCannotFinishToast;
 
 -(BOOL)checkIfSelectedNumbersValid:(NSInteger)selectedNumbers;
+-(RACSignal *)materializedCheckIfSelectedAssetsValidSignal;
 -(void)finishPick;
--(RACSignal *)comfirmValidSignal;
+
+
+-(RACCommand *)confirmCommand;
+-(RACCommand *)cancelCommand;
+
+
 @end
 
 

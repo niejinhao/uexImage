@@ -10,9 +10,13 @@
 @class uexImageAlbumPickerController;
 @interface uexImagePhotoPicker : NSObject
 @property (nonatomic,weak)uexImageAlbumPickerController *controller;
-@property (nonatomic,strong)RACCommand *pickFinishCommand;
+@property (nonatomic,assign)BOOL needToShowCannotFinishToast;
+
 -(instancetype)initWithController:(uexImageAlbumPickerController *)controller;
--(void)openWithIndex:(NSInteger)index;
+-(BOOL)openWithIndex:(NSInteger)index;
 
 
+
+
+-(RACCommand *)pickFinishCommand;
 @end

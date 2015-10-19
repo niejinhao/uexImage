@@ -11,7 +11,9 @@
 
 @interface uexImageAlbumPickerModel()
 @property (nonatomic,strong)NSArray *groupTypes;
-@property (nonatomic,strong)RACSignal *comfirmValidSignal;
+@property (nonatomic,strong)RACCommand * cancelCommand;
+@property (nonatomic,strong)RACCommand * confirmCommand;
+@property (nonatomic,strong)RACSignal * cannotFinishPickSignal;
 @end
 
 @implementation uexImageAlbumPickerModel
@@ -40,62 +42,82 @@
     self.needReloadData=NO;
     @weakify(self);
     RAC(self,limitStatus)=[RACSignal combineLatest:@[RACObserve(self, minimumSelectedNumber),RACObserve(self, maximumSelectedNumber)] reduce:^id(NSNumber *min,NSNumber *max){
+        @strongify(self);
         NSInteger minNum=[min integerValue];
         NSInteger maxNum=[max integerValue];
-        if(minNum > 1 && maxNum>=1){
+        if(minNum >= 1 && maxNum>=1){
+            self.selectInfoString=[NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"minAndMaxLimitInfo"),minNum ,maxNum];
             return @(uexImagePickWithBothMaxAndMinLimit);
-        }else if(minNum <= 1 && maxNum>=1){
+        }else if(minNum < 1 && maxNum>=1){
+            self.selectInfoString=[NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"maxLimitInfo"),maxNum];
             return @(uexImagePickWithMaximumLimit);
-        }else if(minNum > 1 && maxNum<1){
+        }else if(minNum >= 1 && maxNum<1){
+            self.selectInfoString=[NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"minLimitInfo"),minNum];
             return @(uexImagePickWithMinimumLimit);
         }else{
+            self.selectInfoString=UEXIMAGE_LOCALIZEDSTRING(@"noLimitInfo");
             return @(uexImagePickWithNoLimit);
         }
     }];
-    [self setupCommands];
+
     [self updateAssetsGroupsWithCompletion:^{
         self.needReloadData=YES;
     }];
 
-    RAC(self,selectInfoString)=[RACSignal combineLatest:@[RACObserve(self, minimumSelectedNumber),RACObserve(self,maximumSelectedNumber)] reduce:^id(NSNumber *min,NSNumber *max){
-        @strongify(self);
+}
 
-        switch (self.limitStatus) {
-            case uexImagePickWithNoLimit: {
-                return UEXIMAGE_LOCALIZEDSTRING(@"noLimitInfo");
-                break;
-            }
-            case uexImagePickWithMaximumLimit: {
-                return [NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"max"),max];
-                break;
-            }
-            case uexImagePickWithMinimumLimit: {
-                return [NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"minAndMaxLimitInfo"),min,max];
-                break;
-            }
-            case uexImagePickWithBothMaxAndMinLimit: {
-                return [NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"minLimitInfo"),min];
-                break;
-            }
+
+
+
+
+
+-(RACCommand *)cancelCommand{
+    if(!_cancelCommand){
+        @weakify(self);
+        _cancelCommand=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+             @strongify(self);
+            [self cancelPick];
+            return [RACSignal empty];
+        }];
+    }
+    return _cancelCommand;
+}
+
+-(RACCommand *)confirmCommand{
+    if(!_confirmCommand){
+        @weakify(self);
+        _confirmCommand=[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            @strongify(self);
+            return [self materializedCheckIfSelectedAssetsValidSignal];
+
+             
+
+        }];
+        [_confirmCommand.executionSignals subscribeNext:^(RACSignal *execution) {
+            [[execution dematerialize] subscribeError:^(NSError *error) {
+                self.needToShowCannotFinishToast=YES;
+            } completed:^{
+                [self finishPick];
+            }];
+        }];
+    }
+    return _confirmCommand;
+    
+}
+
+
+-(RACSignal *)materializedCheckIfSelectedAssetsValidSignal{
+    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        if([self checkIfSelectedNumbersValid:self.currentSelectedNumber]){
+            [subscriber sendCompleted];
+        }else{
+            [subscriber sendError:NULL];
         }
-    }];
+        return nil;
+    }]materialize];
 }
 
--(void)setupCommands{
-    @weakify(self);
-    self.cancelCommand=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-        @strongify(self);
-        NSLog(@"cancel pick");
-        [self cancelPick];
-        return [RACSignal empty];
-    }];
-    self.confirmCommand=[[RACCommand alloc]initWithEnabled:[self comfirmValidSignal] signalBlock:^RACSignal *(id input) {
-        @strongify(self);
-        NSLog(@"finish pick");
-        [self finishPick];
-        return [RACSignal empty];
-    }];
-}
 
 -(void)cancelPick{
     if([self.delegate respondsToSelector:@selector(uexImageAlbumPickerModelDidCancelPickingAction:)]){
@@ -105,6 +127,7 @@
     }
 }
 
+
 -(void)finishPick{
     if([self.delegate respondsToSelector:@selector(uexImageAlbumPickerModel:didFinishPickingAction:)]){
         [self fetchAssetsFromSelectedAssetURLsWithCompletion:^(NSArray *assets) {
@@ -113,19 +136,7 @@
     }
 }
 
--(RACSignal *)comfirmValidSignal{
 
-    if(!_comfirmValidSignal){
-        @weakify(self);
-        self.comfirmValidSignal=[RACObserve(self, currentSelectedNumber) map:^id(NSNumber *value) {
-            @strongify(self);
-            return @([self checkIfSelectedNumbersValid:[value integerValue]]);
-
-        }];
-
-    }
-    return _comfirmValidSignal;
-}
 
 -(BOOL)checkIfSelectedNumbersValid:(NSInteger)selectedNumbers{
     if(selectedNumbers <self.minimumSelectedNumber){

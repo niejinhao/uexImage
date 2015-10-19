@@ -231,20 +231,37 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             [_doneButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateHighlighted];
             self.navigationItem.rightBarButtonItem = _doneButton;
         }else{
+            //modified in uexImage By CeriNo
             _doneButton = [[UIBarButtonItem alloc] init];
-            _doneButton.title=@"完成";
-            _doneButton.rac_command=self.photoPicker.pickFinishCommand;
+            _doneButton.title=UEXIMAGE_LOCALIZEDSTRING(@"finish");
+            _doneButton.rac_command=[self.photoPicker pickFinishCommand];
             // Set appearance
             [_doneButton setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
             [_doneButton setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
             [_doneButton setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
             [_doneButton setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
+            
             self.navigationItem.rightBarButtonItem = _doneButton;
             
-            UIBarButtonItem * backButton = [[UIBarButtonItem alloc] initWithTitle:@"回到图库" style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonPressed:)];
+            UIBarButtonItem * backButton = [[UIBarButtonItem alloc] initWithTitle:UEXIMAGE_LOCALIZEDSTRING(@"back") style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonPressed:)];
             self.navigationItem.leftBarButtonItem=backButton;
+            @weakify(self);
+            [[RACObserve(self.photoPicker, needToShowCannotFinishToast) filter:^BOOL(id value) {
+                return [value boolValue];
+            }] subscribeNext:^(id x) {
+                @strongify(self);
+                [self.view makeToast:self.photoPicker.controller.model.selectInfoString duration:0.5 position:CSToastPositionCenter];
+                [self.photoPicker setNeedToShowCannotFinishToast:NO];
+            }];
+            RAC(_doneButton,tintColor)=[RACObserve(self.photoPicker.controller.model, currentSelectedNumber) map:^id(id value) {
+                @strongify(self);
+                if([self.photoPicker.controller.model checkIfSelectedNumbersValid:[value integerValue]]){
+                    return [UIColor whiteColor];
+                }else{
+                    return [UIColor grayColor];
+                }
+            }];
         }
-
     } else {
         // We're not first so show back button
         UIViewController *previousViewController = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
