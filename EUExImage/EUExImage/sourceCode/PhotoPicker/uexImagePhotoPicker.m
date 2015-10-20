@@ -15,7 +15,7 @@
 @property (nonatomic,strong)uexImagePhotoAssetGroup *dataSource;
 @property (nonatomic,strong)MWPhotoBrowser *photoPicker;
 @property (nonatomic,strong)UINavigationController *nav;
-@property (nonatomic,strong)NSMutableArray *thumbs;
+@property (nonatomic,strong)NSMutableArray<MWPhoto *> *thumbs;
 
 @property (nonatomic,assign)NSInteger alreadySelectedCount;
 @property (nonatomic,assign)NSInteger numberOfSelectedAssetsInOtherGroup;

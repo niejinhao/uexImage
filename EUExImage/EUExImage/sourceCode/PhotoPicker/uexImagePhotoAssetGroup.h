@@ -14,7 +14,7 @@
 
 
 @property (nonatomic,assign)NSNumber *type;
-@property (nonatomic,strong)NSMutableArray * assets;
+@property (nonatomic,strong)NSMutableArray<uexImagePhotoAsset *> * assets;
 
 @property (nonatomic,copy)NSString *name;
 @property (nonatomic,weak)uexImageAlbumPickerModel *inModel;

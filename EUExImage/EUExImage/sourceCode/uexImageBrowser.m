@@ -12,8 +12,8 @@
 @interface uexImageBrowser()<MWPhotoBrowserDelegate>
 @property (nonatomic,strong)MWPhotoBrowser * photoBrowser;
 @property (nonatomic,strong)UINavigationController *navBrowser;
-@property (nonatomic,strong)NSMutableArray * photos;
-@property (nonatomic,strong)NSMutableDictionary * thumbs;
+@property (nonatomic,strong)NSMutableArray<MWPhoto *> * photos;
+@property (nonatomic,strong)NSMutableDictionary<NSString *,MWPhoto *> * thumbs;
 
 @end
 
