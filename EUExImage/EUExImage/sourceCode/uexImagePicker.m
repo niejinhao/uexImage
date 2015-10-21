@@ -69,7 +69,7 @@
     }];
 }
 
--(void)uexImageAlbumPickerModel:(uexImageAlbumPickerModel *)model didFinishPickingAction:(NSArray *)assets{
+-(void)uexImageAlbumPickerModel:(uexImageAlbumPickerModel *)model didFinishPickingAction:(NSArray<ALAsset *> *)assets{
     UEXIMAGE_ASYNC_DO_IN_GLOBAL_QUEUE(^{
         UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{[MBProgressHUD showHUDAddedTo:self.picker.view animated:YES];});
         
