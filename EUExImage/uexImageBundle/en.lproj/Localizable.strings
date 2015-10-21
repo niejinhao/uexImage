@@ -5,3 +5,12 @@
   Created by CeriNo on 15/10/15.
   Copyright © 2015年 AppCan. All rights reserved.
 */
+"noLimitInfo"="";
+"minLimitInfo"="At least %ld photos";
+"maxLimitInfo"="At most %ld photos";
+"minAndMaxLimitInfo"="At least %ld photos,At most %ld photos";
+"selectedNumbers"="%ld photos have been selected";
+"noValidPhotosInAlbumToast"="The album is empty";
+"cancel"="Cancel";
+"finish"="Finish";
+"back"="Back";
