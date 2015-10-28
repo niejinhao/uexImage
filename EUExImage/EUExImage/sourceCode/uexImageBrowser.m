@@ -160,7 +160,7 @@
 
 }
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index{
-    if([self.thumbs objectForKey:@(index)]){
+    if([self.thumbs objectForKey:[@(index) stringValue]]){
         return (MWPhoto *)self.thumbs[[@(index) stringValue]];
     }
     return (MWPhoto *)self.photos[index];

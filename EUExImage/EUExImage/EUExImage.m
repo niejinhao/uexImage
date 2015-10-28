@@ -240,7 +240,8 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 
     NSString const * pluginName=@"uexImage";
     NSString *jsStr = [NSString stringWithFormat:@"if(%@.%@ != null){%@.%@('%@');}",pluginName,name,pluginName,name,result];
-    [EUtility brwView:meBrwView evaluateScript:jsStr];
+    [EUtility brwView:self.meBrwView evaluateScript:jsStr];
+    
     
 }
 
