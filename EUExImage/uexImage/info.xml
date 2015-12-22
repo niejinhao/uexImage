@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
-    <plugin uexName="uexImage" version="3.0.3" build="3">
-    	<info>3:删去资源包中多余的info.plist</info>
+    <plugin uexName="uexImage" version="3.0.4" build="4">
+    	<info>新增接口setIpadPopEnable</info>
+    	<build>3:删去资源包中多余的info.plist</build>
     	<build>2:修复armv7环境会编译失败的bug</build>
     	<build>1:修复openCropper没有国际化的问题</build>
         <build>0:uexImage插件</build>

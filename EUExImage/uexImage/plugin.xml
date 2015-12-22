@@ -7,5 +7,6 @@
         <method name="openBrowser"></method>
         <method name="saveToPhotoAlbum"></method>
         <method name="clearOutputImages"></method>
+        <method name="setIpadPopEnable"></method>
     </plugin>
 </uexplugins>

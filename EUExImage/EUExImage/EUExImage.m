@@ -23,12 +23,13 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 @property (nonatomic,strong)uexImageCropper *cropper;
 @property (nonatomic,strong)uexImagePicker *picker;
 @property (nonatomic,strong)uexImageBrowser *browser;
+@property (nonatomic,assign)BOOL enableIpadPop;
 @end
 @implementation EUExImage
 
 
 #pragma mark - EUExBase Method
--(instancetype)initWithBrwView:(EBrowserView *)eInBrwView{
+- (instancetype)initWithBrwView:(EBrowserView *)eInBrwView{
     self=[super initWithBrwView:eInBrwView];
     if(self){
         if(!320 == [UIScreen mainScreen].bounds.size.width || [EUtility isIpad]){
@@ -39,6 +40,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
         self.initialStatusBarStyle=[UIApplication sharedApplication].statusBarStyle;
 
     }
+    self.enableIpadPop=YES;
     return self;
 }
 
@@ -48,7 +50,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 #pragma mark - APIs
 
 
--(void)openPicker:(NSMutableArray *)inArguments{
+- (void)openPicker:(NSMutableArray *)inArguments{
     
     if(!self.picker){
         self.picker=[[uexImagePicker alloc]initWithEUExImage:self];
@@ -84,7 +86,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 
 
 
--(void)openCropper:(NSMutableArray *)inArguments{
+- (void)openCropper:(NSMutableArray *)inArguments{
     if(!self.cropper){
         self.cropper=[[uexImageCropper alloc]initWithEUExImage:self];
     }
@@ -126,7 +128,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 
 
 
--(void)openBrowser:(NSMutableArray *)inArguments{
+- (void)openBrowser:(NSMutableArray *)inArguments{
     if([inArguments count] < 1){
         return;
     }
@@ -146,7 +148,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 
 
 
--(void)saveToPhotoAlbum:(NSMutableArray *)inArguments{
+- (void)saveToPhotoAlbum:(NSMutableArray *)inArguments{
     if([inArguments count] < 1){
         return;
     }
@@ -161,7 +163,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge_retained void * _Nullable)([info objectForKey:@"extraInfo"]));
 }
 
--(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
 
     id extraInfo =CFBridgingRelease(contextInfo);
@@ -177,13 +179,20 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     [self callbackJsonWithName:@"cbSaveToPhotoAlbum" Object:dict];
 }
 
--(void)clearOutputImages:(NSMutableArray *)inArguments{
+- (void)clearOutputImages:(NSMutableArray *)inArguments{
     [[NSFileManager defaultManager] removeItemAtPath:[self getSaveDirPath] error:NULL];
+}
+
+- (void)setIpadPopEnable:(NSMutableArray *)inArguments{
+    if([inArguments count] < 1){
+        return;
+    }
+    self.enableIpadPop=[inArguments[0] boolValue];
 }
 
 #pragma mark - Tools
 //restore initial StatusBar
--(void)restoreStatusBar{
+- (void)restoreStatusBar{
     dispatch_async(dispatch_get_main_queue(), ^{
         [[UIApplication sharedApplication] setStatusBarStyle:self.initialStatusBarStyle];
         NSNumber *statusBarHidden = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"UIStatusBarHidden"];
@@ -195,9 +204,9 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     
 }
 
--(void)presentViewController:(UIViewController *)vc animated:(BOOL)flag{
+- (void)presentViewController:(UIViewController *)vc animated:(BOOL)flag{
     dispatch_async(dispatch_get_main_queue(), ^{
-        if(self.usingPop){
+        if(self.usingPop && self.enableIpadPop){
             UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:vc];
             self.iPadPop = popover;
             [EUtility brwView:meBrwView presentPopover:self.iPadPop FromRect:CGRectMake(0, 0, 300, 300) permittedArrowDirections:UIPopoverArrowDirectionAny animated:flag];
@@ -209,7 +218,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     
 }
 
--(void)dismissViewController:(UIViewController *)vc
+- (void)dismissViewController:(UIViewController *)vc
                     Animated:(BOOL)flag
                   completion:(void (^)(void))completion{
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -230,7 +239,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 }
 
 // js call back
--(void)callbackJsonWithName:(NSString *)name Object:(id)obj{
+- (void)callbackJsonWithName:(NSString *)name Object:(id)obj{
     NSString *result=nil;
     if([obj isKindOfClass:[NSString class]]){
         result=(NSString *)obj;
@@ -247,7 +256,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 
 
 
--(NSString *)getSaveDirPath{
+- (NSString *)getSaveDirPath{
     NSString *tempPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/apps"];
     NSString *wgtTempPath=[tempPath stringByAppendingPathComponent:[EUtility brwViewWidgetId:meBrwView]];
 
@@ -255,7 +264,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 }
 
 // save to Disk
--(NSString *)saveImage:(UIImage *)image quality:(CGFloat)quality usePng:(BOOL)usePng{
+- (NSString *)saveImage:(UIImage *)image quality:(CGFloat)quality usePng:(BOOL)usePng{
     NSData *imageData;
     NSString *imageSuffix;
     
@@ -291,5 +300,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     }
     
 }
+
+
 
 @end
