@@ -42,10 +42,7 @@
 		42EE35C11BBA3BCA00EA11AF /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EE35B41BBA3BCA00EA11AF /* RSKImageCropper.framework */; };
 		42EE35CC1BBA657400EA11AF /* uexImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35CB1BBA657400EA11AF /* uexImageCropper.m */; };
 		42EE606F1C2A5089007CFCB4 /* RSKImageCropperStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 42F20E591BE054BF00A25E73 /* RSKImageCropperStrings.bundle */; };
-		42EE60701C2A508C007CFCB4 /* ReactiveCocoa.framework in Resources */ = {isa = PBXBuildFile; fileRef = 0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */; };
 		42EE60711C2A5090007CFCB4 /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */; };
-		42EE60721C2A5096007CFCB4 /* DACircularProgress.framework in Resources */ = {isa = PBXBuildFile; fileRef = 42EE35B21BBA3BCA00EA11AF /* DACircularProgress.framework */; };
-		42EE60731C2A5099007CFCB4 /* RSKImageCropper.framework in Resources */ = {isa = PBXBuildFile; fileRef = 42EE35B41BBA3BCA00EA11AF /* RSKImageCropper.framework */; };
 		42F20E5A1BE054D100A25E73 /* RSKImageCropperStrings.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42F20E591BE054BF00A25E73 /* RSKImageCropperStrings.bundle */; };
 		42F539AA1BD4DCC3000FF1C3 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */; };
 		42F670971BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F670961BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m */; };
@@ -523,10 +520,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42EE60731C2A5099007CFCB4 /* RSKImageCropper.framework in Resources */,
-				42EE60721C2A5096007CFCB4 /* DACircularProgress.framework in Resources */,
 				42EE60711C2A5090007CFCB4 /* MWPhotoBrowser.bundle in Resources */,
-				42EE60701C2A508C007CFCB4 /* ReactiveCocoa.framework in Resources */,
 				42EE606F1C2A5089007CFCB4 /* RSKImageCropperStrings.bundle in Resources */,
 				3D31B4618FACD8DCA45DCB4F /* uexImage.bundle in Resources */,
 			);
