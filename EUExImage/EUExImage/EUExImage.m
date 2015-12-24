@@ -190,6 +190,8 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     self.enableIpadPop=[inArguments[0] boolValue];
 }
 
+
+
 #pragma mark - Tools
 //restore initial StatusBar
 - (void)restoreStatusBar{
@@ -222,7 +224,7 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
                     Animated:(BOOL)flag
                   completion:(void (^)(void))completion{
     dispatch_async(dispatch_get_main_queue(), ^{
-        if(self.usingPop){
+        if(self.usingPop && self.enableIpadPop){
             [self.iPadPop dismissPopoverAnimated:flag];
             if(completion){
                 completion();
