@@ -33,9 +33,6 @@
 		4220FE791BC60D8B0026460B /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE6F1BC60D8B0026460B /* MWZoomingScrollView.m */; };
 		4220FE7A1BC60D8B0026460B /* UIImage+MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE711BC60D8B0026460B /* UIImage+MWPhotoBrowser.m */; };
 		4220FE851BC60E160026460B /* uexImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE841BC60E160026460B /* uexImageBrowser.m */; };
-		4220FE8B1BC676970026460B /* MWPhotoBrowser.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */; };
-		4220FE8C1BC676A20026460B /* DACircularProgress.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42EE35B21BBA3BCA00EA11AF /* DACircularProgress.framework */; };
-		4220FE8E1BC676AA0026460B /* RSKImageCropper.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42EE35B41BBA3BCA00EA11AF /* RSKImageCropper.framework */; };
 		42B1DAE71BB29EC900549D56 /* EUExImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1DAE61BB29EC900549D56 /* EUExImage.m */; };
 		42EE35B01BBA1A0200EA11AF /* uexImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35AF1BBA1A0200EA11AF /* uexImagePicker.m */; };
 		42EE35BF1BBA3BCA00EA11AF /* DACircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EE35B21BBA3BCA00EA11AF /* DACircularProgress.framework */; };
@@ -43,8 +40,6 @@
 		42EE35CC1BBA657400EA11AF /* uexImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35CB1BBA657400EA11AF /* uexImageCropper.m */; };
 		42EE606F1C2A5089007CFCB4 /* RSKImageCropperStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 42F20E591BE054BF00A25E73 /* RSKImageCropperStrings.bundle */; };
 		42EE60711C2A5090007CFCB4 /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */; };
-		42F20E5A1BE054D100A25E73 /* RSKImageCropperStrings.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42F20E591BE054BF00A25E73 /* RSKImageCropperStrings.bundle */; };
-		42F539AA1BD4DCC3000FF1C3 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */; };
 		42F670971BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F670961BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m */; };
 		469748AE3370FC375273E41D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2409A7E711AAC23CFB8C0143 /* QuartzCore.framework */; };
 		641F6D3AA742741E843204A3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73754211062AED928B5309F1 /* ImageIO.framework */; };
@@ -56,23 +51,6 @@
 		BBD13EFD93EEA1BC8D3CDFA9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9B3CB610C0DE0F213957BA /* CoreGraphics.framework */; };
 		D3F58D7BED4B8000E849A36F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FFBA15FF0D4B52EA815A0263 /* libc++.tbd */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		42B1DADF1BB29EC900549D56 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				42F20E5A1BE054D100A25E73 /* RSKImageCropperStrings.bundle in CopyFiles */,
-				42F539AA1BD4DCC3000FF1C3 /* ReactiveCocoa.framework in CopyFiles */,
-				4220FE8E1BC676AA0026460B /* RSKImageCropper.framework in CopyFiles */,
-				4220FE8C1BC676A20026460B /* DACircularProgress.framework in CopyFiles */,
-				4220FE8B1BC676970026460B /* MWPhotoBrowser.bundle in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0EC11D721BD3E45A008868F4 /* uexImagePhotoPickerCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImagePhotoPickerCaptionView.h; sourceTree = "<group>"; };
@@ -459,7 +437,6 @@
 			buildPhases = (
 				42B1DADD1BB29EC900549D56 /* Sources */,
 				42B1DADE1BB29EC900549D56 /* Frameworks */,
-				42B1DADF1BB29EC900549D56 /* CopyFiles */,
 				441114AEDBF62FD9EC67269C /* Resources */,
 			);
 			buildRules = (
