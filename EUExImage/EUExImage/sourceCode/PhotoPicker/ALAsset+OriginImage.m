@@ -13,13 +13,13 @@
 
 -(UIImage *)uexImage_OriginImage{
     ALAssetRepresentation *representation = [self defaultRepresentation];
-    UIImage * originImage =[UIImage imageWithCGImage:[representation fullResolutionImage] scale:representation.scale orientation:(UIImageOrientation)representation.orientation];
+    UIImage * originImage =[UIImage imageWithCGImage:[representation fullResolutionImage]];
     return originImage;
 }
 
 -(UIImage *)uexImage_FullScreenImage{
     ALAssetRepresentation *representation = [self defaultRepresentation];
-    UIImage * fullScreenImage =[UIImage imageWithCGImage:[representation fullScreenImage] scale:representation.scale orientation:(UIImageOrientation)representation.orientation];
+    UIImage * fullScreenImage =[UIImage imageWithCGImage:[representation fullScreenImage]];
     return fullScreenImage;
 }
 
