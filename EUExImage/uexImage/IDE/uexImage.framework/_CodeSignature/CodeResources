@@ -423,20 +423,20 @@
 		<data>
 		JKbXoT98W7zj86Z2W3qbeHZe/kE=
 		</data>
-		<key>uexImage.bundle/Contents/Resources/en.lproj/Localizable.strings</key>
+		<key>uexImage.bundle/en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0XP2zgH4LmijGP/rxrZ27UJLrkQ=
+			4f2bQb4yBe0h8siuG90gaBZltUk=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>uexImage.bundle/Contents/Resources/zh-Hans.lproj/Localizable.strings</key>
+		<key>uexImage.bundle/zh-Hans.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			32YLRH7Y+Vwa3CQ2ApEkXXTJ078=
+			iSrLUliiSFyby6EVj0Qm8n1UP+o=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -859,20 +859,20 @@
 		<data>
 		JKbXoT98W7zj86Z2W3qbeHZe/kE=
 		</data>
-		<key>uexImage.bundle/Contents/Resources/en.lproj/Localizable.strings</key>
+		<key>uexImage.bundle/en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0XP2zgH4LmijGP/rxrZ27UJLrkQ=
+			4f2bQb4yBe0h8siuG90gaBZltUk=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>uexImage.bundle/Contents/Resources/zh-Hans.lproj/Localizable.strings</key>
+		<key>uexImage.bundle/zh-Hans.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			32YLRH7Y+Vwa3CQ2ApEkXXTJ078=
+			iSrLUliiSFyby6EVj0Qm8n1UP+o=
 			</data>
 			<key>optional</key>
 			<true/>

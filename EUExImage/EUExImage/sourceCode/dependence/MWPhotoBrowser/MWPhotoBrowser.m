@@ -244,14 +244,19 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             self.navigationItem.rightBarButtonItem = _doneButton;
             
             UIBarButtonItem * backButton = [[UIBarButtonItem alloc] initWithTitle:UEXIMAGE_LOCALIZEDSTRING(@"back") style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonPressed:)];
-            self.navigationItem.leftBarButtonItem=backButton;
+            self.navigationItem.leftBarButtonItem = backButton;
             @weakify(self);
-            [[RACObserve(self.photoPicker, needToShowCannotFinishToast) filter:^BOOL(id value) {
+            [[RACObserve(self.photoPicker, needToShowCannotFinishToast)
+               filter:^BOOL(id value) {
                 return [value boolValue];
-            }] subscribeNext:^(id x) {
+            }]
+             subscribeNext:^(id x) {
                 @strongify(self);
-                [self.view makeToast:self.photoPicker.controller.model.selectInfoString duration:0.5 position:CSToastPositionCenter];
-                [self.photoPicker setNeedToShowCannotFinishToast:NO];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [self.view makeToast:self.photoPicker.controller.model.selectInfoString duration:0.5 position:CSToastPositionCenter];
+                     [self.photoPicker setNeedToShowCannotFinishToast:NO];
+                 });
+
             }];
             RAC(_doneButton,tintColor)=[RACObserve(self.photoPicker.controller.model, currentSelectedNumber) map:^id(id value) {
                 @strongify(self);

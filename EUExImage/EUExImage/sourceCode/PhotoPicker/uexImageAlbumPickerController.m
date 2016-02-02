@@ -26,13 +26,16 @@
         self.photoPicker=[[uexImagePhotoPicker alloc]initWithController:self];
         
         @weakify(self);
-        [[RACObserve(self.model, needReloadData) distinctUntilChanged] subscribeNext:^(id x) {
+        [[RACObserve(self.model, needReloadData)
+           distinctUntilChanged]
+         subscribeNext:^(id x) {
             @strongify(self);
             if(self.tableView && self.model.needReloadData){
-                [self.tableView reloadData];
-                self.model.needReloadData=NO;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                    self.model.needReloadData=NO;
+                });
             }
-            
         }];
         
         [self setupNavigationItems];
@@ -80,13 +83,16 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     @weakify(self);
-    [[RACObserve(self.model, needToShowCannotFinishToast) filter:^BOOL(id value) {
+    [[RACObserve(self.model, needToShowCannotFinishToast)
+       filter:^BOOL(id value) {
         return ([value boolValue]);
-    }] subscribeNext:^(id x) {
-
+    }]
+     subscribeNext:^(id x) {
         @strongify(self);
-        [self.view makeToast:self.model.selectInfoString duration:0.5 position:CSToastPositionCenter];
-        [self.model setNeedToShowCannotFinishToast:NO];
+         dispatch_async(dispatch_get_main_queue(), ^{
+             [self.view makeToast:self.model.selectInfoString duration:0.5 position:CSToastPositionCenter];
+             [self.model setNeedToShowCannotFinishToast:NO];
+         });
     }];
 }
 

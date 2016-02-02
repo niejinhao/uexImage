@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
-    <plugin uexName="uexImage" version="3.0.6" build="6">
-    	<info>6:修复pick图片方向不正确的bug</info>
+    <plugin uexName="uexImage" version="3.0.7" build="7">
+    	<info>7:修复7.x系统上一个导致卡死的bug;修复iPhone包在iPad上运行时的崩溃bug</info>
+    	<build>6:修复pick图片方向不正确的bug</build>
     	<build>5:添加IDE支持</build>
     	<build>4:新增接口setIpadPopEnable</build>
     	<build>3:删去资源包中多余的info.plist</build>

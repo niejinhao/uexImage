@@ -32,13 +32,13 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 - (instancetype)initWithBrwView:(EBrowserView *)eInBrwView{
     self=[super initWithBrwView:eInBrwView];
     if(self){
-        if(!320 == [UIScreen mainScreen].bounds.size.width || [EUtility isIpad]){
-        self.usingPop=YES;
-    }else{
-        self.usingPop=NO;
-    }
+        if([EUtility isIpad] && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
+            self.usingPop=YES;
+        }else{
+            self.usingPop=NO;
+        }
         self.initialStatusBarStyle=[UIApplication sharedApplication].statusBarStyle;
-
+        
     }
     self.enableIpadPop=YES;
     return self;
