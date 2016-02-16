@@ -88,21 +88,20 @@
     _numberOfSelectedAssetsInOtherGroup=_controller.model.currentSelectedNumber-_alreadySelectedCount;
 
     _photoPicker = [[MWPhotoBrowser alloc]initWithDelegate:self];
-    _photoPicker.displaySelectionButtons=YES;
-    _photoPicker.startOnGrid=YES;
-    _photoPicker.enableGrid=YES;
-    _photoPicker.zoomPhotosToFill=YES;
-    _photoPicker.displayActionButton=NO;
-    _photoPicker.alwaysShowControls=YES;
-    
+    _photoPicker.displaySelectionButtons = YES;
+    _photoPicker.startOnGrid = YES;
+    _photoPicker.enableGrid = YES;
+    _photoPicker.zoomPhotosToFill = YES;
+    _photoPicker.displayActionButton = NO;
+    _photoPicker.alwaysShowControls = YES;
+    [_photoPicker setCurrentPhotoIndex:_dataSource.assets.count];
     [_photoPicker combineWithPhotoPicker:self];
     self.nav=[[UINavigationController alloc]initWithRootViewController:_photoPicker];
-
-        [_controller presentViewController:self.nav animated:YES completion:^{
-            _controller.view.hidden=YES;
-            _controller.navigationController.navigationBar.hidden=YES;
-            [self updateCaptionInfo];
-        }];
+    [_controller presentViewController:self.nav animated:YES completion:^{
+        _controller.view.hidden=YES;
+        _controller.navigationController.navigationBar.hidden=YES;
+        [self updateCaptionInfo];
+    }];
     return YES;
     //[_controller.navigationController pushViewController:_photoPicker animated:YES];
     
