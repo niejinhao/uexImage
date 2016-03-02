@@ -14,7 +14,10 @@
 #define firstImageLength 60
 #define imageBorderWidth (1.0/[[UIScreen mainScreen] scale])
 
+@interface uexImageAlbumCell()
+@property (nonatomic,assign)BOOL isInitialized;
 
+@end
 @implementation uexImageAlbumCell
 
 - (void)awakeFromNib {
@@ -30,6 +33,9 @@
 
 
 -(void)setupFrame{
+    if (self.isInitialized) {
+        return;
+    }
     self.thumbImage1=[[UIImageView alloc]initWithFrame:CGRectMake(imageStartX ,imageStartY,firstImageLength,firstImageLength)];
     _thumbImage1.layer.borderWidth =imageBorderWidth;
     _thumbImage1.layer.borderColor =[UIColor whiteColor].CGColor;
@@ -58,6 +64,6 @@
     self.countLabel=[[UILabel alloc]initWithFrame:CGRectMake(100, 55, 200, 20)];
     [self.countLabel setFont:[UIFont systemFontOfSize:14]];
     [self.contentView addSubview:self.countLabel];
-
+    self.isInitialized = YES;
 }
 @end
