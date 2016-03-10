@@ -221,7 +221,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     if ([self.navigationController.viewControllers objectAtIndex:0] == self) {
         // We're first on stack so show done button
         if(!_useInPhotoPicker){
-            _doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", nil) style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonPressed:)];
+            _doneButton = [[UIBarButtonItem alloc] initWithTitle:UEXIMAGE_LOCALIZEDSTRING(@"back") style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonPressed:)];
             // Set appearance
             [_doneButton setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
             [_doneButton setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
@@ -229,7 +229,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             [_doneButton setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
             [_doneButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateNormal];
             [_doneButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateHighlighted];
-            self.navigationItem.rightBarButtonItem = _doneButton;
+            //self.navigationItem.rightBarButtonItem = _doneButton;
+            self.navigationItem.leftBarButtonItem = _doneButton;
         }else{
             //modified in uexImage By CeriNo
             _doneButton = [[UIBarButtonItem alloc] init];
@@ -1135,9 +1136,12 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         } else {
             NSString *photosText;
             if (numberOfPhotos == 1) {
-                photosText = NSLocalizedString(@"photo", @"Used in the context: '1 photo'");
+                //photosText = NSLocalizedString(@"photo", @"Used in the context: '1 photo'");
+                photosText = UEXIMAGE_LOCALIZEDSTRING(@"photo");
             } else {
-                photosText = NSLocalizedString(@"photos", @"Used in the context: '3 photos'");
+               // photosText = NSLocalizedString(@"photos", @"Used in the context: '3 photos'");
+                photosText = UEXIMAGE_LOCALIZEDSTRING(@"photos");
+
             }
             self.title = [NSString stringWithFormat:@"%lu %@", (unsigned long)numberOfPhotos, photosText];
         }
@@ -1145,7 +1149,10 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         if ([_delegate respondsToSelector:@selector(photoBrowser:titleForPhotoAtIndex:)]) {
             self.title = [_delegate photoBrowser:self titleForPhotoAtIndex:_currentPageIndex];
         } else {
-            self.title = [NSString stringWithFormat:@"%lu %@ %lu", (unsigned long)(_currentPageIndex+1), NSLocalizedString(@"of", @"Used in the context: 'Showing 1 of 3 items'"), (unsigned long)numberOfPhotos];
+            
+           // self.title = [NSString stringWithFormat:@"%lu %@ %lu", (unsigned long)(_currentPageIndex+1), NSLocalizedString(@"of", @"Used in the context: 'Showing 1 of 3 items'"), (unsigned long)numberOfPhotos];
+            self.title = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)(_currentPageIndex+1),  (unsigned long)numberOfPhotos];
+
         }
 	} else {
 		self.title = nil;
