@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Q5Hqf2b7janx8VUMVJ/q5JjcPh4=
+		K8Pyzm4Jj6CtQ8vOWFBUhRVvyJM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -28,21 +28,49 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/RSKImageCropViewController+Protected.h</key>
-		<data>
-		7cG0BC8INkUHVWL/XFf4jj5MmfE=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			7cG0BC8INkUHVWL/XFf4jj5MmfE=
+			</data>
+			<key>hash2</key>
+			<data>
+			iAbtuvL++bgAmjzqdGFA985uH1I7okcno9uZnkIY5Iw=
+			</data>
+		</dict>
 		<key>Headers/RSKImageCropViewController.h</key>
-		<data>
-		aDcQd2yb84USWR6gqj31jANRIo0=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			aDcQd2yb84USWR6gqj31jANRIo0=
+			</data>
+			<key>hash2</key>
+			<data>
+			3K6oLapcEvkn5SdvQZeijP2998ZjbUYbElpxV8wEh1A=
+			</data>
+		</dict>
 		<key>Headers/RSKImageCropper.h</key>
-		<data>
-		8LWT4/ceh8ljn28XUM4yCgzbyGE=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			8LWT4/ceh8ljn28XUM4yCgzbyGE=
+			</data>
+			<key>hash2</key>
+			<data>
+			gPfSs/VfFyMMcNFNkL8FLi7NUMqvYPlDc/sdtT4AREk=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
-		<data>
-		LC3vRCQMcsbHzJe6+8/htZGNCX8=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			LC3vRCQMcsbHzJe6+8/htZGNCX8=
+			</data>
+			<key>hash2</key>
+			<data>
+			Mwwu99MOi4PkdbrItN+7wui6GYqOoZMekFTq31oXRUM=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>
