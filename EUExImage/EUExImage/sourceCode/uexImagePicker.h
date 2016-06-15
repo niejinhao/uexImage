@@ -18,4 +18,7 @@
 @property (nonatomic,assign)BOOL usePng;
 @property (nonatomic,strong)NSString *title;
 @property (nonatomic,assign)BOOL detailedInfo;
+
+@property (nonatomic,strong)ACJSFunctionRef *cb;
+
 @end

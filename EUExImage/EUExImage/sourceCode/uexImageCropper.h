@@ -15,4 +15,5 @@
 @property (nonatomic,strong)UIImage *imageToBeCropped;
 @property (nonatomic,assign)CGFloat quality;
 @property (nonatomic,assign)RSKImageCropMode mode;
+@property (nonatomic,strong)ACJSFunctionRef *cb;
 @end

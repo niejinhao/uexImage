@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 @class uexImageAlbumPickerController;
 @interface uexImagePhotoPicker : NSObject
 @property (nonatomic,weak)uexImageAlbumPickerController *controller;

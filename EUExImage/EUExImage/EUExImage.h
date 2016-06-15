@@ -8,9 +8,9 @@
 
 
 
-#import "EUExBase.h"
-#import <Foundation/Foundation.h>
 
+#import <Foundation/Foundation.h>
+#import <AppCanKit/AppCanKit.h>
 
 extern NSString * const cUexImageCallbackIsCancelledKey;
 extern NSString * const cUexImageCallbackDataKey;
@@ -27,7 +27,6 @@ extern NSString * const cUexImageCallbackIsSuccessKey;
 -(void)dismissViewController:(UIViewController *)vc
                     Animated:(BOOL)flag
                   completion:(void (^)(void))completion;
--(void)callbackJsonWithName:(NSString *)name Object:(id)obj;
 -(NSString *)saveImage:(UIImage *)image quality:(CGFloat)quality usePng:(BOOL)usePng;
 @end
 

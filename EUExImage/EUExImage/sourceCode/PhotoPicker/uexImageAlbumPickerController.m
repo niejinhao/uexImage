@@ -10,7 +10,7 @@
 #import "uexImageAlbumCell.h"
 #import "MWPhotoBrowser.h"
 #import "uexImagePhotoPicker.h"
-
+#import <AppCanKit/ACPluginBundle.h>
 @interface uexImageAlbumPickerController ()
 
 @property (nonatomic,strong)UITableView *tableView;
@@ -22,8 +22,8 @@
 -(instancetype)initWithModel:(uexImageAlbumPickerModel *)model{
     self=[super init];
     if(self){
-        self.model=model;
-        self.photoPicker=[[uexImagePhotoPicker alloc]initWithController:self];
+        self.model = model;
+        self.photoPicker = [[uexImagePhotoPicker alloc]initWithController:self];
         
         @weakify(self);
         [[RACObserve(self.model, needReloadData)
