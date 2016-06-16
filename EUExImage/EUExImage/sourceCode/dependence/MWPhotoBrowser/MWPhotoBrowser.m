@@ -14,7 +14,7 @@
 #import "UIImage+MWPhotoBrowser.h"
 #import "uexImagePhotoPicker.h"
 #import "uexImageAlbumPickerController.h"
-#import <AppCanKit/ACPluginBundle.h>
+#import <AppCanKit/AppCanKit.h>
 
 #define PADDING                  10
 

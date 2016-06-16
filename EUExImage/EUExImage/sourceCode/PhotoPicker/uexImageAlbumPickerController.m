@@ -10,7 +10,7 @@
 #import "uexImageAlbumCell.h"
 #import "MWPhotoBrowser.h"
 #import "uexImagePhotoPicker.h"
-#import <AppCanKit/ACPluginBundle.h>
+#import <AppCanKit/AppCanKit.h>
 @interface uexImageAlbumPickerController ()
 
 @property (nonatomic,strong)UITableView *tableView;

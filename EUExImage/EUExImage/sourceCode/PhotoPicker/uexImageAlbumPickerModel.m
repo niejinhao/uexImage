@@ -8,7 +8,7 @@
 
 #import "uexImageAlbumPickerModel.h"
 #import "uexImagePhotoAssetGroup.h"
-#import <AppCanKit/ACPluginBundle.h>
+#import <AppCanKit/AppCanKit.h>
 
 @interface uexImageAlbumPickerModel()
 @property (nonatomic,strong)NSArray *groupTypes;
