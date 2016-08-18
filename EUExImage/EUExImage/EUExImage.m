@@ -11,9 +11,9 @@
 #import "uexImageWidgets.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
-NSString * const cUexImageCallbackIsCancelledKey = @"isCancelled";
-NSString * const cUexImageCallbackDataKey      = @"data";
-NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
+NSString * const cUexImageCallbackIsCancelledKey    = @"isCancelled";
+NSString * const cUexImageCallbackDataKey           = @"data";
+NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
 @interface EUExImage()
 
 @property (nonatomic,assign)UIStatusBarStyle initialStatusBarStyle;
@@ -37,9 +37,9 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     self = [super initWithWebViewEngine:engine];
     if (self) {
         if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
-            _usingPop=YES;
+            _usingPop = YES;
         }else{
-            _usingPop=NO;
+            _usingPop = NO;
         }
         _initialStatusBarStyle=[UIApplication sharedApplication].statusBarStyle;
         _enableIpadPop = YES;
@@ -57,28 +57,28 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     
     
     if(!self.picker){
-        self.picker=[[uexImagePicker alloc]initWithEUExImage:self];
+        self.picker = [[uexImagePicker alloc]initWithEUExImage:self];
     }
     [self.picker clean];
     self.picker.cb = cb;
     if(info){
         if([info objectForKey:@"min"]){
-            self.picker.min=[[info objectForKey:@"min"] integerValue];
+            self.picker.min = [[info objectForKey:@"min"] integerValue];
         }
         if([info objectForKey:@"max"]){
-            self.picker.max=[[info objectForKey:@"max"] integerValue];
+            self.picker.max = [[info objectForKey:@"max"] integerValue];
         }
         if([info objectForKey:@"quality"]){
-            self.picker.quality=[[info objectForKey:@"quality"] floatValue];
+            self.picker.quality = [[info objectForKey:@"quality"] floatValue];
         }
         if([info objectForKey:@"usePng"]){
-            self.picker.usePng=[[info objectForKey:@"usePng"] boolValue];
+            self.picker.usePng = [[info objectForKey:@"usePng"] boolValue];
         }
         if([info objectForKey:@"title"]){
-            self.picker.title=[info objectForKey:@"title"];
+            self.picker.title = [info objectForKey:@"title"];
         }
         if([info objectForKey:@"detailedInfo"]){
-            self.picker.detailedInfo=[[info objectForKey:@"detailedInfo"] boolValue];
+            self.picker.detailedInfo = [[info objectForKey:@"detailedInfo"] boolValue];
         }
     }
     [self.picker open];
@@ -89,16 +89,16 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 
 - (void)openCropper:(NSMutableArray *)inArguments{
     if(!self.cropper){
-        self.cropper=[[uexImageCropper alloc]initWithEUExImage:self];
+        self.cropper = [[uexImageCropper alloc]initWithEUExImage:self];
     }
     ACArgsUnpack(NSDictionary *info,ACJSFunctionRef *cb) = inArguments;
     [self.cropper clean];
     if(info){
         if([info objectForKey:@"quality"]){
-            self.cropper.quality=[[info objectForKey:@"quality"] floatValue];
+            self.cropper.quality = [[info objectForKey:@"quality"] floatValue];
         }
         if([info objectForKey:@"uesPng"]){
-            self.cropper.usePng=[[info objectForKey:@"usePng"] floatValue];
+            self.cropper.usePng = [[info objectForKey:@"usePng"] floatValue];
         }
         if([info objectForKey:@"mode"]){
             switch ([[info objectForKey:@"mode"] integerValue]) {
@@ -144,29 +144,31 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     ACArgsUnpack(NSDictionary *info,ACJSFunctionRef *cb) = inArguments;
     NSString *path = stringArg(info[@"localPath"]);
     NSString *extra = stringArg(info[@"extraInfo"]);
-    UIImage *image=[UIImage imageWithContentsOfFile:[self absPath:path]];
+    UIImage *image = [UIImage imageWithContentsOfFile:[self absPath:path]];
     
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc]init];
     [library writeImageToSavedPhotosAlbum:image.CGImage orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error) {
         NSMutableDictionary *dict=[NSMutableDictionary dictionary];
         [dict setValue:extra forKey:@"extraInfo"];
+        UEX_ERROR err = kUexNoError;
         if(error){
+            err = uexErrorMake(1,[error localizedDescription]);
             [dict setValue:@(NO) forKey:cUexImageCallbackIsSuccessKey];
             [dict setValue:[error localizedDescription] forKey:@"errorStr"];
         }else{
             [dict setValue:@(YES) forKey:cUexImageCallbackIsSuccessKey];
         }
         [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.cbSaveToPhotoAlbum" arguments:ACArgsPack(dict.ac_JSONFragment)];
-        [cb executeWithArguments:ACArgsPack(dict)];
+        [cb executeWithArguments:ACArgsPack(err,error.localizedDescription)];
     }];
 
 }
 
 
 
-- (NSNumber *)clearOutputImages:(NSMutableArray *)inArguments{
+- (UEX_BOOL)clearOutputImages:(NSMutableArray *)inArguments{
     BOOL ret = [[NSFileManager defaultManager] removeItemAtPath:[self saveDirPath] error:NULL];
-    return @(ret);
+    return ret ? UEX_TRUE : UEX_FALSE;
 }
 
 - (void)setIpadPopEnable:(NSMutableArray *)inArguments{
