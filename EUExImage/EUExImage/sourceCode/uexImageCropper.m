@@ -75,7 +75,9 @@
     [self.EUExImage dismissViewController:controller Animated:YES completion:^{
         NSDictionary *result = @{cUexImageCallbackIsCancelledKey:@(YES)};
         [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(result.ac_JSONFragment)];
-        [self.cb executeWithArguments:ACArgsPack(result)];
+        UEX_ERROR err = kUexNoError;
+        err = uexErrorMake(-1, nil);
+        [self.cb executeWithArguments:ACArgsPack(err, result)];
         [self clean];
     }];
 
@@ -96,7 +98,8 @@
         [self.EUExImage dismissViewController:controller Animated:YES completion:^{
             
             [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
-            [self.cb executeWithArguments:ACArgsPack(dict)];
+            UEX_ERROR err = kUexNoError;
+            [self.cb executeWithArguments:ACArgsPack(err, dict)];
             [self clean];
         }];
     });
@@ -122,7 +125,10 @@
     [self.EUExImage dismissViewController:picker Animated:YES completion:^{
         NSDictionary *dict = @{cUexImageCallbackIsCancelledKey:@(YES)};
         [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
-        [self.cb executeWithArguments:ACArgsPack(dict)];
+        
+        UEX_ERROR err = kUexNoError;
+        err = uexErrorMake(-1, nil);
+        [self.cb executeWithArguments:ACArgsPack(err, dict)];
         [self clean];
     }];
 

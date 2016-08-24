@@ -67,7 +67,11 @@
         NSDictionary *result = @{cUexImageCallbackIsCancelledKey:@(YES)};
 
         [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onPickerClosed" arguments:ACArgsPack(result.ac_JSONFragment)];
-        [self.cb executeWithArguments:ACArgsPack(result)];
+        
+        UEX_ERROR err = kUexNoError;
+        err = uexErrorMake(-1, nil);
+            
+        [self.cb executeWithArguments:ACArgsPack(err, result)];
         [self clean];
     }];
 }
@@ -116,7 +120,8 @@
         UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{[MBProgressHUD hideHUDForView:self.picker.view animated:YES];});
         [self.EUExImage dismissViewController:self.picker Animated:YES completion:^{
             [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onPickerClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
-            [self.cb executeWithArguments:ACArgsPack(dict)];
+            UEX_ERROR err = kUexNoError;
+            [self.cb executeWithArguments:ACArgsPack(err, dict)];
             [self clean];
         }];
         
