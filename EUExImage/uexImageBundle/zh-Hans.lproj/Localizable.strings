@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  EUExImage
+
+  Created by CeriNo on 15/10/15.
+  Copyright © 2015年 AppCan. All rights reserved.
+*/
+
+"noLimitInfo"="";
+"minLimitInfo"="至少应该选择%ld张照片";
+"maxLimitInfo"="至多只能选择%ld张照片";
+"minAndMaxLimitInfo"="至少应该选择%ld张照片,至多只能选择%ld张照片";
+"selectedNumbers"="已选择%ld张照片";
+"noValidPhotosInAlbumToast"="所选择的相簿为空";
+"cancel"="取消";
+"finish"="完成";
+"back"="返回";
+"photo"="张";
+"photos"="张";
+"ImageBrowse"="图片浏览";
