@@ -11,6 +11,7 @@
 #import "uexImageAlbumPickerController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "MBProgressHUD.h"
+#import <Photos/Photos.h>
 @interface uexImagePicker()<uexImagePhotoPickerDelegate>
 //@property (nonatomic,strong)QBImagePickerController *picker;
 @property uexImageAlbumPickerModel *model;
@@ -97,6 +98,31 @@
                         [info setValue:@(location.coordinate.longitude) forKey:@"longitude"];
                         [info setValue:@(location.altitude) forKey:@"altitude"];
                     }
+                    
+                    //不丢失exif
+                    Byte *buffer = (Byte*)malloc(representation.size);
+                    NSUInteger buffered = [representation getBytes:buffer fromOffset:0.0 length:representation.size error:nil];
+                    NSData *imgData = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];
+                    CGImageSourceRef imgSource = CGImageSourceCreateWithData((CFDataRef)imgData, nil);
+                    CFDictionaryRef imageInfo = CGImageSourceCopyPropertiesAtIndex(imgSource, 0, NULL);
+                    NSDictionary *imageInDict = CFBridgingRelease(imageInfo);
+                    if([imageInDict objectForKey:@"{Exif}"]){
+                        NSDictionary *Exif = [imageInDict objectForKey:@"{Exif}"];
+                        [info setValue:[Exif objectForKey:@"LensMake"] forKey:@"make"];
+                        [info setValue:[Exif objectForKey:@"LensModel"] forKey:@"model"];
+                        [info setValue:[Exif objectForKey:@"ExposureTime"] forKey:@"exposureTime"];
+//                        [info setValue:[Exif objectForKey:@"ISOSpeedRatings"] forKey:@"iso"];
+                        [info setValue:[Exif objectForKey:@"FocalLength"] forKey:@"focalLength"];
+                        [info setValue:[Exif objectForKey:@"WhiteBalance"] forKey:@"whiteBalance"];
+                        [info setValue:[Exif objectForKey:@"ApertureValue"] forKey:@"aperture"];
+                        [info setValue:[Exif objectForKey:@"Flash"] forKey:@"flash"];
+                        
+                        NSArray *iso = [Exif objectForKey:@"ISOSpeedRatings"];
+                        if(iso && [iso isKindOfClass:[NSArray class]]){
+                            [info setValue:iso[0] forKey:@"iso"];
+                        }
+                    }
+//                    NSLog(@"--imageInfo:%@",imageInfo);
                     
                     [detailedInfoArray addObject:info];
                 }

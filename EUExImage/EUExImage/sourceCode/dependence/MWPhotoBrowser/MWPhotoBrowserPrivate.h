@@ -11,6 +11,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "MWGridViewController.h"
 #import "MWZoomingScrollView.h"
+#import "ImageEXIFView.h"
 
 // Declare private methods of browser
 @interface MWPhotoBrowser () {
@@ -18,6 +19,7 @@
 	// Data
     NSUInteger _photoCount;
     NSMutableArray *_photos;
+    NSMutableArray *_exifs;
     NSMutableArray *_thumbPhotos;
 	NSArray *_fixedPhotosArray; // Provided via init
 	

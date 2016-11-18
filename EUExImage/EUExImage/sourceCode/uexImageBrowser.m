@@ -119,6 +119,12 @@
                 if([photoInfo objectForKey:@"desc"]&&[[photoInfo objectForKey:@"desc"] isKindOfClass:[NSString class]]){
                     photo.caption=[photoInfo objectForKey:@"desc"];
                 }
+                if([photoInfo objectForKey:@"title"]&&[[photoInfo objectForKey:@"title"] isKindOfClass:[NSString class]]){
+                    photo.title=[photoInfo objectForKey:@"title"];
+                }
+                if([photoInfo objectForKey:@"detailInfo"]&&[[photoInfo objectForKey:@"detailInfo"] isKindOfClass:[NSDictionary class]]){
+                    photo.exif=[photoInfo objectForKey:@"detailInfo"];
+                }
                 [self.photos addObject:photo];
                 
             }

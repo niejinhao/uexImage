@@ -10,6 +10,7 @@
 #import "MWPhoto.h"
 #import "MWPhotoProtocol.h"
 #import "MWCaptionView.h"
+#import "ImageEXIFView.h"
 
 // Debug Logging
 #if 0 // Set to 1 to enable debug logging
@@ -39,7 +40,7 @@
 @end
 
 @class uexImagePhotoPicker;
-@interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
+@interface MWPhotoBrowser : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, weak) IBOutlet id<MWPhotoBrowserDelegate> delegate;
 @property (nonatomic) BOOL zoomPhotosToFill;
@@ -76,5 +77,8 @@
 @property (nonatomic,assign)BOOL useInPhotoPicker;
 @property (nonatomic,weak)uexImagePhotoPicker *photoPicker;
 @property (nonatomic,strong)UIBarButtonItem *photoPickerBackButton;
+@property (nonatomic,strong)ImageEXIFView *EXIFView;
+@property (nonatomic,strong)UIImageView *dropImageView;
+@property (nonatomic,strong)UIPanGestureRecognizer *exPanGestureRecognizer;
 -(void)combineWithPhotoPicker:(uexImagePhotoPicker *)photoPicker;
 @end

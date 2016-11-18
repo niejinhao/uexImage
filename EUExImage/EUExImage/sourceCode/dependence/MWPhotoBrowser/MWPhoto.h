@@ -17,6 +17,8 @@
 @interface MWPhoto : NSObject <MWPhoto>
 
 @property (nonatomic, strong) NSString *caption;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSDictionary *exif;
 @property (nonatomic, strong) NSURL *videoURL;
 @property (nonatomic) BOOL emptyImage;
 @property (nonatomic) BOOL isVideo;

@@ -19,6 +19,9 @@
 #define PADDING                  10
 
 static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
+CGPoint startPoint;
+CGPoint startCenter;
+CGPoint dropCenter;
 
 @implementation MWPhotoBrowser
 
@@ -157,7 +160,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	
 	// View
 	self.view.backgroundColor = [UIColor blackColor];
-    self.view.clipsToBounds = YES;
+    self.view.clipsToBounds = NO;
 	
 	// Setup paging scrolling view
 	CGRect pagingScrollViewFrame = [self frameForPagingScrollView];
@@ -169,7 +172,34 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	_pagingScrollView.showsVerticalScrollIndicator = NO;
 	_pagingScrollView.backgroundColor = [UIColor blackColor];
     _pagingScrollView.contentSize = [self contentSizeForPagingScrollView];
-	[self.view addSubview:_pagingScrollView];
+    [self.view addSubview:_pagingScrollView];
+    
+    
+    //ex
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGestures:)];
+    panGestureRecognizer.minimumNumberOfTouches = 1;
+    panGestureRecognizer.maximumNumberOfTouches = 1;
+    panGestureRecognizer.delegate = self;
+    [_pagingScrollView addGestureRecognizer:panGestureRecognizer];
+//    [self.view addGestureRecognizer:panGestureRecognizer];
+    
+    
+//    CGRect EXFrame = self.view.bounds;
+////    EXFrame.origin.y += EXFrame.size.height;
+//    self.EXIFView = [[ImageEXIFView alloc] initWithFrame:EXFrame title:nil exif:nil];
+    
+    self.exPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(exHandlePanGestures:)];
+    self.exPanGestureRecognizer.minimumNumberOfTouches = 1;
+    self.exPanGestureRecognizer.maximumNumberOfTouches = 1;
+    self.exPanGestureRecognizer.delegate = self;
+//    [self.EXIFView addGestureRecognizer:self.exPanGestureRecognizer];
+    
+    CGRect dropFrame = CGRectMake(pagingScrollViewFrame.size.width/2 - 7.5, pagingScrollViewFrame.size.height - 30, 15, 15);
+    self.dropImageView = [[UIImageView alloc] initWithFrame:dropFrame];
+    NSString *dropPathFormat = @"MWPhotoBrowser.bundle/ImagePan";
+    UIImage *dropImage = [UIImage imageForResourcePath:dropPathFormat ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]];
+    self.dropImageView.image = dropImage;
+    [self.view addSubview:self.dropImageView];
 	
     // Toolbar
     _toolbar = [[UIToolbar alloc] initWithFrame:[self frameForToolbarAtOrientation:self.interfaceOrientation]];
@@ -206,6 +236,159 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     [super viewDidLoad];
 	
 }
+
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    
+    return YES;
+}
+
+- (void) handlePanGestures:(UIPanGestureRecognizer*)paramSender{
+    CGPoint location = [paramSender locationInView:paramSender.view.superview];
+    _pagingScrollView.clipsToBounds = NO;
+    
+    if(paramSender.state == UIGestureRecognizerStateBegan){
+        startPoint = location;
+        startCenter = _pagingScrollView.center;
+        dropCenter = self.dropImageView.center;
+        //NSLog(@"-start-self.dropImageView.center.y:%f",self.dropImageView.center.y);
+    }
+    if(paramSender.state == UIGestureRecognizerStateEnded){
+        //退出
+        _pagingScrollView.scrollEnabled = YES;
+        
+        //NSLog(@"-end-self.view.center.y:%f",self.view.center.y);
+        
+        if(startCenter.y - _pagingScrollView.center.y >=80){
+            startCenter.y = 0 - startCenter.y;
+//            CGPoint exifCenter= startCenter;
+//            exifCenter.y += self.view.bounds.size.height;
+//            self.EXIFView.center =exifCenter;
+            
+            CATransition *applicationLoadViewIn =[CATransition animation];
+            [applicationLoadViewIn setDuration:0.5];
+            [applicationLoadViewIn setType:kCATransitionPush];
+            [applicationLoadViewIn setSubtype:kCATransitionFromTop];
+            [applicationLoadViewIn setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+            [[self.view layer]addAnimation:applicationLoadViewIn forKey:kCATransitionPush];
+            
+            MWPhoto *photoInfo = (MWPhoto *)_photos[_currentPageIndex];
+            self.EXIFView = [[ImageEXIFView alloc] initWithFrame:self.view.bounds title:photoInfo.title desc:photoInfo.caption exif:photoInfo.exif];
+            [self.EXIFView addGestureRecognizer:self.exPanGestureRecognizer];
+            [self.view addSubview:self.EXIFView];
+            
+            [[self.view layer]removeAnimationForKey:kCATransitionPush];
+        }
+        _pagingScrollView.center = startCenter;
+        self.dropImageView.center = dropCenter;
+        
+        
+        
+    }
+    if (paramSender.state != UIGestureRecognizerStateEnded && paramSender.state != UIGestureRecognizerStateFailed){
+        
+        //左右滑动
+        if(fabs(startPoint.y - location.y) <= fabs(startPoint.x - location.x) ){
+            _pagingScrollView.scrollEnabled = YES;
+            return;
+        }
+        
+        _pagingScrollView.scrollEnabled = NO;
+        
+        //上滑
+        CGFloat moveY = startPoint.y -location.y;
+        if(moveY > 0){
+            //拉越多偏移量减少的效果
+            if(moveY >70){
+                moveY = 70 + (startPoint.y -location.y - 70)/3;
+            }
+            //NSLog(@"---moveY:%f",moveY);
+            
+            CGPoint imgCenter= startCenter;
+            imgCenter.y -= moveY;
+            _pagingScrollView.center = imgCenter;
+            
+            CGPoint dropC = dropCenter;
+            dropC.y -= moveY;
+            self.dropImageView.center = dropC;
+//            CGPoint exifCenter= imgCenter;
+//            exifCenter.y += self.view.bounds.size.height;
+//            self.EXIFView.center =exifCenter;
+        }
+        
+        
+    }
+}
+- (void) exHandlePanGestures:(UIPanGestureRecognizer*)paramSender{
+    CGPoint location = [paramSender locationInView:paramSender.view.superview];
+    //NSLog(@"-location.y:%f",location.y);
+    
+    if(paramSender.state == UIGestureRecognizerStateBegan){
+        startPoint = location;
+        startCenter = self.EXIFView.center;
+    }
+    if(paramSender.state == UIGestureRecognizerStateEnded){
+        //退出
+        _pagingScrollView.scrollEnabled = YES;
+        
+        //NSLog(@"-end-self.view.center.y:%f",self.view.center.y);
+        
+        if(startCenter.y - self.EXIFView.center.y < -80){
+            
+            CATransition *applicationLoadViewIn =[CATransition animation];
+            [applicationLoadViewIn setDuration:0.5];
+            [applicationLoadViewIn setType:kCATransitionPush];
+            [applicationLoadViewIn setSubtype:kCATransitionFromBottom];
+            [applicationLoadViewIn setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+            [[self.view layer]addAnimation:applicationLoadViewIn forKey:kCATransitionPush];
+            [self.EXIFView removeFromSuperview];
+            [self.EXIFView removeGestureRecognizer:self.exPanGestureRecognizer];
+            
+            [[self.view layer]removeAnimationForKey:kCATransitionPush];
+        }
+        self.EXIFView.center = startCenter;
+        
+//        _pagingScrollView.center = startCenter;
+//
+//        CGPoint exifCenter= startCenter;
+//        exifCenter.y += self.view.bounds.size.height;
+//        self.EXIFView.center =exifCenter;
+        
+        
+    }
+    if (paramSender.state != UIGestureRecognizerStateEnded && paramSender.state != UIGestureRecognizerStateFailed){
+        
+        //左右滑动
+        if(fabs(startPoint.y - location.y) <= fabs(startPoint.x - location.x) ){
+            _pagingScrollView.scrollEnabled = YES;
+            return;
+        }
+        
+        _pagingScrollView.scrollEnabled = NO;
+        
+        //下滑
+        CGFloat moveY = location.y - startPoint.y;
+        if(moveY > 0){
+            //拉越多偏移量减少的效果
+            if(moveY >70){
+                moveY = 70 + (location.y - startPoint.y - 70)/3;
+            }
+            
+            CGPoint imgCenter= startCenter;
+            imgCenter.y = 0 - startCenter.y + moveY;
+            _pagingScrollView.center = imgCenter;
+            
+            CGPoint exifCenter= startCenter;
+            exifCenter.y += moveY;
+            self.EXIFView.center =exifCenter;
+            
+            
+        }
+        
+        
+    }
+}
+
 
 - (void)performLayout {
     
@@ -861,12 +1044,12 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 			MWLog(@"Added page at index %lu", (unsigned long)index);
             
             // Add caption
-            MWCaptionView *captionView = [self captionViewForPhotoAtIndex:index];
-            if (captionView) {
-                captionView.frame = [self frameForCaptionView:captionView atIndex:index];
-                [_pagingScrollView addSubview:captionView];
-                page.captionView = captionView;
-            }
+//            MWCaptionView *captionView = [self captionViewForPhotoAtIndex:index];
+//            if (captionView) {
+//                captionView.frame = [self frameForCaptionView:captionView atIndex:index];
+//                [_pagingScrollView addSubview:captionView];
+//                page.captionView = captionView;
+//            }
             
             // Add play button if needed
             if (page.displayingVideo) {
@@ -1021,6 +1204,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     CGRect frame = self.view.bounds;// [[UIScreen mainScreen] bounds];
     frame.origin.x -= PADDING;
     frame.size.width += (2 * PADDING);
+    //ex
+//    frame.size.height *= 2;
     return CGRectIntegral(frame);
 }
 
