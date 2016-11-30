@@ -281,6 +281,9 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     
     
     if(!imageData) return nil;
+//    NSLog(@"---imageData-len:%lu",(unsigned long)imageData.length / 1024);
+//    UIImage *img = [[UIImage alloc] initWithData:imageData];
+//    NSLog(@"---imageData-w:%f--h:%f",img.size.width,img.size.height);
     
     NSFileManager *fmanager = [NSFileManager defaultManager];
 

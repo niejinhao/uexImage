@@ -343,6 +343,7 @@ CGPoint dropCenter;
             [[self.view layer]addAnimation:applicationLoadViewIn forKey:kCATransitionPush];
             [self.EXIFView removeFromSuperview];
             [self.EXIFView removeGestureRecognizer:self.exPanGestureRecognizer];
+            self.EXIFView = nil;
             
             [[self.view layer]removeAnimationForKey:kCATransitionPush];
         }
@@ -796,6 +797,11 @@ CGPoint dropCenter;
     if ([self areControlsHidden]) {
         // Force hidden
         self.navigationController.navigationBarHidden = YES;
+    }
+    //旋转关闭EXView
+    if(self.EXIFView){
+        [self.EXIFView removeFromSuperview];
+        self.EXIFView = nil;
     }
 	
 }

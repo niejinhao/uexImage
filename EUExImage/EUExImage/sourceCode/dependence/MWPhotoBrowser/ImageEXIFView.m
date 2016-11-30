@@ -18,15 +18,72 @@ static const CGFloat labelPadding = 10;
     self.backgroundColor = [UIColor blackColor];
     
     [self addExifViewTile:title desc:desc];
-//    [self addExifViewWith:0 title:@"器材" desc:@"NIKON"];
     
     if(exif){
-        NSArray *allKeys = exif.allKeys;
-        for (NSInteger i = 0; i < exif.allKeys.count; i ++) {
-            
-            NSString *key = allKeys[i];
+//        NSArray *allKeys = exif.allKeys;
+//        for (NSInteger i = 0; i < exif.allKeys.count; i ++) {
+//            
+//            NSString *key = allKeys[i];
+//            NSString *val = [NSString stringWithFormat:@"%@",[exif objectForKey:key]];
+//            [self addExifViewWith:i title:key desc:val];
+//        }
+        
+        NSInteger index = 0;
+        
+        NSString *key = @"设备";
+        if([exif objectForKey:key]){
             NSString *val = [NSString stringWithFormat:@"%@",[exif objectForKey:key]];
-            [self addExifViewWith:i title:key desc:val];
+            [self addExifViewWith:index title:key desc:val];
+            index ++;
+        }
+        
+        key = @"镜头";
+        if([exif objectForKey:key]){
+            NSString *val = [NSString stringWithFormat:@"%@",[exif objectForKey:key]];
+            [self addExifViewWith:index title:key desc:val];
+            index ++;
+        }
+        
+        key = @"光圈";
+        if([exif objectForKey:key]){
+            NSString *val = [NSString stringWithFormat:@"%@",[exif objectForKey:key]];
+            [self addExifViewWith:index title:key desc:val];
+            index ++;
+        }
+        
+        key = @"快门";
+        if([exif objectForKey:key]){
+            NSString *val = [NSString stringWithFormat:@"%@",[exif objectForKey:key]];
+            [self addExifViewWith:index title:key desc:val];
+            index ++;
+        }
+        
+        key = @"焦距";
+        if([exif objectForKey:key]){
+            NSString *val = [NSString stringWithFormat:@"%@",[exif objectForKey:key]];
+            [self addExifViewWith:index title:key desc:val];
+            index ++;
+        }
+        
+        key = @"ISO";
+        if([exif objectForKey:key]){
+            NSString *val = [NSString stringWithFormat:@"%@",[exif objectForKey:key]];
+            [self addExifViewWith:index title:key desc:val];
+            index ++;
+        }
+        
+        key = @"补偿";
+        if([exif objectForKey:key]){
+            NSString *val = [NSString stringWithFormat:@"%@",[exif objectForKey:key]];
+            [self addExifViewWith:index title:key desc:val];
+            index ++;
+        }
+        
+        key = @"时间";
+        if([exif objectForKey:key]){
+            NSString *val = [NSString stringWithFormat:@"%@",[exif objectForKey:key]];
+            [self addExifViewWith:index title:key desc:val];
+            index ++;
         }
         
     }
