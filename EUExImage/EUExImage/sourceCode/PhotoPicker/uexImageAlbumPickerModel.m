@@ -8,6 +8,7 @@
 
 #import "uexImageAlbumPickerModel.h"
 #import "uexImagePhotoAssetGroup.h"
+#import <AppCanKit/AppCanKit.h>
 
 @interface uexImageAlbumPickerModel()
 @property (nonatomic,strong)NSArray *groupTypes;
@@ -71,7 +72,7 @@
 
 
 
--(RACCommand *)cancelCommand{
+- (RACCommand *)cancelCommand{
     if(!_cancelCommand){
         @weakify(self);
         _cancelCommand=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
@@ -83,7 +84,7 @@
     return _cancelCommand;
 }
 
--(RACCommand *)confirmCommand{
+- (RACCommand *)confirmCommand{
     if(!_confirmCommand){
         @weakify(self);
         _confirmCommand=[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
@@ -106,7 +107,7 @@
 }
 
 
--(RACSignal *)materializedCheckIfSelectedAssetsValidSignal{
+- (RACSignal *)materializedCheckIfSelectedAssetsValidSignal{
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         if([self checkIfSelectedNumbersValid:self.currentSelectedNumber]){
@@ -119,7 +120,7 @@
 }
 
 
--(void)cancelPick{
+- (void)cancelPick{
     if([self.delegate respondsToSelector:@selector(uexImageAlbumPickerModelDidCancelPickingAction:)]){
 
         [self.delegate uexImageAlbumPickerModelDidCancelPickingAction:self];
@@ -128,7 +129,7 @@
 }
 
 
--(void)finishPick{
+- (void)finishPick{
     if([self.delegate respondsToSelector:@selector(uexImageAlbumPickerModel:didFinishPickingAction:)]){
         [self fetchAssetsFromSelectedAssetURLsWithCompletion:^(NSArray *assets) {
             [self.delegate uexImageAlbumPickerModel:self didFinishPickingAction:assets];
@@ -138,7 +139,7 @@
 
 
 
--(BOOL)checkIfSelectedNumbersValid:(NSInteger)selectedNumbers{
+- (BOOL)checkIfSelectedNumbersValid:(NSInteger)selectedNumbers{
     if(selectedNumbers <self.minimumSelectedNumber){
         return NO;
     }

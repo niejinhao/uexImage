@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
+<<<<<<< HEAD
   <plugin uexName="uexImage" version="3.0.11" build="11">
     <info>11: IDE证书更新</info>
     <build>10: 修复在4/4s机型上裁剪接口闪退的问题</build>
@@ -15,3 +16,9 @@
     <build>0: uexImage插件</build>
   </plugin>
 </uexplugins>
+=======
+    <plugin uexName="uexImage" version="4.0.0" build="0">
+        <info>0:uexImage插件</info>
+    </plugin>
+</uexplugins>
+>>>>>>> dev-4.0

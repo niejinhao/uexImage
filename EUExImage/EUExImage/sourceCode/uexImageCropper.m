@@ -73,7 +73,10 @@
  */
 - (void)imageCropViewControllerDidCancelCrop:(RSKImageCropViewController *)controller{
     [self.EUExImage dismissViewController:controller Animated:YES completion:^{
-            [self.EUExImage callbackJsonWithName:@"onCropperClosed" Object:@{cUexImageCallbackIsCancelledKey:@(YES)}];
+        NSDictionary *result = @{cUexImageCallbackIsCancelledKey:@(YES)};
+        [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(result.ac_JSONFragment)];
+        [self.cb executeWithArguments:ACArgsPack(result)];
+        [self clean];
     }];
 
 }
@@ -92,7 +95,8 @@
         [dict setValue:[self.EUExImage saveImage:croppedImage quality:self.quality usePng:self.usePng] forKey:cUexImageCallbackDataKey];
         [self.EUExImage dismissViewController:controller Animated:YES completion:^{
             
-            [self.EUExImage callbackJsonWithName:@"onCropperClosed" Object:dict];
+            [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
+            [self.cb executeWithArguments:ACArgsPack(dict)];
             [self clean];
         }];
     });
@@ -116,7 +120,9 @@
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self.EUExImage dismissViewController:picker Animated:YES completion:^{
-        [self.EUExImage callbackJsonWithName:@"onCropperClosed" Object:@{cUexImageCallbackIsCancelledKey:@(YES)}];
+        NSDictionary *dict = @{cUexImageCallbackIsCancelledKey:@(YES)};
+        [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
+        [self.cb executeWithArguments:ACArgsPack(dict)];
         [self clean];
     }];
 

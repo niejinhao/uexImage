@@ -57,6 +57,7 @@
     self.dataDict=nil;
     [self.photos removeAllObjects];
     [self.thumbs removeAllObjects];
+    self.cb = nil;
 }
 
 
@@ -168,8 +169,9 @@
 
 - (void)photoBrowserDidFinishModalPresentation:(MWPhotoBrowser *)photoBrowser{
     [self.EUExImage dismissViewController:self.navBrowser Animated:YES completion:^{
+        [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onBrowserClosed" arguments:nil];
+        [self.cb executeWithArguments:nil];
         [self clean];
-        [self.EUExImage callbackJsonWithName:@"onBrowserClosed" Object:nil];
     }];
 
 

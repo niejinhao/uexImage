@@ -29,12 +29,12 @@
 
 -(void)open{
     uexImageAlbumPickerModel *model =[[uexImageAlbumPickerModel alloc]init];
-    self.model=model;
-    self.model.delegate=self;
-    _model.minimumSelectedNumber=self.min;
-    _model.maximumSelectedNumber=self.max;
+    self.model = model;
+    self.model.delegate = self;
+    _model.minimumSelectedNumber = self.min;
+    _model.maximumSelectedNumber = self.max;
     uexImageAlbumPickerController *albumPickerController =[[uexImageAlbumPickerController alloc]initWithModel:self.model];
-    self.picker=[[UINavigationController alloc]initWithRootViewController:albumPickerController];
+    self.picker = [[UINavigationController alloc] initWithRootViewController:albumPickerController];
     [self.EUExImage presentViewController:self.picker animated:YES];
     
 }
@@ -43,28 +43,31 @@
 
 
 -(void)clean{
-    self.picker=nil;
-    self.model=nil;
+    self.picker = nil;
+    self.model = nil;
+    self.cb = nil;
     [self setDafaultConfig];
 }
 
 
 -(void)setDafaultConfig{
 
-    self.quality=0.5;
-    self.usePng=NO;
-    self.min=1;
-    self.max=0;
-    self.picker=nil;
-    self.detailedInfo=NO;
+    self.quality = 0.5;
+    self.usePng = NO;
+    self.min = 1;
+    self.max = 0;
+    self.picker = nil;
+    self.detailedInfo = NO;
 }
 
 
 #pragma mark - uexImagePhotoPickerDelegate
 -(void)uexImageAlbumPickerModelDidCancelPickingAction:(uexImageAlbumPickerModel *)model{
     [self.EUExImage dismissViewController:self.picker Animated:YES completion:^{
-        [self.EUExImage callbackJsonWithName:@"onPickerClosed" Object:@{cUexImageCallbackIsCancelledKey:@(YES)}];
-        
+        NSDictionary *result = @{cUexImageCallbackIsCancelledKey:@(YES)};
+
+        [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onPickerClosed" arguments:ACArgsPack(result.ac_JSONFragment)];
+        [self.cb executeWithArguments:ACArgsPack(result)];
         [self clean];
     }];
 }
@@ -73,12 +76,12 @@
     UEXIMAGE_ASYNC_DO_IN_GLOBAL_QUEUE(^{
         UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{[MBProgressHUD showHUDAddedTo:self.picker.view animated:YES];});
         
-        NSMutableDictionary *dict=[NSMutableDictionary dictionary];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         [dict setValue:@(NO) forKey:cUexImageCallbackIsCancelledKey];
-        NSMutableArray *dataArray =[NSMutableArray array];
-        NSMutableArray *detailedInfoArray=nil;
+        NSMutableArray *dataArray = [NSMutableArray array];
+        NSMutableArray *detailedInfoArray = nil;
         if(self.detailedInfo){
-            detailedInfoArray=[NSMutableArray array];
+            detailedInfoArray = [NSMutableArray array];
         }
         
         for(ALAsset * asset in assets){
@@ -88,7 +91,7 @@
             if(imagePath){
                 [dataArray addObject:imagePath];
                 if(detailedInfoArray){
-                    NSMutableDictionary *info=[NSMutableDictionary dictionary];
+                    NSMutableDictionary *info = [NSMutableDictionary dictionary];
                     [info setValue:imagePath forKey:@"localPath"];
                     [info setValue:@((int)[[asset valueForProperty:ALAssetPropertyDate] timeIntervalSince1970]) forKey:@"timestamp"];
                     CLLocation *location=[asset valueForProperty:ALAssetPropertyLocation];
@@ -112,7 +115,8 @@
         }
         UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{[MBProgressHUD hideHUDForView:self.picker.view animated:YES];});
         [self.EUExImage dismissViewController:self.picker Animated:YES completion:^{
-            [self.EUExImage callbackJsonWithName:@"onPickerClosed" Object:dict];
+            [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onPickerClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
+            [self.cb executeWithArguments:ACArgsPack(dict)];
             [self clean];
         }];
         
