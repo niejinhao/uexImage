@@ -29,7 +29,6 @@ typedef NS_ENUM(NSInteger,uexImagePickLimitStatus){
 @property (nonatomic,assign)NSInteger minimumSelectedNumber;
 @property (nonatomic,assign)NSInteger maximumSelectedNumber;
 @property (nonatomic,assign)uexImagePickLimitStatus limitStatus;
-
 @property (nonatomic,copy)NSString *selectInfoString;
 
 
@@ -45,13 +44,13 @@ typedef NS_ENUM(NSInteger,uexImagePickLimitStatus){
 
 @property (nonatomic,assign)BOOL needToShowCannotFinishToast;
 
--(BOOL)checkIfSelectedNumbersValid:(NSInteger)selectedNumbers;
--(RACSignal *)materializedCheckIfSelectedAssetsValidSignal;
--(void)finishPick;
+- (BOOL)checkIfSelectedNumbersValid:(NSInteger)selectedNumbers;
+- (RACSignal *)materializedCheckIfSelectedAssetsValidSignal;
+- (void)finishPick;
 
 
--(RACCommand *)confirmCommand;
--(RACCommand *)cancelCommand;
+- (RACCommand *)confirmCommand;
+- (RACCommand *)cancelCommand;
 
 
 @end
@@ -59,7 +58,7 @@ typedef NS_ENUM(NSInteger,uexImagePickLimitStatus){
 
 @protocol uexImagePhotoPickerDelegate<NSObject>
 @optional
--(void)uexImageAlbumPickerModelDidCancelPickingAction:(uexImageAlbumPickerModel*)model;
+- (void)uexImageAlbumPickerModelDidCancelPickingAction:(uexImageAlbumPickerModel*)model;
 
--(void)uexImageAlbumPickerModel:(uexImageAlbumPickerModel *)model didFinishPickingAction:(NSArray *)assets;//assets 是ALAssets构成的数组
+- (void)uexImageAlbumPickerModel:(uexImageAlbumPickerModel *)model didFinishPickingAction:(NSArray *)assets;//assets 是ALAssets构成的数组
 @end

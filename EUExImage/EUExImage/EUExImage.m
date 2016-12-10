@@ -101,20 +101,11 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
             self.cropper.usePng = [[info objectForKey:@"usePng"] floatValue];
         }
         if([info objectForKey:@"mode"]){
-            switch ([[info objectForKey:@"mode"] integerValue]) {
-                case 1:
-                    self.cropper.mode = RSKImageCropModeSquare;
-                    break;
-                case 2:
-                    self.cropper.mode = RSKImageCropModeCircle;
-                    break;
-                default:
-                    break;
-            }
+            self.cropper.shape = [[info objectForKey:@"mode"] integerValue];
         }
         if([info objectForKey:@"src"]){
             UIImage *imageToBeCropped = [UIImage imageWithContentsOfFile:[self absPath:[info objectForKey:@"src"]]];
-            self.cropper.imageToBeCropped=imageToBeCropped;
+            self.cropper.imageToBeCropped = imageToBeCropped;
         }
     }
     self.cropper.cb = cb;
@@ -148,7 +139,7 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
     
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc]init];
     [library writeImageToSavedPhotosAlbum:image.CGImage orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error) {
-        NSMutableDictionary *dict=[NSMutableDictionary dictionary];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         [dict setValue:extra forKey:@"extraInfo"];
         UEX_ERROR err = kUexNoError;
         if(error){
@@ -209,7 +200,7 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
 }
 
 - (void)dismissViewController:(UIViewController *)vc
-                    Animated:(BOOL)flag
+                    animated:(BOOL)flag
                   completion:(void (^)(void))completion{
     dispatch_async(dispatch_get_main_queue(), ^{
         if(self.usingPop && self.enableIpadPop){

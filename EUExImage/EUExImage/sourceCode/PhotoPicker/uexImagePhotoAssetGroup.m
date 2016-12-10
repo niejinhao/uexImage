@@ -11,7 +11,7 @@
 @implementation uexImagePhotoAssetGroup
 
 
--(instancetype)initWithAssetsGroup:(ALAssetsGroup *)group inModel:(uexImageAlbumPickerModel *)model{
+- (instancetype)initWithAssetsGroup:(ALAssetsGroup *)group inModel:(uexImageAlbumPickerModel *)model{
     self=[super init];
     if(self){
         self.type=[group valueForProperty:ALAssetsGroupPropertyType];

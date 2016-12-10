@@ -25,7 +25,7 @@ extern NSString * const cUexImageCallbackIsSuccessKey;
 
 -(void)presentViewController:(UIViewController *)vc animated:(BOOL)flag;
 -(void)dismissViewController:(UIViewController *)vc
-                    Animated:(BOOL)flag
+                    animated:(BOOL)flag
                   completion:(void (^)(void))completion;
 -(NSString *)saveImage:(UIImage *)image quality:(CGFloat)quality usePng:(BOOL)usePng;
 @end

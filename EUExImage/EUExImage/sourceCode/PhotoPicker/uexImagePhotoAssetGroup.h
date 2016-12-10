@@ -22,5 +22,5 @@
 
 
 
--(instancetype)initWithAssetsGroup:(ALAssetsGroup *)group inModel:(uexImageAlbumPickerModel *)model;
+- (instancetype)initWithAssetsGroup:(ALAssetsGroup *)group inModel:(uexImageAlbumPickerModel *)model;
 @end

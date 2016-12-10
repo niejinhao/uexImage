@@ -11,13 +11,13 @@
 @implementation ALAsset (OriginImage)
 
 
--(UIImage *)uexImage_OriginImage{
+- (UIImage *)uexImage_OriginImage{
     ALAssetRepresentation *representation = [self defaultRepresentation];
     UIImage * originImage =[UIImage imageWithCGImage:[representation fullResolutionImage]];
     return originImage;
 }
 
--(UIImage *)uexImage_FullScreenImage{
+- (UIImage *)uexImage_FullScreenImage{
     ALAssetRepresentation *representation = [self defaultRepresentation];
     UIImage * fullScreenImage =[UIImage imageWithCGImage:[representation fullScreenImage]];
     return fullScreenImage;

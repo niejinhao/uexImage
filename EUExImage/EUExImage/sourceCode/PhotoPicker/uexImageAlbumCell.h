@@ -15,5 +15,5 @@
 @property (nonatomic,strong)UILabel * nameLabel;
 @property (nonatomic,strong)UILabel * countLabel;
 
--(void)setupFrame;
+- (void)setupFrame;
 @end

@@ -8,7 +8,7 @@
 
 #import "uexImageCropper.h"
 
-@interface uexImageCropper()<RSKImageCropViewControllerDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface uexImageCropper()<RSKImageCropViewControllerDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,RSKImageCropViewControllerDataSource>
 @property (nonatomic,strong)RSKImageCropViewController *cropper;
 
 @end
@@ -18,10 +18,10 @@
 -(instancetype)initWithEUExImage:(EUExImage *)EUExImage{
     self=[super init];
     if(self) {
-        self.EUExImage=EUExImage;
-        self.imageToBeCropped=nil;
-        self.quality=0.5;
-        self.mode=RSKImageCropModeSquare;
+        self.EUExImage = EUExImage;
+        self.imageToBeCropped = nil;
+        self.quality = 0.5;
+        self.shape = uexImageCropShapeSquare;
     }
     return self;
 }
@@ -46,24 +46,98 @@
 
 }
 -(void)clean{
-    self.imageToBeCropped=nil;
-    self.quality=0.5;
-    self.mode=RSKImageCropModeSquare;
-    self.cropper=nil;
+    self.imageToBeCropped = nil;
+    self.quality = 0.5;
+    self.shape = uexImageCropShapeSquare;
+    self.cropper = nil;
 }
 
 
 
 -(void)openCropper{
-
-    RSKImageCropViewController * cropper=[[RSKImageCropViewController alloc]initWithImage:self.imageToBeCropped cropMode:self.mode];
-    cropper.delegate=self;
-    self.cropper=cropper;
+    RSKImageCropMode mode = RSKImageCropModeSquare;
+    switch (self.shape) {
+        case uexImageCropShapeSquare:
+            mode = RSKImageCropModeSquare;
+            break;
+        case uexImageCropShapeCircle:
+            mode = RSKImageCropModeCircle;
+            break;
+        case uexImageCropShapeRect4x3:
+        case uexImageCropShapeRect16x9:
+            mode = RSKImageCropModeCustom;
+            break;
+        default:
+            break;
+    }
+    RSKImageCropViewController * cropper = [[RSKImageCropViewController alloc]initWithImage:self.imageToBeCropped cropMode:mode];
+    cropper.delegate = self;
+    cropper.dataSource = self;
+    self.cropper = cropper;
     [self.EUExImage presentViewController:cropper animated:YES];
 
 
 }
+#pragma mark - RSKImageCropViewControllerDataSource
 
+static CGFloat kMaskRectMinimumPadding = 20;
+
+/**
+ Asks the data source a custom rect for the mask.
+ 
+ @param controller The crop view controller object to whom a rect is provided.
+ 
+ @return A custom rect for the mask.
+ 
+ @discussion Only valid if `cropMode` is `RSKImageCropModeCustom`.
+ */
+- (CGRect)imageCropViewControllerCustomMaskRect:(RSKImageCropViewController *)controller{
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    CGFloat width = MIN(screenSize.width, screenSize.height) - 2 * kMaskRectMinimumPadding;
+    CGFloat height = 0;
+    
+    switch (self.shape) {
+        case uexImageCropShapeRect4x3:
+            height = width * 3 / 4 ;
+            
+            break;
+        case uexImageCropShapeRect16x9:
+            height = width * 9 / 16 ;
+            break;
+        default:
+            width = 0;
+            break;
+    }
+    return CGRectMake(kMaskRectMinimumPadding, screenSize.height / 2 - height / 2, width, height);
+}
+
+/**
+ Asks the data source a custom path for the mask.
+ 
+ @param controller The crop view controller object to whom a path is provided.
+ 
+ @return A custom path for the mask.
+ 
+ @discussion Only valid if `cropMode` is `RSKImageCropModeCustom`.
+ */
+- (UIBezierPath *)imageCropViewControllerCustomMaskPath:(RSKImageCropViewController *)controller{
+    return [UIBezierPath bezierPathWithRect:controller.maskRect];
+}
+
+
+
+/**
+ Asks the data source a custom rect in which the image can be moved.
+ 
+ @param controller The crop view controller object to whom a rect is provided.
+ 
+ @return A custom rect in which the image can be moved.
+ 
+ @discussion Only valid if `cropMode` is `RSKImageCropModeCustom`. If you want to support the rotation  when `cropMode` is `RSKImageCropModeCustom` you must implement it. Will be marked as `required` in version `2.0.0`.
+ */
+- (CGRect)imageCropViewControllerCustomMovementRect:(RSKImageCropViewController *)controller{
+    return controller.maskRect;
+}
 
 
 
@@ -72,7 +146,7 @@
  Tells the delegate that crop image has been canceled.
  */
 - (void)imageCropViewControllerDidCancelCrop:(RSKImageCropViewController *)controller{
-    [self.EUExImage dismissViewController:controller Animated:YES completion:^{
+    [self.EUExImage dismissViewController:controller animated:YES completion:^{
         NSDictionary *result = @{cUexImageCallbackIsCancelledKey:@(YES)};
         [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(result.ac_JSONFragment)];
         [self.cb executeWithArguments:ACArgsPack(result)];
@@ -93,7 +167,7 @@
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         [dict setValue:@(NO) forKey:cUexImageCallbackIsCancelledKey];
         [dict setValue:[self.EUExImage saveImage:croppedImage quality:self.quality usePng:self.usePng] forKey:cUexImageCallbackDataKey];
-        [self.EUExImage dismissViewController:controller Animated:YES completion:^{
+        [self.EUExImage dismissViewController:controller animated:YES completion:^{
             
             [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
             [self.cb executeWithArguments:ACArgsPack(dict)];
@@ -112,14 +186,14 @@
     UEXIMAGE_ASYNC_DO_IN_GLOBAL_QUEUE(^{
         UIImage *checkImg= [info objectForKey:UIImagePickerControllerOriginalImage];
         self.imageToBeCropped=checkImg;
-        [self.EUExImage dismissViewController:picker Animated:YES completion:^{
+        [self.EUExImage dismissViewController:picker animated:YES completion:^{
             
             [self openCropper];
         }];
     });
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    [self.EUExImage dismissViewController:picker Animated:YES completion:^{
+    [self.EUExImage dismissViewController:picker animated:YES completion:^{
         NSDictionary *dict = @{cUexImageCallbackIsCancelledKey:@(YES)};
         [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
         [self.cb executeWithArguments:ACArgsPack(dict)];

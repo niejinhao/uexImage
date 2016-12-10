@@ -30,18 +30,18 @@ typedef NS_ENUM(NSInteger,uexImagePhotoAssetFetchImageType) {
 @property (nonatomic,assign)BOOL selected;
 
 
--(instancetype)initWithAsset:(ALAsset *)photoAsset
+- (instancetype)initWithAsset:(ALAsset *)photoAsset
                     observer:(id<uexImagePhotoAssetObserver>)observer;
 
 
 
 
 
--(UIImage *)syncFetchImage:(uexImagePhotoAssetFetchImageType)type;
+- (UIImage *)syncFetchImage:(uexImagePhotoAssetFetchImageType)type;
 
--(void)doSelect;
--(void)doUnselect;
--(void)refreshSelectStatus;
+- (void)doSelect;
+- (void)doUnselect;
+- (void)refreshSelectStatus;
 
 @end
 

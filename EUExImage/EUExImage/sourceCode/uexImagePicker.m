@@ -63,7 +63,7 @@
 
 #pragma mark - uexImagePhotoPickerDelegate
 -(void)uexImageAlbumPickerModelDidCancelPickingAction:(uexImageAlbumPickerModel *)model{
-    [self.EUExImage dismissViewController:self.picker Animated:YES completion:^{
+    [self.EUExImage dismissViewController:self.picker animated:YES completion:^{
         NSDictionary *result = @{cUexImageCallbackIsCancelledKey:@(YES)};
 
         [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onPickerClosed" arguments:ACArgsPack(result.ac_JSONFragment)];
@@ -114,7 +114,7 @@
             [dict setValue:detailedInfoArray forKey:@"detailedImageInfo"];
         }
         UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{[MBProgressHUD hideHUDForView:self.picker.view animated:YES];});
-        [self.EUExImage dismissViewController:self.picker Animated:YES completion:^{
+        [self.EUExImage dismissViewController:self.picker animated:YES completion:^{
             [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onPickerClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
             [self.cb executeWithArguments:ACArgsPack(dict)];
             [self clean];

@@ -12,11 +12,11 @@
 @class uexImagePhotoPicker;
 
 
-@interface uexImageAlbumPickerController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface uexImageAlbumPickerController : UIViewController
 @property (nonatomic,strong)uexImageAlbumPickerModel *model;
 @property (nonatomic,strong)uexImagePhotoPicker *photoPicker;
 
--(instancetype)initWithModel:(uexImageAlbumPickerModel *)model;
+- (instancetype)initWithModel:(uexImageAlbumPickerModel *)model;
 
 
 @end

@@ -14,7 +14,7 @@
 
 
 
--(instancetype)initWithAsset:(ALAsset *)photoAsset
+- (instancetype)initWithAsset:(ALAsset *)photoAsset
                     observer:(id<uexImagePhotoAssetObserver>)observer{
     self=[super init];
     if(self){
@@ -27,7 +27,7 @@
 }
 
 
--(void)doSelect{
+- (void)doSelect{
     if(![_observer.selectedURLs containsObject:self.assetURL]){
         [_observer.selectedURLs addObject:self.assetURL];
         _observer.currentSelectedNumber++;
@@ -35,7 +35,7 @@
     }
 
 }
--(void)doUnselect{
+- (void)doUnselect{
     if([_observer.selectedURLs containsObject:self.assetURL]){
         [_observer.selectedURLs removeObject:self.assetURL];
         _observer.currentSelectedNumber--;
@@ -44,11 +44,11 @@
 
 }
 
--(void)refreshSelectStatus{
+- (void)refreshSelectStatus{
     self.selected=[_observer.selectedURLs containsObject:self.assetURL];
 }
 
--(UIImage *)syncFetchImage:(uexImagePhotoAssetFetchImageType)type{
+- (UIImage *)syncFetchImage:(uexImagePhotoAssetFetchImageType)type{
     ALAssetsLibrary *assetsLibrary=self.observer.assetsLibrary;
     NSURL *assetURL=self.assetURL;
     __block UIImage *resultImage=nil;

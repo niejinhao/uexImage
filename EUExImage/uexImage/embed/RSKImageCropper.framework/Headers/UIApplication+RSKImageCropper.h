@@ -1,7 +1,7 @@
 //
-// RSKImageCropper.h
+// UIApplication+RSKImageCropper.h
 //
-// Copyright (c) 2014-present Ruslan Skorb, http://ruslanskorb.com/
+// Copyright (c) 2015 Ruslan Skorb, http://ruslanskorb.com/
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,17 +22,18 @@
 // THE SOFTWARE.
 //
 
+#import <UIKit/UIKit.h>
+
 /**
- `RSKImageCropper` is an image cropper for iOS like in the Contacts app with support for landscape orientation.
+ The category `RSKImageCropper` of the class `UIApplication` provides the method `rsk_sharedApplication` which returns `nil` in an application extension, otherwise it returns the singleton app instance.
  */
+@interface UIApplication (RSKImageCropper)
 
-#import <Foundation/Foundation.h>
+/**
+ Returns `nil` in an application extension, otherwise returns the singleton app instance.
+ 
+ @return `nil` in an application extension, otherwise the app instance is created in the `UIApplicationMain` function.
+ */
++ (UIApplication *)rsk_sharedApplication;
 
-//! Project version number for RSKImageCropper.
-FOUNDATION_EXPORT double RSKImageCropperVersionNumber;
-
-//! Project version string for RSKImageCropper.
-FOUNDATION_EXPORT const unsigned char RSKImageCropperVersionString[];
-
-#import <RSKImageCropper/RSKImageCropViewController.h>
-#import <RSKImageCropper/RSKImageCropViewController+Protected.h>
+@end

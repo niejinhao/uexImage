@@ -232,7 +232,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             //self.navigationItem.rightBarButtonItem = _doneButton;
             self.navigationItem.leftBarButtonItem = _doneButton;
         }else{
-            //modified in uexImage By CeriNo
+            //modified in uexImage
             _doneButton = [[UIBarButtonItem alloc] init];
             _doneButton.title=UEXIMAGE_LOCALIZEDSTRING(@"finish");
             _doneButton.rac_command=[self.photoPicker pickFinishCommand];
@@ -259,7 +259,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
                  });
 
             }];
-            RAC(_doneButton,tintColor)=[RACObserve(self.photoPicker.controller.model, currentSelectedNumber) map:^id(id value) {
+            RAC(_doneButton,tintColor) = [RACObserve(self.photoPicker.controller.model, currentSelectedNumber) map:^id(id value) {
                 @strongify(self);
                 if([self.photoPicker.controller.model checkIfSelectedNumbersValid:[value integerValue]]){
                     return [UIColor whiteColor];

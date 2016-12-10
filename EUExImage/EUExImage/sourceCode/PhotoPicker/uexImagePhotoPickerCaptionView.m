@@ -18,7 +18,7 @@ static const CGFloat labelPadding = 10;
     // Drawing code
 }
 */
-- (id)init{
+- (instancetype)init{
     self = [super initWithFrame:CGRectMake(0, 0, 320, 44)]; // Random initial frame
     if (self) {
         self.userInteractionEnabled = NO;
@@ -39,9 +39,9 @@ static const CGFloat labelPadding = 10;
 - (CGSize)sizeThatFits:(CGSize)size {
     CGFloat maxHeight = 9999;
     if (_textLabel.numberOfLines > 0) maxHeight = _textLabel.font.leading*_textLabel.numberOfLines;
-    CGSize textSize = [_textLabel.text boundingRectWithSize:CGSizeMake(size.width - labelPadding*2, maxHeight)
+    CGSize textSize = [_textLabel.text boundingRectWithSize:CGSizeMake(size.width - labelPadding * 2, maxHeight)
                                                 options:NSStringDrawingUsesLineFragmentOrigin
-                                             attributes:@{NSFontAttributeName:_textLabel.font}
+                                             attributes:@{NSFontAttributeName: _textLabel.font}
                                                 context:nil].size;
     return CGSizeMake(size.width, textSize.height + labelPadding * 2);
 }
@@ -59,7 +59,7 @@ static const CGFloat labelPadding = 10;
     _textLabel.numberOfLines = 0;
     _textLabel.textColor = [UIColor blackColor];
     _textLabel.font = [UIFont systemFontOfSize:17];
-    _textLabel.text=@"";
+    _textLabel.text = @"";
 
 
     [self addSubview:_textLabel];

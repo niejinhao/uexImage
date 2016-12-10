@@ -20,8 +20,8 @@
 @implementation uexImageAlbumPickerModel
 
 
--(instancetype)init{
-    self=[super init];
+- (instancetype)init{
+    self = [super init];
     if(self){
         [self doInitializing];
 
@@ -30,39 +30,39 @@
 }
 
 
--(void)doInitializing{
-    self.groupTypes=@[
+- (void)doInitializing{
+    self.groupTypes = @[
                       @(ALAssetsGroupSavedPhotos),
                       @(ALAssetsGroupPhotoStream),
                       @(ALAssetsGroupAlbum)
                       ];
-    self.minimumSelectedNumber=1;
-    self.maximumSelectedNumber=-1;
-    self.assetsLibrary=[ALAssetsLibrary new];
-    self.selectedURLs=[NSMutableOrderedSet orderedSet];
-    self.needReloadData=NO;
+    self.minimumSelectedNumber = 1;
+    self.maximumSelectedNumber = -1;
+    self.assetsLibrary = [ALAssetsLibrary new];
+    self.selectedURLs = [NSMutableOrderedSet orderedSet];
+    self.needReloadData = NO;
     @weakify(self);
-    RAC(self,limitStatus)=[RACSignal combineLatest:@[RACObserve(self, minimumSelectedNumber),RACObserve(self, maximumSelectedNumber)] reduce:^id(NSNumber *min,NSNumber *max){
+    RAC(self,limitStatus) = [RACSignal combineLatest:@[RACObserve(self, minimumSelectedNumber),RACObserve(self, maximumSelectedNumber)] reduce:^id(NSNumber *min,NSNumber *max){
         @strongify(self);
-        NSInteger minNum=[min integerValue];
-        NSInteger maxNum=[max integerValue];
-        if(minNum >= 1 && maxNum>=1){
-            self.selectInfoString=[NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"minAndMaxLimitInfo"),minNum ,maxNum];
+        NSInteger minNum = [min integerValue];
+        NSInteger maxNum = [max integerValue];
+        if(minNum >= 1 && maxNum >= 1){
+            self.selectInfoString = [NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"minAndMaxLimitInfo"),minNum ,maxNum];
             return @(uexImagePickWithBothMaxAndMinLimit);
-        }else if(minNum < 1 && maxNum>=1){
-            self.selectInfoString=[NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"maxLimitInfo"),maxNum];
+        }else if(minNum < 1 && maxNum >= 1){
+            self.selectInfoString = [NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"maxLimitInfo"),maxNum];
             return @(uexImagePickWithMaximumLimit);
-        }else if(minNum >= 1 && maxNum<1){
-            self.selectInfoString=[NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"minLimitInfo"),minNum];
+        }else if(minNum >= 1 && maxNum < 1){
+            self.selectInfoString = [NSString stringWithFormat:UEXIMAGE_LOCALIZEDSTRING(@"minLimitInfo"),minNum];
             return @(uexImagePickWithMinimumLimit);
         }else{
-            self.selectInfoString=UEXIMAGE_LOCALIZEDSTRING(@"noLimitInfo");
+            self.selectInfoString = UEXIMAGE_LOCALIZEDSTRING(@"noLimitInfo");
             return @(uexImagePickWithNoLimit);
         }
     }];
 
     [self updateAssetsGroupsWithCompletion:^{
-        self.needReloadData=YES;
+        self.needReloadData = YES;
     }];
 
 }
@@ -75,7 +75,7 @@
 - (RACCommand *)cancelCommand{
     if(!_cancelCommand){
         @weakify(self);
-        _cancelCommand=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        _cancelCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
              @strongify(self);
             [self cancelPick];
             return [RACSignal empty];
@@ -87,7 +87,7 @@
 - (RACCommand *)confirmCommand{
     if(!_confirmCommand){
         @weakify(self);
-        _confirmCommand=[[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        _confirmCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
             @strongify(self);
             return [self materializedCheckIfSelectedAssetsValidSignal];
 
@@ -96,7 +96,7 @@
         }];
         [_confirmCommand.executionSignals subscribeNext:^(RACSignal *execution) {
             [[execution dematerialize] subscribeError:^(NSError *error) {
-                self.needToShowCannotFinishToast=YES;
+                self.needToShowCannotFinishToast = YES;
             } completed:^{
                 [self finishPick];
             }];
@@ -169,7 +169,6 @@
         
         for (NSValue *groupType in self.groupTypes) {
             NSArray *array = mappedAssetsGroups[groupType];
-            
             if (array) {
                 [sortedAssetsGroups addObjectsFromArray:array];
             }
@@ -188,7 +187,7 @@
     __block NSUInteger numberOfFinishedTypes = 0;
     
     ALAssetsLibrary *assetsLibrary = self.assetsLibrary;
-    ALAssetsFilter *assetsFilter=[ALAssetsFilter allPhotos];
+    ALAssetsFilter *assetsFilter = [ALAssetsFilter allPhotos];
 
     for (NSNumber *type in types) {
         [assetsLibrary enumerateGroupsWithTypes:[type unsignedIntegerValue]

@@ -27,7 +27,7 @@
 
 
 @implementation uexImagePhotoPicker
--(instancetype)initWithController:(uexImageAlbumPickerController *)controller{
+- (instancetype)initWithController:(uexImageAlbumPickerController *)controller{
     self=[super init];
     if(self){
         self.controller=controller;
@@ -39,7 +39,7 @@
 }
 
 
--(RACCommand *)pickFinishCommand{
+- (RACCommand *)pickFinishCommand{
     if(!_pickFinishCommand){
         _pickFinishCommand=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
             return [self.controller.model materializedCheckIfSelectedAssetsValidSignal];
@@ -66,7 +66,7 @@
     return _pickFinishCommand;
 }
 
--(BOOL)openWithIndex:(NSInteger)index{
+- (BOOL)openWithIndex:(NSInteger)index{
 
 
 
@@ -110,7 +110,7 @@
 
 }
 
--(void)doClearThings{
+- (void)doClearThings{
     [self.thumbs removeAllObjects];
     _alreadySelectedCount=0;
     self.dataSource=nil;
@@ -122,7 +122,7 @@
 
 }
 
--(void)updateCaptionInfo{
+- (void)updateCaptionInfo{
     NSString *text =[NSString stringWithFormat:@"当前相册已选择%ld张照片,总共选择%ld张照片",(long)self.alreadySelectedCount,(long)self.controller.model.currentSelectedNumber];
     [self.captionViewEven.textLabel setText:text];
     [self.captionViewOdd.textLabel setText:text];

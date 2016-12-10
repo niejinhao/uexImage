@@ -9,6 +9,6 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 @interface ALAsset (OriginImage)
--(UIImage *)uexImage_OriginImage;
--(UIImage *)uexImage_FullScreenImage;
+- (UIImage *)uexImage_OriginImage;
+- (UIImage *)uexImage_FullScreenImage;
 @end

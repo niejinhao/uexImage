@@ -11,7 +11,7 @@
 #import "MWPhotoBrowser.h"
 #import "uexImagePhotoPicker.h"
 #import <AppCanKit/AppCanKit.h>
-@interface uexImageAlbumPickerController ()
+@interface uexImageAlbumPickerController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic,strong)UITableView *tableView;
 
@@ -19,7 +19,7 @@
 
 @implementation uexImageAlbumPickerController
 
--(instancetype)initWithModel:(uexImageAlbumPickerModel *)model{
+- (instancetype)initWithModel:(uexImageAlbumPickerModel *)model{
     self=[super init];
     if(self){
         self.model = model;
@@ -80,7 +80,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     @weakify(self);
     [[RACObserve(self.model, needToShowCannotFinishToast)
@@ -98,7 +98,7 @@
 
 #pragma mark - NavigationBar
 
--(void)setupNavigationItems{
+- (void)setupNavigationItems{
 
     
     
@@ -184,7 +184,7 @@
     return [self.model.assetsGroups count];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 90;
 }
 
@@ -235,7 +235,7 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSLog(@"%ld",(long)indexPath.row);
     if(![self.photoPicker openWithIndex:indexPath.row]){
         [self.view makeToast:UEXIMAGE_LOCALIZEDSTRING(@"noValidPhotosInAlbumToast") duration:0.5 position:CSToastPositionCenter];

@@ -13,11 +13,11 @@
 @property (nonatomic,weak)uexImageAlbumPickerController *controller;
 @property (nonatomic,assign)BOOL needToShowCannotFinishToast;
 
--(instancetype)initWithController:(uexImageAlbumPickerController *)controller;
--(BOOL)openWithIndex:(NSInteger)index;
+- (instancetype)initWithController:(uexImageAlbumPickerController *)controller;
+- (BOOL)openWithIndex:(NSInteger)index;
 
 
 
 
--(RACCommand *)pickFinishCommand;
+- (RACCommand *)pickFinishCommand;
 @end
