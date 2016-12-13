@@ -83,14 +83,11 @@
         }
         
         for(ALAsset * asset in assets){
+            @autoreleasepool {
             ALAssetRepresentation *representation = [asset defaultRepresentation];
-            NSLog(@"---size-%lld",representation.size / 1024);
+//            NSLog(@"---size-%lld",representation.size / 1024);
             
-            //竖屏图片方向有时候有问题
-//            UIImage * assetImage =[UIImage imageWithCGImage:[representation fullScreenImage] scale:representation.scale orientation:(UIImageOrientation)representation.orientation];
-//            NSLog(@"---assetImage w-%f  h-%f",assetImage.size.width,assetImage.size.height);
-            
-            
+            //这里很耗内存
             UIImage * assetImage =[UIImage imageWithCGImage:[representation fullResolutionImage] scale:representation.scale orientation:(UIImageOrientation)representation.orientation];
 //            NSLog(@"---assetImage w-%f  h-%f",assetImage.size.width,assetImage.size.height);
             UIImage *originImage = assetImage;
@@ -176,10 +173,11 @@
                     }
                     
                     [detailedInfoArray addObject:info];
+                    free(buffer);
                 }
                 
                 
-                
+            }
             }
             
         }
