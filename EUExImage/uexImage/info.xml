@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
-    <plugin uexName="uexImage" version="4.0.0" build="0">
-        <info>0:uexImage插件</info>
+    <plugin uexName="uexImage" version="4.0.1" build="1">
+    	<info>1:支持4x3裁剪和16x9裁剪</info>
+        <build>0:uexImage插件</build>
     </plugin>
 </uexplugins>
 
