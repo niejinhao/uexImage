@@ -149,7 +149,7 @@ static CGFloat kMaskRectMinimumPadding = 20;
     [self.EUExImage dismissViewController:controller animated:YES completion:^{
         NSDictionary *result = @{cUexImageCallbackIsCancelledKey:@(YES)};
         [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(result.ac_JSONFragment)];
-        [self.cb executeWithArguments:ACArgsPack(result)];
+        [self.cb executeWithArguments:ACArgsPack(uexErrorMake(-1),result)];
         [self clean];
     }];
 
@@ -166,11 +166,15 @@ static CGFloat kMaskRectMinimumPadding = 20;
     UEXIMAGE_ASYNC_DO_IN_GLOBAL_QUEUE(^{
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         [dict setValue:@(NO) forKey:cUexImageCallbackIsCancelledKey];
-        [dict setValue:[self.EUExImage saveImage:croppedImage quality:self.quality usePng:self.usePng] forKey:cUexImageCallbackDataKey];
+        NSString *path = [self.EUExImage saveImage:croppedImage quality:self.quality usePng:self.usePng];
+        [dict setValue:path forKey:cUexImageCallbackDataKey];
+        UEX_ERROR error = path? kUexNoError : uexErrorMake(1,@"save image failed");
+        
+        
         [self.EUExImage dismissViewController:controller animated:YES completion:^{
             
             [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
-            [self.cb executeWithArguments:ACArgsPack(dict)];
+            [self.cb executeWithArguments:ACArgsPack(error,dict)];
             [self clean];
         }];
     });
@@ -194,9 +198,10 @@ static CGFloat kMaskRectMinimumPadding = 20;
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self.EUExImage dismissViewController:picker animated:YES completion:^{
+        UEX_ERROR error = uexErrorMake(-1);
         NSDictionary *dict = @{cUexImageCallbackIsCancelledKey:@(YES)};
         [self.EUExImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onCropperClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
-        [self.cb executeWithArguments:ACArgsPack(dict)];
+        [self.cb executeWithArguments:ACArgsPack(error,dict)];
         [self clean];
     }];
 
