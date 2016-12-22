@@ -6,13 +6,14 @@
 //  Copyright 2010 d3i. All rights reserved.
 //
 
-#import <DACircularProgress/DACircularProgressView.h>
+#import <DACircularProgress/DACircularProgress.h>
 #import "MWCommon.h"
 #import "MWZoomingScrollView.h"
 #import "MWPhotoBrowser.h"
 #import "MWPhoto.h"
 #import "MWPhotoBrowserPrivate.h"
 #import "UIImage+MWPhotoBrowser.h"
+#import <AppCanKit/AppCanKit.h>
 
 // Private methods and properties
 @interface MWZoomingScrollView () {
@@ -20,7 +21,7 @@
     MWPhotoBrowser __weak *_photoBrowser;
 	MWTapDetectingView *_tapView; // for background taps
 	MWTapDetectingImageView *_photoImageView;
-	DACircularProgressView *_loadingIndicator;
+	DALabeledCircularProgressView *_loadingIndicator;
     UIImageView *_loadingError;
     
 }
@@ -51,7 +52,9 @@
 		[self addSubview:_photoImageView];
 		
 		// Loading indicator
-		_loadingIndicator = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 30.0f, 40.0f, 40.0f)];
+		_loadingIndicator = [[DALabeledCircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 30.0f, 60.0f, 60.0f)];
+        _loadingIndicator.progressLabel.textColor = [UIColor ac_ColorWithHTMLColorString:@"#cccccc"];
+        _loadingIndicator.progressLabel.font = [UIFont systemFontOfSize:12];
         _loadingIndicator.userInteractionEnabled = NO;
         _loadingIndicator.thicknessRatio = 0.1;
         _loadingIndicator.roundedCorners = NO;
@@ -199,6 +202,7 @@
         if (photoWithProgress == self.photo) {
             float progress = [[dict valueForKey:@"progress"] floatValue];
             _loadingIndicator.progress = MAX(MIN(1, progress), 0);
+            _loadingIndicator.progressLabel.text = [NSString stringWithFormat:@"%ld%%",(long)(progress * 100)];
         }
     });
 }
