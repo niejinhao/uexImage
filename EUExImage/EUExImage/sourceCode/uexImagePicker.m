@@ -120,7 +120,7 @@
                     NSData *imgData = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];
                     CGImageSourceRef imgSource = CGImageSourceCreateWithData((CFDataRef)imgData, nil);
                     CFDictionaryRef imageInfo = CGImageSourceCopyPropertiesAtIndex(imgSource, 0, NULL);
-//                    NSLog(@"--imageInfo:%@",imageInfo);
+                    NSLog(@"--imageInfo:%@",imageInfo);
                     NSDictionary *imageInDict = CFBridgingRelease(imageInfo);
                     if([imageInDict objectForKey:@"{Exif}"]){
                         NSDictionary *Exif = [imageInDict objectForKey:@"{Exif}"];

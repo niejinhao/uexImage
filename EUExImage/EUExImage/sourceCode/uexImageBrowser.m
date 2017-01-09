@@ -92,6 +92,9 @@
     if([self.dataDict objectForKey:@"startOnGrid"]){
         browser.startOnGrid=[[self.dataDict objectForKey:@"startOnGrid"] boolValue];
     }
+    if([self.dataDict objectForKey:@"isShowDetail"] && [[self.dataDict objectForKey:@"isShowDetail"] isEqual:@(YES)]){
+        browser.isShowDetail = YES;
+    }
 
     self.photoBrowser=browser;
     self.navBrowser=[[UINavigationController alloc]initWithRootViewController:self.photoBrowser];

@@ -176,30 +176,33 @@ CGPoint dropCenter;
     
     
     //ex
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGestures:)];
-    panGestureRecognizer.minimumNumberOfTouches = 1;
-    panGestureRecognizer.maximumNumberOfTouches = 1;
-    panGestureRecognizer.delegate = self;
-    [_pagingScrollView addGestureRecognizer:panGestureRecognizer];
-//    [self.view addGestureRecognizer:panGestureRecognizer];
+    if (self.isShowDetail) {
+        UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGestures:)];
+        panGestureRecognizer.minimumNumberOfTouches = 1;
+        panGestureRecognizer.maximumNumberOfTouches = 1;
+        panGestureRecognizer.delegate = self;
+        [_pagingScrollView addGestureRecognizer:panGestureRecognizer];
+        //    [self.view addGestureRecognizer:panGestureRecognizer];
+        
+        
+        //    CGRect EXFrame = self.view.bounds;
+        ////    EXFrame.origin.y += EXFrame.size.height;
+        //    self.EXIFView = [[ImageEXIFView alloc] initWithFrame:EXFrame title:nil exif:nil];
+        
+        self.exPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(exHandlePanGestures:)];
+        self.exPanGestureRecognizer.minimumNumberOfTouches = 1;
+        self.exPanGestureRecognizer.maximumNumberOfTouches = 1;
+        self.exPanGestureRecognizer.delegate = self;
+        //    [self.EXIFView addGestureRecognizer:self.exPanGestureRecognizer];
+        
+        CGRect dropFrame = CGRectMake(pagingScrollViewFrame.size.width/2 - 7.5, pagingScrollViewFrame.size.height - 30, 15, 15);
+        self.dropImageView = [[UIImageView alloc] initWithFrame:dropFrame];
+        NSString *dropPathFormat = @"MWPhotoBrowser.bundle/ImagePan";
+        UIImage *dropImage = [UIImage imageForResourcePath:dropPathFormat ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]];
+        self.dropImageView.image = dropImage;
+        [self.view addSubview:self.dropImageView];
+    }
     
-    
-//    CGRect EXFrame = self.view.bounds;
-////    EXFrame.origin.y += EXFrame.size.height;
-//    self.EXIFView = [[ImageEXIFView alloc] initWithFrame:EXFrame title:nil exif:nil];
-    
-    self.exPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(exHandlePanGestures:)];
-    self.exPanGestureRecognizer.minimumNumberOfTouches = 1;
-    self.exPanGestureRecognizer.maximumNumberOfTouches = 1;
-    self.exPanGestureRecognizer.delegate = self;
-//    [self.EXIFView addGestureRecognizer:self.exPanGestureRecognizer];
-    
-    CGRect dropFrame = CGRectMake(pagingScrollViewFrame.size.width/2 - 7.5, pagingScrollViewFrame.size.height - 30, 15, 15);
-    self.dropImageView = [[UIImageView alloc] initWithFrame:dropFrame];
-    NSString *dropPathFormat = @"MWPhotoBrowser.bundle/ImagePan";
-    UIImage *dropImage = [UIImage imageForResourcePath:dropPathFormat ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]];
-    self.dropImageView.image = dropImage;
-    [self.view addSubview:self.dropImageView];
 	
     // Toolbar
     _toolbar = [[UIToolbar alloc] initWithFrame:[self frameForToolbarAtOrientation:self.interfaceOrientation]];
