@@ -91,11 +91,12 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
 -(void)compressImage:(NSMutableArray*)inArguments{
     
     
-    // ACArgsUnpack(NSDictionary *info,ACJSFunctionRef *cb) = inArguments;
+    ACArgsUnpack(NSDictionary *info,ACJSFunctionRef *cb) = inArguments;
     
-    NSString * compressStr = [inArguments objectAtIndex:0];
+    //    NSString * compressStr = [inArguments objectAtIndex:0];
+    //
+    //    NSDictionary * compressDict = [compressStr ac_JSONValue];
     
-    NSDictionary * compressDict = [compressStr ac_JSONValue];
     
     NSString * stringFunction;
     
@@ -106,14 +107,14 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
     
     
     
-    NSString * imagePath = [self absPath:[compressDict objectForKey:@"srcPath"]];
+    NSString * imagePath = [self absPath:[info objectForKey:@"srcPath"]];
     
     UIImage * image = [UIImage imageWithContentsOfFile:imagePath];
     
     //图像压缩
     UIImage *images = [self scaleFromImage:image];
     
-    NSInteger imageLength = [[compressDict objectForKey:@"desLength"] intValue];
+    NSInteger imageLength = [[info objectForKey:@"desLength"] intValue];
     
     // 原始数据
     NSData *imgData = UIImageJPEGRepresentation(images, 1.0);
@@ -125,8 +126,7 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
         
         imgData = UIImageJPEGRepresentation(result,0.5);
         
-     //   CGFloat dataSize = imgData.length/1024;
-        
+        CGFloat dataSize = imgData.length/1024;
         
         result = [UIImage imageWithData:imgData];
         
@@ -145,6 +145,7 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
         NSString *timeStr = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSinceReferenceDate]];
         
         NSString *imgName = [NSString stringWithFormat:@"%@.jpg",[timeStr substringFromIndex:([timeStr length]-6)]];
+        
         NSString *imgTmpPath = [uexImageSaveDir stringByAppendingPathComponent:imgName];
         if ([fmanager fileExistsAtPath:imgTmpPath]) {
             
@@ -153,20 +154,28 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
         
         [imgData writeToFile:imgTmpPath atomically:YES];
         
-        NSMutableDictionary * dicct = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"OK",@"status",imgTmpPath,@"filePath", nil];
+        NSMutableDictionary * dicct = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"ok",@"status",imgTmpPath,@"filePath", nil];
         
-        if (inArguments.count==1)
-        {
-            [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.cbCompressImage" arguments:ACArgsPack(dicct.ac_JSONFragment)];
-        }else if(inArguments.count==2){
-            
-            [self.webViewEngine callbackWithFunctionKeyPath:[NSString stringWithFormat:@"uexImage.%@",stringFunction] arguments:ACArgsPack(dicct.ac_JSONFragment)];
-        }
+        UEX_ERROR err = kUexNoError;
         
-        //[cb executeWithArguments:ACArgsPack(err,error.localizedDescription)];
+        [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.cbCompressImage" arguments:ACArgsPack(dicct.ac_JSONFragment)];
+        
+        [cb executeWithArguments:ACArgsPack(err,@"1")];
+        
+    }else {
+        
+        NSMutableDictionary * dicct = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"fail",@"status",@"",@"filePath", nil];
+        
+        UEX_ERROR err = kUexNoError;
+        
+        [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.cbCompressImage" arguments:ACArgsPack(dicct.ac_JSONFragment)];
+        
+        [cb executeWithArguments:ACArgsPack(err,@"0")];
+    
     }
     
 }
+
 // 图像压缩
 //==========================
 - (UIImage *)scaleFromImage:(UIImage *)image
