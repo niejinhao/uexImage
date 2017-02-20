@@ -132,6 +132,7 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
         
     }
     
+    UEX_ERROR errs ;
     if(imgData){
         
         NSFileManager *fmanager = [NSFileManager defaultManager];
@@ -156,21 +157,20 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
         
         NSMutableDictionary * dicct = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"ok",@"status",imgTmpPath,@"filePath", nil];
         
-        UEX_ERROR err = kUexNoError;
+        
         
         [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.cbCompressImage" arguments:ACArgsPack(dicct.ac_JSONFragment)];
-        
-        [cb executeWithArguments:ACArgsPack(err,@"1")];
+        errs = @([@"0" integerValue]);
+        [cb executeWithArguments:ACArgsPack(errs,dicct.ac_JSONFragment)];
         
     }else {
         
         NSMutableDictionary * dicct = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"fail",@"status",@"",@"filePath", nil];
         
-        UEX_ERROR err = kUexNoError;
-        
+        errs = @([@"1" integerValue]);
         [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.cbCompressImage" arguments:ACArgsPack(dicct.ac_JSONFragment)];
         
-        [cb executeWithArguments:ACArgsPack(err,@"0")];
+        [cb executeWithArguments:ACArgsPack(errs,dicct.ac_JSONFragment)];
     
     }
     

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
-    <plugin uexName="uexImage" version="4.0.3" build="3">
-        <info>3:图片压缩</info>
+    <plugin uexName="uexImage" version="4.0.4" build="4">
+        <info>4:4.0图片压缩接口回调参数定义</info>
+        <build>3:图片压缩</build>
     	<build>2:优化加载网络图片的进度条; 回调修正,和文档保持一致</build>
     	<build>1:支持4x3裁剪和16x9裁剪</build>
         <build>0:uexImage插件</build>
