@@ -88,85 +88,48 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
 
 #pragma mark -compressImage(图片压缩)；
 
--(void)compressImage:(NSMutableArray*)inArguments{
+- (void)compressImage:(NSMutableArray*)inArguments{
     
     
     ACArgsUnpack(NSDictionary *info,ACJSFunctionRef *cb) = inArguments;
-    
-    //    NSString * compressStr = [inArguments objectAtIndex:0];
-    //
-    //    NSDictionary * compressDict = [compressStr ac_JSONValue];
-    
-    
-    NSString * stringFunction;
-    
-    if (inArguments.count>1)
-    {
-        stringFunction  = [inArguments objectAtIndex:1];
-    }
-    
-    
-    
     NSString * imagePath = [self absPath:[info objectForKey:@"srcPath"]];
-    
     UIImage * image = [UIImage imageWithContentsOfFile:imagePath];
     
     //图像压缩
     UIImage *images = [self scaleFromImage:image];
-    
     NSInteger imageLength = [[info objectForKey:@"desLength"] intValue];
-    
     // 原始数据
     NSData *imgData = UIImageJPEGRepresentation(images, 1.0);
     // 原始图片
-    
     UIImage *result = [UIImage imageWithData:imgData];
-    
+
     if  (imgData.length > imageLength) {
-        
         imgData = UIImageJPEGRepresentation(result,0.5);
-        
-        CGFloat dataSize = imgData.length/1024;
-        
-        result = [UIImage imageWithData:imgData];
-        
     }
     
     UEX_ERROR errs ;
     if(imgData){
         
         NSFileManager *fmanager = [NSFileManager defaultManager];
-        
         NSString *uexImageSaveDir=[self getSaveDirPath];
-        
         if (![fmanager fileExistsAtPath:uexImageSaveDir]) {
-            
             [fmanager createDirectoryAtPath:uexImageSaveDir withIntermediateDirectories:YES attributes:nil error:nil];
         }
         NSString *timeStr = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSinceReferenceDate]];
-        
         NSString *imgName = [NSString stringWithFormat:@"%@.jpg",[timeStr substringFromIndex:([timeStr length]-6)]];
-        
         NSString *imgTmpPath = [uexImageSaveDir stringByAppendingPathComponent:imgName];
         if ([fmanager fileExistsAtPath:imgTmpPath]) {
-            
             [fmanager removeItemAtPath:imgTmpPath error:nil];
         }
-        
         [imgData writeToFile:imgTmpPath atomically:YES];
-        
         NSMutableDictionary * dicct = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"ok",@"status",imgTmpPath,@"filePath", nil];
-        
-        
-        
         [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.cbCompressImage" arguments:ACArgsPack(dicct.ac_JSONFragment)];
-        errs = @([@"0" integerValue]);
+        errs = kUexNoError;
         [cb executeWithArguments:ACArgsPack(errs,dicct.ac_JSONFragment)];
         
     }else {
         
         NSMutableDictionary * dicct = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"fail",@"status",@"",@"filePath", nil];
-        
         errs = @([@"1" integerValue]);
         [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.cbCompressImage" arguments:ACArgsPack(dicct.ac_JSONFragment)];
         
@@ -185,7 +148,7 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
         return nil;
     }
     
-    NSData *data =UIImagePNGRepresentation(image);
+    NSData *data = UIImagePNGRepresentation(image);
     CGFloat dataSize = data.length/1024;
     CGFloat width  = image.size.width;
     CGFloat height = image.size.height;
@@ -232,11 +195,8 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
 
 
 - (NSString *)getSaveDirPath{
-    
     NSString *tempPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/apps"];
-    
     NSString *wgtTempPath=[tempPath stringByAppendingPathComponent:self.webViewEngine.widget.widgetId];
-    
     return [wgtTempPath stringByAppendingPathComponent:@"uexImage"];
 }
 

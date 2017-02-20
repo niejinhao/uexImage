@@ -18,7 +18,7 @@
 		</data>
 		<key>RSKImageCropper.framework/Headers/RSKImageCropViewController.h</key>
 		<data>
-		gtHueZnLHivmlmcKGw2ufwUdp+g=
+		TfZAtzbhCldu/mRVn7pSve0oKzc=
 		</data>
 		<key>RSKImageCropper.framework/Headers/RSKImageCropper.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>RSKImageCropper.framework/Info.plist</key>
 		<data>
-		986vEyRum1HoAks2h0XVt98x4B8=
+		NVulL7I6ceMgyY0WX4tpctZcvgI=
 		</data>
 		<key>RSKImageCropper.framework/Modules/module.modulemap</key>
 		<data>
@@ -54,13 +54,31 @@
 		</data>
 		<key>RSKImageCropper.framework/RSKImageCropper</key>
 		<data>
-		AahHurAHz15pPDxf76SGjnUfRoI=
+		Io/PG1fiNaosO3z1zcvmAOs0rB8=
 		</data>
 		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/ar.lproj/RSKImageCropper.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
 			KRP5wWwCj9s1qV1nVr/MOo/x01I=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/bg.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			V9Ldlisq2PmTglTS5zyxIo7HT98=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/bs.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9na2WGxPh8+AEvWHv0p6Y5lGS4s=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -128,11 +146,29 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/et.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			StAaFkl9Id1cII2LWAiaP0S7UUo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/fi.lproj/RSKImageCropper.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
 			v5Dc1KM00rxmnD1XtYC4brKD/fI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/fil.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			POIrCnouhangC1h2614pnf731wA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -209,6 +245,42 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/ko.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FOMaTkm4w1AmQREx0x4U0PA/sQw=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/lt.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kOFGiOjcD0Wu59RSfKslumHXaqM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/lv.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Pk1MytA3aOYwSLhwYLxnC3w8z7U=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/mk.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FxBcK0W7qWJME3nt1YDdRZGwaoo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/ms.lproj/RSKImageCropper.strings</key>
 		<dict>
 			<key>hash</key>
@@ -241,6 +313,15 @@
 			<key>hash</key>
 			<data>
 			fbR9pyb7rLxbI6T37y3gxRer6EA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/pt.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OxDqqdn7juh0hnMzbtraFCUrGNE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -281,6 +362,15 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/sk.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yfSTgvN4GhDdz34ZZgnBsKpAums=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/sl.lproj/RSKImageCropper.strings</key>
 		<dict>
 			<key>hash</key>
@@ -290,11 +380,29 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/sr.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rE15Vo/9wLiLtMYOI1Ykpdm2k7c=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/sv.lproj/RSKImageCropper.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
 			oaNMQzrpcAhA7qnaKHuaxyf3E1E=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/th.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MiJ65gFMvVp30m42Xx8BHF3ZQAg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -331,6 +439,24 @@
 			<key>hash</key>
 			<data>
 			PPELUpdxERx2+AcCQjL9kyO1U1E=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/zh-Hant.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dVDrIg+B5InHGeC3QoWYm/KtpOc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/zh.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xIShFZwqWzVfpCP9Y7wet8fm2Rk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -382,11 +508,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gtHueZnLHivmlmcKGw2ufwUdp+g=
+			TfZAtzbhCldu/mRVn7pSve0oKzc=
 			</data>
 			<key>hash2</key>
 			<data>
-			UqBswINXoeonEe825hjx7fia0aFU6qKnuFsiEM70fkg=
+			Vnz1f9bIdmqqTJpsMI/lHZ+54DNBQuZvjySfkJ2wJ6U=
 			</data>
 		</dict>
 		<key>RSKImageCropper.framework/Headers/RSKImageCropper.h</key>
@@ -459,11 +585,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			986vEyRum1HoAks2h0XVt98x4B8=
+			NVulL7I6ceMgyY0WX4tpctZcvgI=
 			</data>
 			<key>hash2</key>
 			<data>
-			+d6T7cKftTnf4dOyCneSYGTloakmLN9hOzEx0Rclb8U=
+			LevZtf2OmdpC0Bu9D976h/2D/EalmuRmBz4z+hutfHI=
 			</data>
 		</dict>
 		<key>RSKImageCropper.framework/Modules/module.modulemap</key>
@@ -481,11 +607,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AahHurAHz15pPDxf76SGjnUfRoI=
+			Io/PG1fiNaosO3z1zcvmAOs0rB8=
 			</data>
 			<key>hash2</key>
 			<data>
-			EB/L2QJBxUG2RGrsVpbLLdfkVDAhMU4Z3De27VA/dic=
+			2tW7doyn131vKMRZkk7WuGvrxbfTeO7jittnZkJ3UPQ=
 			</data>
 		</dict>
 		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/ar.lproj/RSKImageCropper.strings</key>
@@ -497,6 +623,32 @@
 			<key>hash2</key>
 			<data>
 			uoaVpD5PoYQ0Z6+L3uQOpuex+/FqScOiSRo2j2fNsRI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/bg.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			V9Ldlisq2PmTglTS5zyxIo7HT98=
+			</data>
+			<key>hash2</key>
+			<data>
+			DNRIlKK/wr6COGigBe2MMI40id9L8HbEu6R64kDt8wE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/bs.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9na2WGxPh8+AEvWHv0p6Y5lGS4s=
+			</data>
+			<key>hash2</key>
+			<data>
+			xlECHjg9plP/zJBDcBrN4IKdKA1LY/341n7lCEsDmiA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -592,6 +744,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/et.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			StAaFkl9Id1cII2LWAiaP0S7UUo=
+			</data>
+			<key>hash2</key>
+			<data>
+			niPFshPJlGysOnMDZJb2gojyDZveg1OUpcVVyKfkW4I=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/fi.lproj/RSKImageCropper.strings</key>
 		<dict>
 			<key>hash</key>
@@ -601,6 +766,19 @@
 			<key>hash2</key>
 			<data>
 			x/aRjP93NsMVgv9vLTizZRWmHFLeyvGYthxsQz/Z4dA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/fil.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			POIrCnouhangC1h2614pnf731wA=
+			</data>
+			<key>hash2</key>
+			<data>
+			zKK71MTYhiXTUKw0qsk9OCh2Zpu9kgJBcjbLu+gHqP0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -709,6 +887,58 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/ko.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FOMaTkm4w1AmQREx0x4U0PA/sQw=
+			</data>
+			<key>hash2</key>
+			<data>
+			kAfkc4qs1HNlCfcAIE0FNAMurTtbRuCi1VbbTEAysMc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/lt.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kOFGiOjcD0Wu59RSfKslumHXaqM=
+			</data>
+			<key>hash2</key>
+			<data>
+			W2yAhhQYdy+AA+OVRmDXmLD8xSsBNcKdOGaVxNRX1SI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/lv.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Pk1MytA3aOYwSLhwYLxnC3w8z7U=
+			</data>
+			<key>hash2</key>
+			<data>
+			GUTjXom/oRw8nY7TH/Ku9FxbQi/udrn2yuQX9DNDb7w=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/mk.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FxBcK0W7qWJME3nt1YDdRZGwaoo=
+			</data>
+			<key>hash2</key>
+			<data>
+			y1CSndxYp+FHOKKwPQ3ykp8qHBtLi7KRhvZewLjjS74=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/ms.lproj/RSKImageCropper.strings</key>
 		<dict>
 			<key>hash</key>
@@ -757,6 +987,19 @@
 			<key>hash2</key>
 			<data>
 			TEK6UwWGiubFr//tqPYJJBcHVOS2wrfZgyOEK+7bACM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/pt.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OxDqqdn7juh0hnMzbtraFCUrGNE=
+			</data>
+			<key>hash2</key>
+			<data>
+			47RvxCPna8FieeKha0280ZCB0VSvA1TimFED8etS2Ao=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -813,6 +1056,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/sk.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yfSTgvN4GhDdz34ZZgnBsKpAums=
+			</data>
+			<key>hash2</key>
+			<data>
+			fvRIXv9wWWvOFvevfIedkX3iWHO2rMZ3p+hb+NocwsE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/sl.lproj/RSKImageCropper.strings</key>
 		<dict>
 			<key>hash</key>
@@ -826,6 +1082,19 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/sr.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rE15Vo/9wLiLtMYOI1Ykpdm2k7c=
+			</data>
+			<key>hash2</key>
+			<data>
+			6bwzc9aVYqtQsCyyxA/WzbUTExaNVYPwLpao7tOr3NQ=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/sv.lproj/RSKImageCropper.strings</key>
 		<dict>
 			<key>hash</key>
@@ -835,6 +1104,19 @@
 			<key>hash2</key>
 			<data>
 			17B4qwjRKQPRmBJpcUUCkKHsXhMULybPbDvt7INgDxs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/th.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MiJ65gFMvVp30m42Xx8BHF3ZQAg=
+			</data>
+			<key>hash2</key>
+			<data>
+			p/3EexmZgqdlnV6BMm/r1+OORxlsB33SpRgEWpzMh0I=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -887,6 +1169,32 @@
 			<key>hash2</key>
 			<data>
 			7D6IiGqy3RMypHN4uAE1lomX3Gu794O1dJ9vwl/dNLA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/zh-Hant.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dVDrIg+B5InHGeC3QoWYm/KtpOc=
+			</data>
+			<key>hash2</key>
+			<data>
+			ITdxS7b4Qh54MqMeeC9xW8vDzw2ek1EqgSZxkgoIpGc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>RSKImageCropper.framework/RSKImageCropperStrings.bundle/zh.lproj/RSKImageCropper.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xIShFZwqWzVfpCP9Y7wet8fm2Rk=
+			</data>
+			<key>hash2</key>
+			<data>
+			wXZnOXT3NIBRo7ehEHW3QAsyGxmDvL2EK+J3fdrOFEc=
 			</data>
 			<key>optional</key>
 			<true/>
