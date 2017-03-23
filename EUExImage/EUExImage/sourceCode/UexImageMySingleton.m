@@ -10,7 +10,7 @@
 
 @implementation UexImageMySingleton
 
-@synthesize slectImage,indexDict,preframe,PicGrid,browerList,gridBackgroundColorStr,gridBrowserTitleStr,longImagePath,tapClick,scrollView,photoImageView,minCount;
+@synthesize slectImage,indexDict,preframe,PicGrid,browerList,gridBackgroundColorStr,gridBrowserTitleStr,longImagePath,tapClick,scrollView,photoImageView,minCount,cb;
 
 + (UexImageMySingleton *)shareMySingLeton
 {

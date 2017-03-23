@@ -25,7 +25,7 @@
 
 #import "TZImagePickerController.h"
 #import <Photos/Photos.h>
-#import "EUtility.h"
+//#import "EUtility.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "TZImageManager.h"
@@ -575,25 +575,28 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
 
 
 - (void)openBrowser:(NSMutableArray *)inArguments{
+    
+    NSLog(@"appcan4.0+uexImage+进入openBrowser+接口");
     ACArgsUnpack(NSDictionary *info,ACJSFunctionRef *cb) = inArguments;
     if(!self.browser){
         self.browser=[[uexImageBrowser alloc]initWithEUExImage:self];
+        NSLog(@"++++++++++++uexImageBrowser");
     }
     
    // id infos = [inArguments[0] ac_JSONValue];
     
     if ([[NSString stringWithFormat:@"%@",[info objectForKey:@"style"]]isEqualToString:@"0"])
     {
-        
+        NSLog(@"uexImage+++4.0++style++++++++++++====0");
         [self.browser clean];
         self.browser.cb = cb;
         [self.browser setDataDict:info];
         [self.browser open];
         
     }else{
-        
-        self.HUPhotoB = [[HUPhotoBrowser alloc]init];
-        self.HUPhotoB.cb = cb;
+        NSLog(@"uexImage++4.0++++style++++++++++++====1");
+        UexImageMySingleton * imagesing = [UexImageMySingleton shareMySingLeton];
+        imagesing.cb = cb;
         [self imageBrowser:inArguments];
         
     }
@@ -605,8 +608,11 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
 - (void)imageBrowser:(NSMutableArray *)inArguments
 {
     if (inArguments.count < 1) {
+        
         return;
+        
     }
+    NSLog(@"uexImageBrower++imageBrowser接口++++");
     
     id info = [inArguments[0] ac_JSONValue];
     
@@ -727,10 +733,12 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
     }
     
     UexImageMySingleton * EUExsingleton = [UexImageMySingleton shareMySingLeton];
-    
+    EUExsingleton.slectImage = self;
     EUExsingleton.longImagePath = imagePathArray;
     
     EUExsingleton.placeholderArray = smallImagePathArray;
+    NSLog(@"777777777%@+++++",smallImagePathArray);
+    NSLog(@"888888888%@+++++",bigImageURLArray);
     
     if ([[info allKeys] containsObject:@"viewFramePicPreview"])
     {
@@ -740,13 +748,17 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
         UexImageMySingleton * preImagesLeton = [UexImageMySingleton shareMySingLeton];
         preImagesLeton.preframe = frame;
         
+        NSLog(@"555555555:%@",NSStringFromCGRect(frame));
+        
     } else {
         
         CGRect frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,  [UIScreen mainScreen].bounds.size.height);
         UexImageMySingleton * preImagesLeton = [UexImageMySingleton shareMySingLeton];
         preImagesLeton.preframe = frame;
+        NSLog(@"6666666666:%@",NSStringFromCGRect(frame));
         
     }
+    
     
     if ([[info allKeys]containsObject:@"viewFramePicGrid"]) {
         

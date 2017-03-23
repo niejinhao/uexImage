@@ -32,6 +32,7 @@
 @property(nonatomic,strong)UIImageView * photoImageView;
 
 @property(nonatomic,assign)NSInteger minCount;
+@property (nonatomic,strong)ACJSFunctionRef *cb;
 
 +(UexImageMySingleton*)shareMySingLeton;
 

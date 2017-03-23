@@ -49,8 +49,8 @@
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings placeholderImage:(UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block {
     
+    NSLog(@"111111111");
     UexImageMySingleton * leton = [UexImageMySingleton shareMySingLeton];
-    
     HUPhotoBrowser *browser = [[HUPhotoBrowser alloc] initWithFrame:leton.preframe];
     browser.imageView = imageView;
     browser.URLStrings = URLStrings;
@@ -69,8 +69,10 @@
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images placeholderImage:(UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block {
     
-    UexImageMySingleton * leton = [UexImageMySingleton shareMySingLeton];
+    NSLog(@"2222222");
     
+    UexImageMySingleton * leton = [UexImageMySingleton shareMySingLeton];
+
     HUPhotoBrowser *browser = [[HUPhotoBrowser alloc] initWithFrame:leton.preframe];
     
     browser.imageView = imageView;
@@ -90,7 +92,7 @@
     }
     
     browser.dismissDlock = block;
-    
+    NSLog(@"333333");
     return browser;
 }
 
@@ -101,6 +103,7 @@
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images atIndex:(NSInteger)index {
     
+    NSLog(@"uexImageBrower++showFromImageView___接口++++");
     return [self showFromImageView:imageView withImages:images placeholderImage:nil atIndex:index dismiss:nil];
 }
 
@@ -265,6 +268,7 @@
     if (CGRectEqualToRect(startFrame, CGRectZero)) {
         
         startFrame = CGRectMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2,0, 0);
+        NSLog(@"chenjian+++++");
     }
     
     CGRect endFrame = kScreenRect;
@@ -272,6 +276,8 @@
     //        self.imageView.hidden = YES;
     
     if (self.imageView.image) {
+        
+        NSLog(@"uexImage++++存在++++");
         
         UIImage *image = self.imageView.image;
         
@@ -311,11 +317,14 @@
         
         if (!self.imageView.image) {
             
+            
+            
             self.frame = ImageLeton.preframe;
             
         } else {
             
             tempImageView.frame = ImageLeton.preframe;
+            NSLog(@"chenjian+++++存在+++++");
             
         }
         
@@ -328,6 +337,8 @@
         [tempImageView removeFromSuperview];
         
         self.collectionView.hidden = NO;
+        
+        NSLog(@"chengjian+++++完成++++++");
     }];
     
     
@@ -350,7 +361,7 @@
          
         NSLog(@"+++++++%ld+++++++%@",(long)indexPath.row,leton.longImagePath);
         
-        NSDictionary * longDict = [NSDictionary dictionaryWithObjectsAndKeys:indexImagePath,@"imagePath",nil];
+        NSMutableDictionary * longDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:indexImagePath,@"imagePath",nil];
         
         //NSString * longImagePathStr = [longDict ac_JSONFragment];
         
@@ -360,9 +371,9 @@
         
         errs = kUexNoError;
         
-        [self.cb executeWithArguments:ACArgsPack(errs,longDict.ac_JSONFragment)];
+        [leton.cb executeWithArguments:ACArgsPack(errs,longDict.ac_JSONFragment)];
         
-        NSLog(@"++长按回调++++++%@+%@",leton.slectImage.webViewEngine,longDict.ac_JSONFragment);
+        NSLog(@"++长按回调++++++%@+%@****%@",leton.slectImage.webViewEngine,longDict.ac_JSONFragment,leton.cb);
         
     }
     
