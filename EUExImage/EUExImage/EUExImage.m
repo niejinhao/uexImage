@@ -372,7 +372,6 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
             
             NSString * imagePath =[self saveImage:assetImage quality:[_qualityStr floatValue] usePng:NO];
             
-            NSLog(@"%@",imagePath);
             
             if(imagePath){
                 
@@ -406,19 +405,12 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
     [dict setValue:self.dataArray forKey:cUexImageCallbackDataKey];
     [dict setObject:@(NO) forKey:cUexImageCallbackIsCancelledKey];
     
-    NSLog(@"%@",self.dataArray);
-    NSLog(@"%@",dict);
-    
     if(self.detailedInfoArray){
         
         [dict setValue:self.detailedInfoArray forKey:@"detailedImageInfo"];
         
     }
     
-    NSLog(@"++数组++++++++%@",self.detailedInfoArray);
-    NSLog(@"++字典++++++++%@",dict);
-    
-
     UEX_ERROR error;
     
     [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onPickerClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
@@ -571,32 +563,37 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
     [self.cropper open];
 }
 
+-(void)onLongClick:(NSMutableDictionary *)dict{
+    
+     UEX_ERROR errs ;
 
+    [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onImageLongClicked" arguments:ACArgsPack(dict.ac_JSONFragment)];
+    
+    errs = kUexNoError;
+    
+    [self.cb executeWithArguments:ACArgsPack(errs,dict.ac_JSONFragment)];
+
+}
 
 
 - (void)openBrowser:(NSMutableArray *)inArguments{
     
-    NSLog(@"appcan4.0+uexImage+进入openBrowser+接口");
     ACArgsUnpack(NSDictionary *info,ACJSFunctionRef *cb) = inArguments;
     if(!self.browser){
         self.browser=[[uexImageBrowser alloc]initWithEUExImage:self];
-        NSLog(@"++++++++++++uexImageBrowser");
     }
     
    // id infos = [inArguments[0] ac_JSONValue];
     
     if ([[NSString stringWithFormat:@"%@",[info objectForKey:@"style"]]isEqualToString:@"0"])
     {
-        NSLog(@"uexImage+++4.0++style++++++++++++====0");
         [self.browser clean];
         self.browser.cb = cb;
         [self.browser setDataDict:info];
         [self.browser open];
         
     }else{
-        NSLog(@"uexImage++4.0++++style++++++++++++====1");
-        UexImageMySingleton * imagesing = [UexImageMySingleton shareMySingLeton];
-        imagesing.cb = cb;
+        self.cb = cb;
         [self imageBrowser:inArguments];
         
     }
@@ -612,7 +609,6 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
         return;
         
     }
-    NSLog(@"uexImageBrower++imageBrowser接口++++");
     
     id info = [inArguments[0] ac_JSONValue];
     
@@ -737,8 +733,7 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
     EUExsingleton.longImagePath = imagePathArray;
     
     EUExsingleton.placeholderArray = smallImagePathArray;
-    NSLog(@"777777777%@+++++",smallImagePathArray);
-    NSLog(@"888888888%@+++++",bigImageURLArray);
+
     
     if ([[info allKeys] containsObject:@"viewFramePicPreview"])
     {
@@ -748,14 +743,12 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
         UexImageMySingleton * preImagesLeton = [UexImageMySingleton shareMySingLeton];
         preImagesLeton.preframe = frame;
         
-        NSLog(@"555555555:%@",NSStringFromCGRect(frame));
         
     } else {
         
         CGRect frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,  [UIScreen mainScreen].bounds.size.height);
         UexImageMySingleton * preImagesLeton = [UexImageMySingleton shareMySingLeton];
         preImagesLeton.preframe = frame;
-        NSLog(@"6666666666:%@",NSStringFromCGRect(frame));
         
     }
     

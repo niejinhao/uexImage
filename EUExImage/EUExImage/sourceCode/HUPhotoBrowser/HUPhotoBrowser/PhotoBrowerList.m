@@ -67,7 +67,6 @@
         
         titleNameL.frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2-nameW/2, 23, nameW, 35);
         
-        NSLog(@"++++++++++++++++++++++++++++++++++++++%@",imageSingShare.gridBrowserTitleStr);
         titleNameL.textAlignment = NSTextAlignmentCenter;
         
         titleNameL.textColor = [UIColor whiteColor];

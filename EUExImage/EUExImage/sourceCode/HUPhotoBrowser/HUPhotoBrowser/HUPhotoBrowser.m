@@ -49,7 +49,6 @@
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings placeholderImage:(UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block {
     
-    NSLog(@"111111111");
     UexImageMySingleton * leton = [UexImageMySingleton shareMySingLeton];
     HUPhotoBrowser *browser = [[HUPhotoBrowser alloc] initWithFrame:leton.preframe];
     browser.imageView = imageView;
@@ -69,7 +68,6 @@
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images placeholderImage:(UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block {
     
-    NSLog(@"2222222");
     
     UexImageMySingleton * leton = [UexImageMySingleton shareMySingLeton];
 
@@ -92,7 +90,6 @@
     }
     
     browser.dismissDlock = block;
-    NSLog(@"333333");
     return browser;
 }
 
@@ -103,7 +100,6 @@
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images atIndex:(NSInteger)index {
     
-    NSLog(@"uexImageBrower++showFromImageView___接口++++");
     return [self showFromImageView:imageView withImages:images placeholderImage:nil atIndex:index dismiss:nil];
 }
 
@@ -268,7 +264,6 @@
     if (CGRectEqualToRect(startFrame, CGRectZero)) {
         
         startFrame = CGRectMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2,0, 0);
-        NSLog(@"chenjian+++++");
     }
     
     CGRect endFrame = kScreenRect;
@@ -277,7 +272,6 @@
     
     if (self.imageView.image) {
         
-        NSLog(@"uexImage++++存在++++");
         
         UIImage *image = self.imageView.image;
         
@@ -324,7 +318,6 @@
         } else {
             
             tempImageView.frame = ImageLeton.preframe;
-            NSLog(@"chenjian+++++存在+++++");
             
         }
         
@@ -338,7 +331,6 @@
         
         self.collectionView.hidden = NO;
         
-        NSLog(@"chengjian+++++完成++++++");
     }];
     
     
@@ -348,7 +340,7 @@
 //长安手势方法；
 - (void)longPressGesture:(UILongPressGestureRecognizer *)gesture
 {
-    UEX_ERROR errs ;
+   
     if(gesture.state == UIGestureRecognizerStateBegan)
     {
         UexImageMySingleton * leton = [UexImageMySingleton shareMySingLeton];
@@ -359,21 +351,25 @@
         
         NSString * indexImagePath = [leton.longImagePath objectAtIndex:indexPath.row];
          
-        NSLog(@"+++++++%ld+++++++%@",(long)indexPath.row,leton.longImagePath);
         
-        NSMutableDictionary * longDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:indexImagePath,@"imagePath",nil];
+       // NSMutableDictionary * longDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:indexImagePath,@"imagePath",nil];
+        
+        
+        NSMutableDictionary * longDict = [[NSMutableDictionary alloc]initWithCapacity:10];
+        [longDict setObject:indexImagePath forKey:@"imagePath"];
+        
         
         //NSString * longImagePathStr = [longDict ac_JSONFragment];
         
 //        NSString *jsStr = [NSString stringWithFormat:@"if(uexImage.onImageLongClicked!=null){uexImage.onImageLongClicked('%@');}", longImagePathStr];
         
-        [leton.slectImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onImageLongClicked" arguments:ACArgsPack(errs,longDict.ac_JSONFragment)];
+        [leton.slectImage onLongClick:longDict];
         
-        errs = kUexNoError;
-        
-        [leton.cb executeWithArguments:ACArgsPack(errs,longDict.ac_JSONFragment)];
-        
-        NSLog(@"++长按回调++++++%@+%@****%@",leton.slectImage.webViewEngine,longDict.ac_JSONFragment,leton.cb);
+//        [leton.slectImage.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onImageLongClicked" arguments:ACArgsPack(longDict.ac_JSONFragment)];
+//        
+//        errs = kUexNoError;
+//        
+//        [leton.cb executeWithArguments:ACArgsPack(errs,longDict.ac_JSONFragment)];
         
     }
     
@@ -381,7 +377,6 @@
 
 - (void)dismiss {
     
-    NSLog(@"单击++++++++++++++++++++++++++++++++++++++");
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     

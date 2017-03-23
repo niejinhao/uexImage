@@ -90,7 +90,6 @@
     
     [self.imageView setCenter:CGPointMake(xcenter, ycenter)];
     
-        NSLog(@"捏合+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     
     // 延中心点缩放
 //    CGRect rect = self.imageView.frame;
