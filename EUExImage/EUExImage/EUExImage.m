@@ -403,7 +403,7 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
     }
     
     [dict setValue:self.dataArray forKey:cUexImageCallbackDataKey];
-    [dict setObject:@(NO) forKey:cUexImageCallbackIsCancelledKey];
+    //[dict setObject:@(NO) forKey:cUexImageCallbackIsCancelledKey];
     
     if(self.detailedInfoArray){
         
@@ -413,7 +413,7 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
     
     UEX_ERROR error;
     
-    [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onPickerClosed" arguments:ACArgsPack(dict.ac_JSONFragment)];
+    [self.webViewEngine callbackWithFunctionKeyPath:@"uexImage.onPickerClosed" arguments:ACArgsPack(dict)];
     
     error = kUexNoError;
     
