@@ -8,5 +8,6 @@
         <method name="saveToPhotoAlbum"></method>
         <method name="clearOutputImages"></method>
         <method name="setIpadPopEnable"></method>
+        <method name="compressImage"></method>
     </plugin>
 </uexplugins>
