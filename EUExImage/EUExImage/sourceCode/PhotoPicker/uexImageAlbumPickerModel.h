@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "uexImagePhotoAsset.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 @protocol uexImagePhotoPickerDelegate;
 
 typedef NS_ENUM(NSInteger,uexImagePickLimitStatus){

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
-    <plugin uexName="uexImage" version="4.0.6" build="6">
-        <info>6:openPicker style为1新样式回调参数改为对象</info>
+    <plugin uexName="uexImage" version="4.0.7" build="7">
+        <info>7:RAC依赖库更新</info>
+        <build>6:openPicker style为1新样式回调参数改为对象</build>
         <build>5:openBrower style为1新样式 openPicker Style为1新样式</build>
         <build>4:4.0图片压缩接口回调参数定义</build>
         <build>3:图片压缩</build>

@@ -19,7 +19,6 @@
 		0EC5C0661BCFFAB000E34E80 /* uexImageAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C0651BCFFAB000E34E80 /* uexImageAlbumCell.m */; };
 		0EC5C0691BD002D000E34E80 /* uexImageAlbumPickerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C0681BD002D000E34E80 /* uexImageAlbumPickerModel.m */; };
 		0EC5C06C1BD0035600E34E80 /* uexImagePhotoAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C06B1BD0035600E34E80 /* uexImagePhotoAsset.m */; };
-		0EC5C0701BD0041F00E34E80 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */; };
 		1B0E0096C67CE8095B381221 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FDB9216F0F1D8BF7AF555CA /* AVFoundation.framework */; };
 		2E108A4C58C882C66F6D6EFA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06622CAFD0D1E5E78255D524 /* Accelerate.framework */; };
 		4220FE721BC60D8B0026460B /* MWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE5E1BC60D8B0026460B /* MWCaptionView.m */; };
@@ -32,6 +31,7 @@
 		4220FE791BC60D8B0026460B /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE6F1BC60D8B0026460B /* MWZoomingScrollView.m */; };
 		4220FE7A1BC60D8B0026460B /* UIImage+MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE711BC60D8B0026460B /* UIImage+MWPhotoBrowser.m */; };
 		4220FE851BC60E160026460B /* uexImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE841BC60E160026460B /* uexImageBrowser.m */; };
+		4234ABC01EB81BDF00270809 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4234ABBF1EB81BDF00270809 /* ReactiveObjC.framework */; };
 		4258FFB71E08DB2A00765FE5 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4258FFB61E08DB2A00765FE5 /* RSKImageCropper.framework */; };
 		4258FFB81E08DB6200765FE5 /* RSKImageCropper.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4258FFB61E08DB2A00765FE5 /* RSKImageCropper.framework */; };
 		42B1DAE71BB29EC900549D56 /* EUExImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1DAE61BB29EC900549D56 /* EUExImage.m */; };
@@ -77,7 +77,6 @@
 		0EC5C0681BD002D000E34E80 /* uexImageAlbumPickerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageAlbumPickerModel.m; sourceTree = "<group>"; };
 		0EC5C06A1BD0035600E34E80 /* uexImagePhotoAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImagePhotoAsset.h; sourceTree = "<group>"; };
 		0EC5C06B1BD0035600E34E80 /* uexImagePhotoAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImagePhotoAsset.m; sourceTree = "<group>"; };
-		0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
 		0FDB9216F0F1D8BF7AF555CA /* AVFoundation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1CE3BF27FCB830E1C39B9779 /* MobileCoreServices.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		2455C1ECF353B943417E86C0 /* libstdc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -128,6 +127,7 @@
 		4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MWPhotoBrowser.bundle; sourceTree = "<group>"; };
 		4220FE831BC60E160026460B /* uexImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageBrowser.h; sourceTree = "<group>"; };
 		4220FE841BC60E160026460B /* uexImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageBrowser.m; sourceTree = "<group>"; };
+		4234ABBF1EB81BDF00270809 /* ReactiveObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveObjC.framework; sourceTree = "<group>"; };
 		4258FFB61E08DB2A00765FE5 /* RSKImageCropper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RSKImageCropper.framework; path = Carthage/Build/iOS/RSKImageCropper.framework; sourceTree = SOURCE_ROOT; };
 		427726C1F9D3DB5E6F4F2C52 /* QuartzCore.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4290C3FB1BB90E73009D5095 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -168,7 +168,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				42EE35BF1BBA3BCA00EA11AF /* DACircularProgress.framework in Frameworks */,
-				0EC5C0701BD0041F00E34E80 /* ReactiveCocoa.framework in Frameworks */,
 				926B98CD9C9CB12ED9437988 /* MapKit.framework in Frameworks */,
 				80AB6BD98E63B53E2C1178FA /* AudioToolbox.framework in Frameworks */,
 				6153CC6CF97D2D116659E968 /* SystemConfiguration.framework in Frameworks */,
@@ -179,6 +178,7 @@
 				0985121B35A1425DAD7C73E3 /* CoreGraphics.framework in Frameworks */,
 				0BDD0AA1C7A85220BEBE7DCE /* QuartzCore.framework in Frameworks */,
 				86C3A611490630778FC8A355 /* CoreImage.framework in Frameworks */,
+				4234ABC01EB81BDF00270809 /* ReactiveObjC.framework in Frameworks */,
 				C3CC82066B50D9EDD8D0E525 /* CoreLocation.framework in Frameworks */,
 				EB36900F3D988CE35E8684D9 /* MessageUI.framework in Frameworks */,
 				2E108A4C58C882C66F6D6EFA /* Accelerate.framework in Frameworks */,
@@ -364,8 +364,8 @@
 		42EE35B11BBA3BCA00EA11AF /* dependence */ = {
 			isa = PBXGroup;
 			children = (
+				4234ABBF1EB81BDF00270809 /* ReactiveObjC.framework */,
 				4258FFB61E08DB2A00765FE5 /* RSKImageCropper.framework */,
-				0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */,
 				4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */,
 				4220FE5C1BC60D8B0026460B /* MWPhotoBrowser */,
 				4220FE4A1BC60D540026460B /* SDWebImage */,

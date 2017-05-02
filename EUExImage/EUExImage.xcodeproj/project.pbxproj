@@ -16,7 +16,6 @@
 		0EC5C0661BCFFAB000E34E80 /* uexImageAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C0651BCFFAB000E34E80 /* uexImageAlbumCell.m */; };
 		0EC5C0691BD002D000E34E80 /* uexImageAlbumPickerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C0681BD002D000E34E80 /* uexImageAlbumPickerModel.m */; };
 		0EC5C06C1BD0035600E34E80 /* uexImagePhotoAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C06B1BD0035600E34E80 /* uexImagePhotoAsset.m */; };
-		0EC5C0701BD0041F00E34E80 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */; };
 		4220FE851BC60E160026460B /* uexImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE841BC60E160026460B /* uexImageBrowser.m */; };
 		4220FE8B1BC676970026460B /* MWPhotoBrowser.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */; };
 		4220FE8C1BC676A20026460B /* DACircularProgress.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42EE35B21BBA3BCA00EA11AF /* DACircularProgress.framework */; };
@@ -43,6 +42,9 @@
 		4227D8341E80CA7B007FEB98 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4227D8281E80CA7B007FEB98 /* README.md */; };
 		4227D8391E80CAAC007FEB98 /* MSSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4227D8361E80CAAC007FEB98 /* MSSCollectionViewCell.m */; };
 		4227D83A1E80CAAC007FEB98 /* UexImageMySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4227D8381E80CAAC007FEB98 /* UexImageMySingleton.m */; };
+		4234ABBC1EB8180800270809 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4234ABBB1EB8180800270809 /* ReactiveObjC.framework */; };
+		4234ABBD1EB81BA700270809 /* ReactiveObjC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4234ABBB1EB8180800270809 /* ReactiveObjC.framework */; };
+		4234ABBE1EB81BA700270809 /* RSKImageCropper.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42E4C42C1E811F4100C5FA13 /* RSKImageCropper.framework */; };
 		42B1DAE71BB29EC900549D56 /* EUExImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1DAE61BB29EC900549D56 /* EUExImage.m */; };
 		42E4C42D1E811F4100C5FA13 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E4C42C1E811F4100C5FA13 /* RSKImageCropper.framework */; };
 		42EE35B01BBA1A0200EA11AF /* uexImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35AF1BBA1A0200EA11AF /* uexImagePicker.m */; };
@@ -57,7 +59,6 @@
 		42F4B0451DF79F0200501D70 /* MWTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4B03A1DF79F0200501D70 /* MWTapDetectingView.m */; };
 		42F4B0461DF79F0200501D70 /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4B03C1DF79F0200501D70 /* MWZoomingScrollView.m */; };
 		42F4B0471DF79F0200501D70 /* UIImage+MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4B03E1DF79F0200501D70 /* UIImage+MWPhotoBrowser.m */; };
-		42F539AA1BD4DCC3000FF1C3 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */; };
 		42F670971BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F670961BD07EAC00AAA3AC /* uexImagePhotoAssetGroup.m */; };
 		42FF2D2C1D127A72003994A5 /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FF2D2B1D127A71003994A5 /* AppCanKit.framework */; };
 /* End PBXBuildFile section */
@@ -69,7 +70,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				42F539AA1BD4DCC3000FF1C3 /* ReactiveCocoa.framework in CopyFiles */,
 				4220FE8C1BC676A20026460B /* DACircularProgress.framework in CopyFiles */,
 				4220FE8B1BC676970026460B /* MWPhotoBrowser.bundle in CopyFiles */,
 			);
@@ -81,6 +81,8 @@
 			dstPath = embed;
 			dstSubfolderSpec = 16;
 			files = (
+				4234ABBD1EB81BA700270809 /* ReactiveObjC.framework in CopyFiles */,
+				4234ABBE1EB81BA700270809 /* RSKImageCropper.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +107,6 @@
 		0EC5C0681BD002D000E34E80 /* uexImageAlbumPickerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageAlbumPickerModel.m; sourceTree = "<group>"; };
 		0EC5C06A1BD0035600E34E80 /* uexImagePhotoAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImagePhotoAsset.h; sourceTree = "<group>"; };
 		0EC5C06B1BD0035600E34E80 /* uexImagePhotoAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImagePhotoAsset.m; sourceTree = "<group>"; };
-		0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
 		3CEFEC1D1BD75F2C0031EB8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4220FE491BC60D4D0026460B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4220FE4B1BC60D540026460B /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		4227D8361E80CAAC007FEB98 /* MSSCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSCollectionViewCell.m; sourceTree = "<group>"; };
 		4227D8371E80CAAC007FEB98 /* UexImageMySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UexImageMySingleton.h; sourceTree = "<group>"; };
 		4227D8381E80CAAC007FEB98 /* UexImageMySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UexImageMySingleton.m; sourceTree = "<group>"; };
+		4234ABBB1EB8180800270809 /* ReactiveObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveObjC.framework; sourceTree = "<group>"; };
 		4290C3FB1BB90E73009D5095 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		42B1DAE11BB29EC900549D56 /* libuexImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B1DAE41BB29EC900549D56 /* EUExImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EUExImage.h; sourceTree = "<group>"; };
@@ -228,8 +230,8 @@
 			files = (
 				42EE35BF1BBA3BCA00EA11AF /* DACircularProgress.framework in Frameworks */,
 				42FF2D2C1D127A72003994A5 /* AppCanKit.framework in Frameworks */,
-				0EC5C0701BD0041F00E34E80 /* ReactiveCocoa.framework in Frameworks */,
 				42E4C42D1E811F4100C5FA13 /* RSKImageCropper.framework in Frameworks */,
+				4234ABBC1EB8180800270809 /* ReactiveObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,10 +433,10 @@
 		42EE35B11BBA3BCA00EA11AF /* dependence */ = {
 			isa = PBXGroup;
 			children = (
+				4234ABBB1EB8180800270809 /* ReactiveObjC.framework */,
 				42E4C42C1E811F4100C5FA13 /* RSKImageCropper.framework */,
 				4227D80C1E80CA7B007FEB98 /* HUPhotoBrowser */,
 				42F4B0291DF79F0200501D70 /* MWPhotoBrowser */,
-				0EC5C06F1BD0041F00E34E80 /* ReactiveCocoa.framework */,
 				4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */,
 				4220FE4A1BC60D540026460B /* SDWebImage */,
 				4220FE491BC60D4D0026460B /* MBProgressHUD.h */,
