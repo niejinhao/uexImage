@@ -40,13 +40,13 @@
     }
     UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{
         if([self setupBrowser]){
+            
+            if([self.dataDict objectForKey:@"startIndex"]){
+                [self.photoBrowser setCurrentPhotoIndex:[[self.dataDict objectForKey:@"startIndex"] integerValue]];
+            } else {
+                [self.photoBrowser setCurrentPhotoIndex:0];
+            }
             [self.EUExImage presentViewController:self.navBrowser animated:YES];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
-                if([self.dataDict objectForKey:@"startIndex"]){
-                    [self.photoBrowser setCurrentPhotoIndex:[[self.dataDict objectForKey:@"startIndex"] integerValue]];
-                }
-            });
-
 
         }
     });
@@ -76,7 +76,7 @@
     browser.startOnGrid = NO;
     browser.enableSwipeToDismiss = NO;
     //browser.autoPlayOnAppear = NO;
-    [browser setCurrentPhotoIndex:0];
+//    [browser setCurrentPhotoIndex:0];
     
     if([self.dataDict objectForKey:@"data"] && [[self.dataDict objectForKey:@"data"] isKindOfClass:[NSArray class]]){
         [self parsePhoto:[self.dataDict objectForKey:@"data"]];
