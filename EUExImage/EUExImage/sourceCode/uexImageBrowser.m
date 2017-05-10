@@ -38,7 +38,7 @@
     if(!self.dataDict){
         return;
     }
-    UEXIMAGE_ASYNC_DO_IN_GLOBAL_QUEUE(^{
+    UEXIMAGE_ASYNC_DO_IN_MAIN_QUEUE(^{
         if([self setupBrowser]){
             [self.EUExImage presentViewController:self.navBrowser animated:YES];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
