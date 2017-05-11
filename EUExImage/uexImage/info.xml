@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
   <plugin uexName="uexImage" version="3.0.12" build="12">
-  	<info>12: IDE证书更新</info>
+  	<info>12: 修复设置索引问题</info>
     <build>11: IDE证书更新</build>
     <build>10: 修复在4/4s机型上裁剪接口闪退的问题</build>
     <build>9: 修复openPicker接口在选择相册界面滑动时可能会产生重影的问题</build>
