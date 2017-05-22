@@ -44,9 +44,9 @@
 		4227D83A1E80CAAC007FEB98 /* UexImageMySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4227D8381E80CAAC007FEB98 /* UexImageMySingleton.m */; };
 		4234ABBC1EB8180800270809 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4234ABBB1EB8180800270809 /* ReactiveObjC.framework */; };
 		4234ABBD1EB81BA700270809 /* ReactiveObjC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4234ABBB1EB8180800270809 /* ReactiveObjC.framework */; };
-		4234ABBE1EB81BA700270809 /* RSKImageCropper.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42E4C42C1E811F4100C5FA13 /* RSKImageCropper.framework */; };
+		42692C6E1ED2DCC100ADF990 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42692C6D1ED2DCC100ADF990 /* RSKImageCropper.framework */; };
+		42692C6F1ED2DCC900ADF990 /* RSKImageCropper.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42692C6D1ED2DCC100ADF990 /* RSKImageCropper.framework */; };
 		42B1DAE71BB29EC900549D56 /* EUExImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1DAE61BB29EC900549D56 /* EUExImage.m */; };
-		42E4C42D1E811F4100C5FA13 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E4C42C1E811F4100C5FA13 /* RSKImageCropper.framework */; };
 		42EE35B01BBA1A0200EA11AF /* uexImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35AF1BBA1A0200EA11AF /* uexImagePicker.m */; };
 		42EE35BF1BBA3BCA00EA11AF /* DACircularProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EE35B21BBA3BCA00EA11AF /* DACircularProgress.framework */; };
 		42EE35CC1BBA657400EA11AF /* uexImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE35CB1BBA657400EA11AF /* uexImageCropper.m */; };
@@ -81,8 +81,8 @@
 			dstPath = embed;
 			dstSubfolderSpec = 16;
 			files = (
+				42692C6F1ED2DCC900ADF990 /* RSKImageCropper.framework in CopyFiles */,
 				4234ABBD1EB81BA700270809 /* ReactiveObjC.framework in CopyFiles */,
-				4234ABBE1EB81BA700270809 /* RSKImageCropper.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,11 +179,11 @@
 		4227D8371E80CAAC007FEB98 /* UexImageMySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UexImageMySingleton.h; sourceTree = "<group>"; };
 		4227D8381E80CAAC007FEB98 /* UexImageMySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UexImageMySingleton.m; sourceTree = "<group>"; };
 		4234ABBB1EB8180800270809 /* ReactiveObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveObjC.framework; sourceTree = "<group>"; };
+		42692C6D1ED2DCC100ADF990 /* RSKImageCropper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RSKImageCropper.framework; path = Carthage/Build/iOS/RSKImageCropper.framework; sourceTree = SOURCE_ROOT; };
 		4290C3FB1BB90E73009D5095 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		42B1DAE11BB29EC900549D56 /* libuexImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B1DAE41BB29EC900549D56 /* EUExImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EUExImage.h; sourceTree = "<group>"; };
 		42B1DAE61BB29EC900549D56 /* EUExImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EUExImage.m; sourceTree = "<group>"; };
-		42E4C42C1E811F4100C5FA13 /* RSKImageCropper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RSKImageCropper.framework; sourceTree = "<group>"; };
 		42EE35AE1BBA1A0200EA11AF /* uexImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImagePicker.h; sourceTree = "<group>"; };
 		42EE35AF1BBA1A0200EA11AF /* uexImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImagePicker.m; sourceTree = "<group>"; };
 		42EE35B21BBA3BCA00EA11AF /* DACircularProgress.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DACircularProgress.framework; sourceTree = "<group>"; };
@@ -230,8 +230,8 @@
 			files = (
 				42EE35BF1BBA3BCA00EA11AF /* DACircularProgress.framework in Frameworks */,
 				42FF2D2C1D127A72003994A5 /* AppCanKit.framework in Frameworks */,
-				42E4C42D1E811F4100C5FA13 /* RSKImageCropper.framework in Frameworks */,
 				4234ABBC1EB8180800270809 /* ReactiveObjC.framework in Frameworks */,
+				42692C6E1ED2DCC100ADF990 /* RSKImageCropper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,8 +433,8 @@
 		42EE35B11BBA3BCA00EA11AF /* dependence */ = {
 			isa = PBXGroup;
 			children = (
+				42692C6D1ED2DCC100ADF990 /* RSKImageCropper.framework */,
 				4234ABBB1EB8180800270809 /* ReactiveObjC.framework */,
-				42E4C42C1E811F4100C5FA13 /* RSKImageCropper.framework */,
 				4227D80C1E80CA7B007FEB98 /* HUPhotoBrowser */,
 				42F4B0291DF79F0200501D70 /* MWPhotoBrowser */,
 				4220FE821BC60DF40026460B /* MWPhotoBrowser.bundle */,
