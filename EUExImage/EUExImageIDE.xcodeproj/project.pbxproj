@@ -12,7 +12,6 @@
 		0BDD0AA1C7A85220BEBE7DCE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427726C1F9D3DB5E6F4F2C52 /* QuartzCore.framework */; };
 		0EC11D741BD3E45A008868F4 /* uexImagePhotoPickerCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC11D731BD3E45A008868F4 /* uexImagePhotoPickerCaptionView.m */; };
 		0EC11D861BD3ED65008868F4 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC11D851BD3ED65008868F4 /* UIView+Toast.m */; };
-		0EC5C0561BCFF59F00E34E80 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC5C0581BCFF59F00E34E80 /* Localizable.strings */; };
 		0EC5C05D1BCFF9D400E34E80 /* uexImageAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C05C1BCFF9D400E34E80 /* uexImageAlbumPickerController.m */; };
 		0EC5C0601BCFFA0E00E34E80 /* uexImagePhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C05F1BCFFA0E00E34E80 /* uexImagePhotoPicker.m */; };
 		0EC5C0631BCFFA2A00E34E80 /* ALAsset+OriginImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC5C0621BCFFA2A00E34E80 /* ALAsset+OriginImage.m */; };
@@ -64,7 +63,6 @@
 		0EC11D731BD3E45A008868F4 /* uexImagePhotoPickerCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImagePhotoPickerCaptionView.m; sourceTree = "<group>"; };
 		0EC11D841BD3ED65008868F4 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		0EC11D851BD3ED65008868F4 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
-		0EC5C04E1BCFF1D100E34E80 /* uexImage.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexImage.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EC5C0591BCFF5BB00E34E80 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0EC5C05B1BCFF9D400E34E80 /* uexImageAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexImageAlbumPickerController.h; sourceTree = "<group>"; };
 		0EC5C05C1BCFF9D400E34E80 /* uexImageAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexImageAlbumPickerController.m; sourceTree = "<group>"; wrapsLines = 1; };
@@ -157,13 +155,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0EC5C04B1BCFF1D100E34E80 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42B1DADE1BB29EC900549D56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -329,7 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				42B1DAE11BB29EC900549D56 /* uexImage.framework */,
-				0EC5C04E1BCFF1D100E34E80 /* uexImage.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -388,23 +378,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0EC5C04D1BCFF1D100E34E80 /* uexImageBundle */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0EC5C0511BCFF1D100E34E80 /* Build configuration list for PBXNativeTarget "uexImageBundle" */;
-			buildPhases = (
-				0EC5C04A1BCFF1D100E34E80 /* Sources */,
-				0EC5C04B1BCFF1D100E34E80 /* Frameworks */,
-				0EC5C04C1BCFF1D100E34E80 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = uexImageBundle;
-			productName = uexImageBundle;
-			productReference = 0EC5C04E1BCFF1D100E34E80 /* uexImage.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 		42B1DAE01BB29EC900549D56 /* EUExImage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42B1DAEA1BB29EC900549D56 /* Build configuration list for PBXNativeTarget "EUExImage" */;
@@ -431,9 +404,6 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = AppCan;
 				TargetAttributes = {
-					0EC5C04D1BCFF1D100E34E80 = {
-						CreatedOnToolsVersion = 7.0.1;
-					};
 					42B1DAE01BB29EC900549D56 = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -453,20 +423,11 @@
 			projectRoot = "";
 			targets = (
 				42B1DAE01BB29EC900549D56 /* EUExImage */,
-				0EC5C04D1BCFF1D100E34E80 /* uexImageBundle */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0EC5C04C1BCFF1D100E34E80 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0EC5C0561BCFF59F00E34E80 /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		17A230B4CA2CD4C2A0A12179 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -480,13 +441,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0EC5C04A1BCFF1D100E34E80 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42B1DADD1BB29EC900549D56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,42 +485,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0EC5C0521BCFF1D100E34E80 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = $SRCROOT/uexImage;
-				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
-				INFOPLIST_FILE = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zywx.uexImageBundle;
-				PRODUCT_MODULE_NAME = uexImage;
-				PRODUCT_NAME = uexImage;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		0EC5C0531BCFF1D100E34E80 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = $SRCROOT/uexImage;
-				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
-				INFOPLIST_FILE = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zywx.uexImageBundle;
-				PRODUCT_MODULE_NAME = uexImage;
-				PRODUCT_NAME = uexImage;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		42B1DAE81BB29EC900549D56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -650,7 +568,6 @@
 		42B1DAEB1BB29EC900549D56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_IDENTIFIER = com.zywx.runner;
 				CLANG_ENABLE_MODULES = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/uexImage/IDE/";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -684,7 +601,6 @@
 				);
 				PRODUCT_MODULE_NAME = uexImage;
 				PRODUCT_NAME = uexImage;
-				PROVISIONING_PROFILE = "3046553f-5c0d-4f94-8f3c-dd49ce267880";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -692,7 +608,6 @@
 		42B1DAEC1BB29EC900549D56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_IDENTIFIER = com.zywx.runner;
 				CLANG_ENABLE_MODULES = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/uexImage/IDE/";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -726,7 +641,6 @@
 				);
 				PRODUCT_MODULE_NAME = uexImage;
 				PRODUCT_NAME = uexImage;
-				PROVISIONING_PROFILE = "3046553f-5c0d-4f94-8f3c-dd49ce267880";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -734,15 +648,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0EC5C0511BCFF1D100E34E80 /* Build configuration list for PBXNativeTarget "uexImageBundle" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0EC5C0521BCFF1D100E34E80 /* Debug */,
-				0EC5C0531BCFF1D100E34E80 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		42B1DADC1BB29EC900549D56 /* Build configuration list for PBXProject "EUExImageIDE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

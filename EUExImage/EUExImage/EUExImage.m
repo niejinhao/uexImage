@@ -27,12 +27,6 @@ NSString * const cUexImageCallbackIsCancelledKey    = @"isCancelled";
 NSString * const cUexImageCallbackDataKey           = @"data";
 NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
 @interface EUExImage()
-
-{
-    NSMutableArray *_selectedAssets;
-    BOOL _isSelectOriginalPhoto;
-}
-
 @property (nonatomic,assign)UIStatusBarStyle initialStatusBarStyle;
 @property (nonatomic,strong)UIPopoverController *iPadPop;
 @property (nonatomic,assign)BOOL usingPop;
@@ -43,17 +37,9 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
 
 @property (nonatomic,assign)BOOL enableIpadPop;
 
-@property(nonatomic,strong)NSMutableArray* selectedPhotos;
-@property(nonatomic,strong)NSMutableArray * videoArray;
 
-@property(nonatomic,strong)NSMutableArray* dataArray;
-@property(nonatomic,strong)NSMutableArray* detailedInfoArray;
 
-@property(nonatomic,strong)UIImage * imageddddd;
 
-@property(nonatomic,strong)NSString * qualityStr;
-
-@property (nonatomic,strong)ACJSFunctionRef *cb;
 
 @end
 @implementation EUExImage
@@ -94,7 +80,6 @@ NSString * const cUexImageCallbackIsSuccessKey      = @"isSuccess";
     }
     [self.picker clean];
     self.picker.cb = cb;
-    self.cb = cb;
     if([info objectForKey:@"min"]){
         self.picker.min = [[info objectForKey:@"min"] integerValue];
     }
