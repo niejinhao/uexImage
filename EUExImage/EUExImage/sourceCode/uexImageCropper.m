@@ -38,10 +38,7 @@
         [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
         picker.mediaTypes = @[@"public.image"];
 
-        
         [self.EUExImage presentViewController:picker animated:NO];
-        
-        
     }
 
 }

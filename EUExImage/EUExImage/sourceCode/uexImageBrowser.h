@@ -14,9 +14,6 @@
 @interface uexImageBrowser : NSObject<EUExImageWidget>
 @property (nonatomic,weak)EUExImage * EUExImage;
 @property (nonatomic,strong)NSDictionary *dataDict;
-
 @property (nonatomic,strong)ACJSFunctionRef *cb;
-
-
 
 @end

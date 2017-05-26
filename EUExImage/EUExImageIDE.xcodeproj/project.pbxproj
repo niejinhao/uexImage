@@ -31,6 +31,7 @@
 		4220FE791BC60D8B0026460B /* MWZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE6F1BC60D8B0026460B /* MWZoomingScrollView.m */; };
 		4220FE7A1BC60D8B0026460B /* UIImage+MWPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE711BC60D8B0026460B /* UIImage+MWPhotoBrowser.m */; };
 		4220FE851BC60E160026460B /* uexImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220FE841BC60E160026460B /* uexImageBrowser.m */; };
+		422184361ED7DC9300F557C4 /* ReactiveObjC.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4234ABBF1EB81BDF00270809 /* ReactiveObjC.framework */; };
 		4234ABC01EB81BDF00270809 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4234ABBF1EB81BDF00270809 /* ReactiveObjC.framework */; };
 		4258FFB71E08DB2A00765FE5 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4258FFB61E08DB2A00765FE5 /* RSKImageCropper.framework */; };
 		4258FFB81E08DB6200765FE5 /* RSKImageCropper.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4258FFB61E08DB2A00765FE5 /* RSKImageCropper.framework */; };
@@ -470,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				422184361ED7DC9300F557C4 /* ReactiveObjC.framework in Resources */,
 				4258FFB81E08DB6200765FE5 /* RSKImageCropper.framework in Resources */,
 				5FFF185CA509A69AA65D3313 /* uexImage.bundle in Resources */,
 			);

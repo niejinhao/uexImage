@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
-    <plugin uexName="uexImage" version="4.0.7" build="7">
-        <info>7:RAC依赖库更新</info>
+    <plugin uexName="uexImage" version="4.0.8" build="8">
+        <info>8: 移除新样式支持</info>
+        <build>7:RAC依赖库更新</build>
         <build>6:openPicker style为1新样式回调参数改为对象</build>
         <build>5:openBrower style为1新样式 openPicker Style为1新样式</build>
         <build>4:4.0图片压缩接口回调参数定义</build>
         <build>3:图片压缩</build>
-    	<build>2:优化加载网络图片的进度条; 回调修正,和文档保持一致</build>
-    	<build>1:支持4x3裁剪和16x9裁剪</build>
+        <build>2:优化加载网络图片的进度条; 回调修正,和文档保持一致</build>
+        <build>1:支持4x3裁剪和16x9裁剪</build>
         <build>0:uexImage插件</build>
     </plugin>
 </uexplugins>
-

@@ -19,21 +19,21 @@
 
 @implementation uexImagePicker
 -(instancetype)initWithEUExImage:(EUExImage *)EUExImage{
-    self=[super init];
+    self = [super init];
     if(self){
-        self.EUExImage=EUExImage;
+        self.EUExImage = EUExImage;
         [self setDafaultConfig];
     }
     return self;
 }
 
 -(void)open{
-    uexImageAlbumPickerModel *model =[[uexImageAlbumPickerModel alloc]init];
+    uexImageAlbumPickerModel *model = [[uexImageAlbumPickerModel alloc]init];
     self.model = model;
     self.model.delegate = self;
     _model.minimumSelectedNumber = self.min;
     _model.maximumSelectedNumber = self.max;
-    uexImageAlbumPickerController *albumPickerController =[[uexImageAlbumPickerController alloc]initWithModel:self.model];
+    uexImageAlbumPickerController *albumPickerController = [[uexImageAlbumPickerController alloc]initWithModel:self.model];
     self.picker = [[UINavigationController alloc] initWithRootViewController:albumPickerController];
     [self.EUExImage presentViewController:self.picker animated:YES];
     
@@ -100,7 +100,6 @@
                         [info setValue:@(location.coordinate.longitude) forKey:@"longitude"];
                         [info setValue:@(location.altitude) forKey:@"altitude"];
                     }
-                    
                     [detailedInfoArray addObject:info];
                 }
                 

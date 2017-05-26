@@ -21,9 +21,6 @@ extern NSString * const cUexImageCallbackIsSuccessKey;
 
 @interface EUExImage : EUExBase
 
-
--(void)onLongClick:(NSMutableDictionary*)dict;
-
 -(void)presentViewController:(UIViewController *)vc animated:(BOOL)flag;
 -(void)dismissViewController:(UIViewController *)vc
                     animated:(BOOL)flag
@@ -38,9 +35,7 @@ extern NSString * const cUexImageCallbackIsSuccessKey;
 @required
 -(instancetype)initWithEUExImage:(EUExImage*)EUExImage;
 -(void)open;
-
 -(void)clean;
-
 @optional
 
 @end
