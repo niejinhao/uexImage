@@ -21,6 +21,8 @@
 #import "PhotoCell.h"
 #import "UIImageView+HUWebImage.h"
 
+#import <Photos/Photos.h>
+
 
 //style 为1 类型；
 
@@ -97,6 +99,49 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
     }
     self.enableIpadPop=YES;
     return self;
+}
+
+#pragma mark - 照片权限判断
+- (BOOL)judgePic
+{
+    self.isJudgePic = NO;
+    PHAuthorizationStatus authStatus = [PHPhotoLibrary authorizationStatus];
+    switch (authStatus) {
+        case PHAuthorizationStatusNotDetermined://没有询问是否开启照片
+        {
+//            __weak EUExImage *weakSelf = self;
+//            //第一次询问用户是否进行授权
+//            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+//                // CALL YOUR METHOD HERE - as this assumes being called only once from user interacting with permission alert!
+//                if (status == PHAuthorizationStatusAuthorized) {
+//                    // Photo enabled code
+//                    weakSelf.isJudgePic = YES;
+//                }
+//                else {
+//                    // Photo disabled code
+//                    weakSelf.isJudgePic = NO;
+//                }
+//            }];
+            self.isJudgePic = YES;
+        }
+            break;
+        case PHAuthorizationStatusRestricted:
+            //未授权，家长限制
+            self.isJudgePic = NO;
+            break;
+        case PHAuthorizationStatusDenied:
+            //用户未授权
+            self.isJudgePic = NO;
+            break;
+        case PHAuthorizationStatusAuthorized:
+            //用户授权
+            self.isJudgePic = YES;
+            break;
+        default:
+            break;
+    }
+    
+    return self.isJudgePic;
 }
 
 #pragma mark -compressImage(图片压缩)；
@@ -225,6 +270,17 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
 #pragma mark - APIs
 
 - (void)openPicker:(NSMutableArray *)inArguments{
+    
+    //照片权限检测
+    BOOL isPicOK = [self judgePic];
+    if (!isPicOK) {
+        NSDictionary *dicResult = [NSDictionary dictionaryWithObjectsAndKeys:@"1",@"errCode",@"获取照片失败，请在 设置-隐私-照片 中开启权限",@"info", nil];
+        NSString *dataStr = [dicResult JSONFragment];
+        NSString *jsStr = [NSString stringWithFormat:@"if(uexImage.onPermissionDenied){uexImage.onPermissionDenied(%@)}",dataStr];
+        //回调给当前网页
+        [EUtility brwView:self.meBrwView evaluateScript:jsStr];
+        return;
+    }
     
     if(!self.picker){
         
@@ -716,6 +772,16 @@ NSString * const cUexImageCallbackIsSuccessKey = @"isSuccess";
         return;
     }
     
+    //照片权限检测
+    BOOL isPicOK = [self judgePic];
+    if (!isPicOK) {
+        NSDictionary *dicResult = [NSDictionary dictionaryWithObjectsAndKeys:@"1",@"errCode",@"获取照片失败，请在 设置-隐私-照片 中开启权限",@"info", nil];
+        NSString *dataStr = [dicResult JSONFragment];
+        NSString *jsStr = [NSString stringWithFormat:@"if(uexImage.onPermissionDenied){uexImage.onPermissionDenied(%@)}",dataStr];
+        //回调给当前网页
+        [EUtility brwView:self.meBrwView evaluateScript:jsStr];
+        return;
+    }
     
     UIImage *image=[UIImage imageWithContentsOfFile:[self absPath:[info objectForKey:@"localPath"]]];
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge_retained void * _Nullable)([info objectForKey:@"extraInfo"]));

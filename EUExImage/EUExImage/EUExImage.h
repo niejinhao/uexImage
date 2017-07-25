@@ -21,6 +21,7 @@ extern NSString * const cUexImageCallbackIsSuccessKey;
 
 @interface EUExImage : EUExBase
 
+@property(nonatomic,assign)BOOL isJudgePic;//是否拥有照片权限
 
 //-(void)longPress:(NSString *)string;
 -(void)presentViewController:(UIViewController *)vc animated:(BOOL)flag;

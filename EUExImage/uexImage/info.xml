@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
-    <plugin uexName="uexImage" dyType="2" version="3.0.10.21" build="10.21">
-        <info>10.21:添加了style样式</info>
+    <plugin uexName="uexImage" dyType="2" version="3.0.10.22" build="10.22">
+        <info>10.22:添加权限检测回调onPermissionDenied</info>
+        <build>10.21:添加了style样式</build>
         <build>10.20:图片选择器新版本</build>
         <build>10.19:增加压缩图片的接口</build>
         <build>10.18:修改滑动浏览卡的问题</build>
