@@ -43,6 +43,14 @@
     }
 
 }
+-(void)removeSelect{
+    if([_observer.selectedURLs containsObject:self.assetURL]){
+        [_observer.selectedURLs removeObjectAtIndex:0];
+        _observer.currentSelectedNumber--;
+        [self refreshSelectStatus];
+    }
+    
+}
 
 -(void)refreshSelectStatus{
     self.selected=[_observer.selectedURLs containsObject:self.assetURL];

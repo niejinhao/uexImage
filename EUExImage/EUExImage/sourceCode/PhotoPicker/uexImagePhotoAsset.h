@@ -41,6 +41,7 @@ typedef NS_ENUM(NSInteger,uexImagePhotoAssetFetchImageType) {
 
 -(void)doSelect;
 -(void)doUnselect;
+-(void)removeSelect;
 -(void)refreshSelectStatus;
 
 @end

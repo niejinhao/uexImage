@@ -11,7 +11,8 @@
 #import "MWPhotoBrowserPrivate.h"
 #import "MWCommon.h"
 
-@interface MWGridViewController () {
+@interface MWGridViewController ()<MWGridCellDelegate>
+{
     
     // Store margins for current setup
     CGFloat _margin, _gutter, _marginL, _gutterL, _columns, _columnsL;
@@ -162,6 +163,7 @@
     cell.selectionMode = _selectionMode;
     cell.isSelected = [_browser photoIsSelectedAtIndex:indexPath.row];
     cell.index = indexPath.row;
+    cell.delegate = self;
     UIImage *img = [_browser imageForPhoto:photo];
     if (img) {
         [cell displayImage];
@@ -199,6 +201,10 @@
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     CGFloat margin = [self getMargin];
     return UIEdgeInsetsMake(margin, margin, margin, margin);
+}
+- (void)refreshCell:(NSUInteger)index
+{
+    [self.collectionView reloadData];
 }
 
 @end

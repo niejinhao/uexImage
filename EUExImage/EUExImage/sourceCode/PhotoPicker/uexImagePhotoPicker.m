@@ -16,6 +16,7 @@
 @property (nonatomic,strong)MWPhotoBrowser *photoPicker;
 @property (nonatomic,strong)UINavigationController *nav;
 @property (nonatomic,strong)NSMutableArray<MWPhoto *> *thumbs;
+@property (nonatomic,strong)NSMutableArray *selectPhontoArr;
 
 @property (nonatomic,assign)NSInteger alreadySelectedCount;
 @property (nonatomic,assign)NSInteger numberOfSelectedAssetsInOtherGroup;
@@ -33,7 +34,7 @@
         self.controller=controller;
         self.thumbs=[NSMutableArray array];
         self.needToShowCannotFinishToast=NO;
-
+        self.selectPhontoArr = [NSMutableArray array];
     }
     return self;
 }
@@ -175,6 +176,28 @@
         [asset doUnselect];
         _alreadySelectedCount--;
     }
+    /**
+     用于处理单个图片时，取最新图片Asset
+     数组用于处理选中图片时，选择多余2个图片，不再添加新的数据，移除第一个数据，再去添加新选中的Asset
+     */
+    if ([_selectPhontoArr count] < 1) {
+        [_selectPhontoArr addObject:[NSString stringWithFormat:@"%lu",(unsigned long)index]];
+    }
+    /**
+     只在单选照片时，处理数据
+     移除第一次选中的Asset，再去添加新的Asset
+     */
+    if (self.controller.model.currentSelectedNumber > self.controller.model.maximumSelectedNumber && self.controller.model.maximumSelectedNumber == 1) {
+        
+        NSUInteger indexInteger = [_selectPhontoArr[0] integerValue];
+        uexImagePhotoAsset *asset =_dataSource.assets[indexInteger];
+        [asset removeSelect];
+        _alreadySelectedCount--;
+        
+        [_selectPhontoArr removeObjectAtIndex:0];
+        [_selectPhontoArr addObject:[NSString stringWithFormat:@"%lu",(unsigned long)index]];
+    }
+
     [self updateCaptionInfo];
 }
 - (void)photoBrowserDidFinishModalPresentation:(MWPhotoBrowser *)photoBrowser{

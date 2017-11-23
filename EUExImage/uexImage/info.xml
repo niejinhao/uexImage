@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
-    <plugin uexName="uexImage" dyType="2" version="3.0.10.22" build="10.22">
-        <info>10.22:添加权限检测回调onPermissionDenied</info>
+    <plugin uexName="uexImage" dyType="2" version="3.0.10.22.1" build="10.22.1">
+        <info>10.22.1:单选效果，自动选中最新照片，之前选中状态消失</info>
+        <build>10.22:添加权限检测回调onPermissionDenied</build>
         <build>10.21:添加了style样式</build>
         <build>10.20:图片选择器新版本</build>
         <build>10.19:增加压缩图片的接口</build>

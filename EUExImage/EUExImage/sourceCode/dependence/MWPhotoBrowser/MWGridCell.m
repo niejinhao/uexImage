@@ -158,6 +158,8 @@
 }
 
 - (void)selectionButtonPressed {
+    //处理单选即可
+    [_delegate refreshCell:_index];
     _selectedButton.selected = !_selectedButton.selected;
     [_gridController.browser setPhotoSelected:_selectedButton.selected atIndex:_index];
 }
